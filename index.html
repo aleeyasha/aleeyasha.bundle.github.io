@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today's Bundle</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23222;}.f{fill:%23AC8766;}@media (prefers-color-scheme: dark){rect{stroke:%23eee;}}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>">
     <meta name="theme-color" content="#0f0f0f">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -24,40 +24,103 @@
         <header class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
             <div class="flex items-center gap-6">
                 <div class="flex items-center gap-4">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23222;}.f{fill:%23AC8766;}@media (prefers-color-scheme: dark){rect{stroke:%23eee;}}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="36" height="36" alt="Bundle Icon" class="select-none">
+                    <img id="bundle-logo" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="36" height="36" alt="Bundle Icon" class="select-none cursor-pointer hover:scale-105 transition-transform" title="Toggle Newsletter">
                     <h1 class="text-3xl font-bold tracking-tight">Today's <span class="text-[#AC8766]">Bundle</span></h1>
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                <div class="relative">
+                <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="cursor-pointer bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Aleeyasha Notion">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" />
+                        <path d="M13 20 V15 H18 Z" opacity="0.5" />
+                    </svg>
+                </a>
+
+                <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="cursor-pointer bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-sm tracking-tight" title="Aleeyasha Reword">
+                    Re
+                </a>
+
+                <div class="relative group">
                     <button id="btn-aviation" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Aviation Links">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/>
                         </svg>
                     </button>
                     
-                    <div id="aviation-dropdown" class="absolute top-full mt-3 right-0 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 w-56 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-xl border border-gray-100 dark:border-[#333] opacity-0 invisible transition-all duration-200 z-50">
-                        <div class="flex flex-col px-5 py-2">
-                            <a href="https://herdemaviation.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity border-b border-gray-100 dark:border-[#333]">Herdem Aviation</a>
-                            <a href="https://havasosyalmedya.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity border-b border-gray-100 dark:border-[#333]">Hava Sosyal</a>
+                    <div id="aviation-dropdown" class="absolute top-full pt-3 right-0 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-xl border border-gray-100 dark:border-[#333] flex flex-col px-5 py-2">
+                            <a onclick="openInViewer('https://herdemaviation.com/')" class="cursor-pointer py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity border-b border-gray-100 dark:border-[#333]">Herdem Aviation</a>
+                            <a onclick="openInViewer('https://havasosyalmedya.com/')" class="cursor-pointer py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity border-b border-gray-100 dark:border-[#333]">Hava Sosyal</a>
                             <a href="https://havapersonel.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity">Hava Personel</a>
                         </div>
                     </div>
                 </div>
-                <a href="https://aposto.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-lg" title="Aposto">
-                    A
+                
+                <div class="relative group flex flex-col items-center">
+                    <a href="https://www.ted.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-[11px] tracking-tight" title="TED">
+                        TED
+                    </a>
+                    <div class="absolute top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" rel="noopener noreferrer" class="bg-[#AC8766] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-white hover:scale-105 transition-all outline-none" title="TED YouTube">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative group flex flex-col items-center">
+                    <a href="https://www.businessinsider.com/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-sm tracking-tight" title="Business Insider">
+                        BI
+                    </a>
+                    <div class="absolute top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" rel="noopener noreferrer" class="bg-[#AC8766] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-white hover:scale-105 transition-all outline-none" title="Business Insider YouTube">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-xl font-serif" title="Wikipedia">
+                    W
                 </a>
-                <a href="https://evrimagaci.org" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Evrim Ağacı">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle>
-                        <path d="M8.5 5.5c-2.5 3-1 6.5 3.5 6.5s6 3.5 3.5 6.5"></path>
-                        <path d="M15.5 5.5c2.5 3 1 6.5-3.5 6.5s-6 3.5-3.5 6.5"></path>
-                        <path d="M8 7.5h8"></path>
-                        <path d="M9.5 10h5"></path>
-                        <path d="M9.5 14h5"></path>
-                        <path d="M8 16.5h8"></path>
-                    </svg>
-                </a>
+                
+                <div class="relative group flex flex-col items-center">
+                    <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-lg" title="Aposto">
+                        A
+                    </a>
+                    <div class="absolute top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="https://www.youtube.com/@apostonews/videos" target="_blank" rel="noopener noreferrer" class="bg-[#AC8766] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-white hover:scale-105 transition-all outline-none" title="Aposto YouTube">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative group flex flex-col items-center">
+                    <a href="https://evrimagaci.org/" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Evrim Ağacı">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zM12 3.5a8.5 8.5 0 100 17 8.5 8.5 0 000-17z" stroke="none"></path>
+                            <path d="M15.5 5.5C10 8.5 16 13.5 8.5 18.5" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+                            <path d="M9 5.5C11.5 7.5 11.5 9 11.5 10.5" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+                            <path d="M12.5 13.5C12.5 15 12.5 16.5 15 18.5" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
+                            <line x1="9.5" y1="7.5" x2="13.5" y2="7.5" stroke-width="1.8"></line>
+                            <line x1="10.5" y1="10.5" x2="14.5" y2="10.5" stroke-width="1.8"></line>
+                            <line x1="9.5" y1="13.5" x2="13.5" y2="13.5" stroke-width="1.8"></line>
+                            <line x1="10.5" y1="16.5" x2="14.5" y2="16.5" stroke-width="1.8"></line>
+                        </svg>
+                    </a>
+                    <div class="absolute top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" rel="noopener noreferrer" class="bg-[#AC8766] shadow-md rounded-full w-10 h-10 flex items-center justify-center text-white hover:scale-105 transition-all outline-none" title="Evrim Ağacı YouTube">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
                 <button id="theme-toggle" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Toggle Mode">
                     <!-- Sun icon for dark mode -->
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
@@ -76,12 +139,12 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
-                <button id="btn-today" class="px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
-                <button id="btn-yesterday" class="px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
+                <button id="btn-today" class="hidden px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
+                <button id="btn-yesterday" class="hidden px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
             </div>
         </header>
 
-        <div class="viewer-container glass-card rounded-[2.5rem] overflow-hidden shadow-sm relative">
+        <div id="newsletter-viewer" class="viewer-container glass-card rounded-[2.5rem] overflow-hidden shadow-sm relative hidden">
             <iframe id="news-frame" src="about:blank" class="w-full h-full border-none" title="Bundle Archive"></iframe>
             <div id="loading-overlay" class="absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-300">
                 <div class="flex flex-col items-center">
@@ -95,63 +158,75 @@
     <script>
         const newsFrame = document.getElementById('news-frame');
         const overlay = document.getElementById('loading-overlay');
+        const viewerContainer = document.getElementById('newsletter-viewer');
         const BASE_URL = "https://static.bundle.app/newsletter/";
 
-        function loadForDate(d) {
-            overlay.classList.remove('opacity-0');
-            overlay.classList.add('opacity-100');
+        const btnToday = document.getElementById('btn-today');
+        const btnYesterday = document.getElementById('btn-yesterday');
+
+        let isViewerVisible = false;
+
+        newsFrame.onload = () => {
+            setTimeout(() => {
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.style.display = 'none', 300);
+            }, 500);
+        };
+
+        function openInViewer(url) {
+            viewerContainer.classList.remove('hidden');
             
+            // Only show Today/Yesterday buttons if the URL is a Bundle newsletter
+            if (url.startsWith(BASE_URL)) {
+                btnToday.classList.remove('hidden');
+                btnYesterday.classList.remove('hidden');
+            } else {
+                btnToday.classList.add('hidden');
+                btnYesterday.classList.add('hidden');
+            }
+            
+            isViewerVisible = true;
+            
+            overlay.style.display = 'flex';
+            // slight delay to allow display flex to apply before transitioning opacity
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+            }, 10);
+            
+            newsFrame.src = url;
+        }
+
+        function loadForDate(d) {
             const day = d.getDate();
             const month = d.getMonth() + 1;
             const year = d.getFullYear();
             const url = `${BASE_URL}${day}-${month}-${year}.html`;
             
-            newsFrame.src = url;
-            
-            newsFrame.onload = () => {
-                setTimeout(() => {
-                    overlay.classList.remove('opacity-100');
-                    overlay.classList.add('opacity-0');
-                    setTimeout(() => overlay.style.display = 'none', 300);
-                }, 500);
-            };
+            openInViewer(url);
         }
 
-        const today = new Date();
-        loadForDate(today);
+        document.getElementById('bundle-logo').addEventListener('click', () => {
+            if (isViewerVisible) {
+                viewerContainer.classList.add('hidden');
+                btnToday.classList.add('hidden');
+                btnYesterday.classList.add('hidden');
+                isViewerVisible = false;
+                newsFrame.src = "about:blank"; // Clear memory when closed
+            } else {
+                loadForDate(new Date());
+            }
+        });
 
-        document.getElementById('btn-today').addEventListener('click', () => {
-            overlay.style.display = 'flex';
+        btnToday.addEventListener('click', () => {
             loadForDate(new Date());
         });
 
-        document.getElementById('btn-yesterday').addEventListener('click', () => {
-            overlay.style.display = 'flex';
+        btnYesterday.addEventListener('click', () => {
             const yesterday = new Date();
             yesterday.setDate(yesterday.getDate() - 1);
             loadForDate(yesterday);
-        });
-
-        const btnAviation = document.getElementById('btn-aviation');
-        const aviationDropdown = document.getElementById('aviation-dropdown');
-
-        btnAviation.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isVisible = !aviationDropdown.classList.contains('invisible');
-            if (isVisible) {
-                aviationDropdown.classList.add('invisible', 'opacity-0');
-                aviationDropdown.classList.remove('opacity-100');
-            } else {
-                aviationDropdown.classList.remove('invisible', 'opacity-0');
-                aviationDropdown.classList.add('opacity-100');
-            }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!aviationDropdown.contains(e.target) && e.target !== btnAviation) {
-                aviationDropdown.classList.add('invisible', 'opacity-0');
-                aviationDropdown.classList.remove('opacity-100');
-            }
         });
 
         document.getElementById('theme-toggle').addEventListener('click', () => {
