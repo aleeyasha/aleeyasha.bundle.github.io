@@ -30,8 +30,11 @@
             </div>
             <div class="flex items-center gap-3">
                 
-                <!-- Apps Menu (3 Dots) -->
-                <div class="relative" id="apps-menu-container">
+                <button id="btn-today" class="hidden px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
+                <button id="btn-yesterday" class="hidden px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
+                
+                <!-- Apps Menu (3 Dots) - Moved to right position -->
+                <div class="relative hidden" id="apps-menu-container">
                     <button id="btn-apps-menu" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Apps Menu">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <circle cx="12" cy="5" r="1.75"></circle>
@@ -220,9 +223,6 @@
                         </div>
                     </div>
                 </div>
-
-                <button id="btn-today" class="hidden px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
-                <button id="btn-yesterday" class="hidden px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
             </div>
         </header>
 
@@ -248,6 +248,7 @@
         
         // App Menu Logic
         const btnAppsMenu = document.getElementById('btn-apps-menu');
+        const appsMenuContainer = document.getElementById('apps-menu-container');
         const appsDropdown = document.getElementById('apps-dropdown');
         let isAppsMenuOpen = false;
 
@@ -301,6 +302,7 @@
             }
 
             viewerContainer.classList.remove('hidden');
+            appsMenuContainer.classList.remove('hidden'); 
             
             if (url.startsWith(BASE_URL)) {
                 btnToday.classList.remove('hidden');
@@ -335,6 +337,7 @@
                 viewerContainer.classList.add('hidden');
                 btnToday.classList.add('hidden');
                 btnYesterday.classList.add('hidden');
+                appsMenuContainer.classList.add('hidden');
                 isViewerVisible = false;
                 newsFrame.src = "about:blank"; 
             } else {
@@ -356,7 +359,6 @@
             document.documentElement.classList.toggle('dark');
         });
 
-        // Listen for messages from inside iframes (e.g. Launch Module button signals)
         window.addEventListener('message', (event) => {
             if (event.data.type === 'THEME_CHANGE') {
                 if (event.data.isDark) {
