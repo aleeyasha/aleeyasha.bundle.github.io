@@ -17,12 +17,6 @@
         .dark .bg-white { background-color: #1a1a1a !important; border-color: #333 !important; color: #eee !important; }
         .dark h1 { color: #fff !important; }
         .dark #loading-overlay { background-color: #0f0f0f; }
-        
-        /* Force dark mode on external iframe content */
-        .dark #news-frame { 
-            filter: invert(0.92) hue-rotate(180deg); 
-            color-scheme: dark;
-        }
     </style>
 </head>
 <body class="p-3 md:p-6">
@@ -72,9 +66,22 @@
                             </a>
                         </div>
 
+                        <!-- Mollymawk -->
+                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="flex items-center gap-3 flex-1 cursor-pointer">
+                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/>
+                                        <path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Mollymawk</span>
+                            </a>
+                        </div>
+
                         <!-- Pomodoro -->
                         <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a href="https://pomofocus.io/app" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
+                            <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="flex items-center gap-3 flex-1 cursor-pointer">
                                 <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="12" cy="12" r="10"></circle>
@@ -287,7 +294,6 @@
         };
 
         function openInViewer(url) {
-            // Close the apps dropdown if it is open
             if (isAppsMenuOpen) {
                 appsDropdown.classList.add('opacity-0', 'invisible');
                 appsDropdown.classList.remove('opacity-100', 'visible');
@@ -296,7 +302,6 @@
 
             viewerContainer.classList.remove('hidden');
             
-            // Only show Today/Yesterday buttons if the URL is a Bundle newsletter
             if (url.startsWith(BASE_URL)) {
                 btnToday.classList.remove('hidden');
                 btnYesterday.classList.remove('hidden');
@@ -331,7 +336,7 @@
                 btnToday.classList.add('hidden');
                 btnYesterday.classList.add('hidden');
                 isViewerVisible = false;
-                newsFrame.src = "about:blank"; // Clear memory when closed
+                newsFrame.src = "about:blank"; 
             } else {
                 loadForDate(new Date());
             }
@@ -351,6 +356,7 @@
             document.documentElement.classList.toggle('dark');
         });
 
+        // Listen for messages from inside iframes (e.g. Launch Module button signals)
         window.addEventListener('message', (event) => {
             if (event.data.type === 'THEME_CHANGE') {
                 if (event.data.isDark) {
@@ -358,6 +364,8 @@
                 } else {
                     document.documentElement.classList.remove('dark');
                 }
+            } else if (event.data.type === 'OPEN_URL' || event.data.type === 'OPEN_MODULE') {
+                if (event.data.url) openInViewer(event.data.url);
             }
         });
     </script>
