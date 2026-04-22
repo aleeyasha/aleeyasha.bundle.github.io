@@ -17,6 +17,12 @@
         .dark .bg-white { background-color: #1a1a1a !important; border-color: #333 !important; color: #eee !important; }
         .dark h1 { color: #fff !important; }
         .dark #loading-overlay { background-color: #0f0f0f; }
+        
+        /* Force dark mode on external iframe content */
+        .dark #news-frame { 
+            filter: invert(0.92) hue-rotate(180deg); 
+            color-scheme: dark;
+        }
     </style>
 </head>
 <body class="p-3 md:p-6">
@@ -66,6 +72,19 @@
                             </a>
                         </div>
 
+                        <!-- Pomodoro -->
+                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <a href="https://pomofocus.io/app" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
+                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Pomodoro</span>
+                            </a>
+                        </div>
+
                         <!-- Aviation Links (Accordion) -->
                         <div class="flex flex-col">
                             <button onclick="toggleAviationMenu(event)" class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors w-full text-left outline-none">
@@ -91,7 +110,7 @@
 
                         <!-- TED -->
                         <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://www.ted.com/')" class="flex items-center gap-3 flex-1 cursor-pointer">
+                            <a href="https://www.ted.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
                                 <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-[10px] tracking-tight shrink-0">
                                     TED
                                 </div>
@@ -106,7 +125,7 @@
 
                         <!-- Business Insider -->
                         <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://www.businessinsider.com/')" class="flex items-center gap-3 flex-1 cursor-pointer">
+                            <a href="https://www.businessinsider.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
                                 <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-xs tracking-tight shrink-0">
                                     BI
                                 </div>
@@ -146,7 +165,7 @@
 
                         <!-- Evrim Ağacı -->
                         <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://evrimagaci.org/')" class="flex items-center gap-3 flex-1 cursor-pointer">
+                            <a href="https://evrimagaci.org/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
                                 <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zM12 3.5a8.5 8.5 0 100 17 8.5 8.5 0 000-17z" stroke="none"></path>
@@ -167,27 +186,34 @@
                                 </svg>
                             </a>
                         </div>
+
+                        <!-- Toggle Mode -->
+                        <div class="border-t border-gray-100 dark:border-[#333] mt-1 pt-1">
+                            <button id="theme-toggle" class="flex items-center gap-3 w-full px-3 py-2.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors outline-none text-left">
+                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
+                                    <!-- Sun icon for dark mode -->
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
+                                        <circle cx="12" cy="12" r="5"></circle>
+                                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                    </svg>
+                                    <!-- Moon icon for light mode -->
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Toggle Mode</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <button id="theme-toggle" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Toggle Mode">
-                    <!-- Sun icon for dark mode -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <!-- Moon icon for light mode -->
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
                 <button id="btn-today" class="hidden px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
                 <button id="btn-yesterday" class="hidden px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
             </div>
