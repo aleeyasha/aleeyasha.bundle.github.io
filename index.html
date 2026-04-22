@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Bundle</title>
+    <meta name="theme-color" content="#0f0f0f">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #F3EBE3; color: #222222; transition: all 0.3s ease; }
+        .dark body { background-color: #0f0f0f; color: #f1f1f1; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); }
+        .dark .glass-card { background: rgba(26, 26, 26, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .viewer-container { height: calc(100vh - 140px); min-height: 700px; }
+        .dark .bg-white { background-color: #1a1a1a !important; border-color: #333 !important; color: #eee !important; }
+        .dark h1 { color: #fff !important; }
+        .dark #loading-overlay { background-color: #0f0f0f; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+                        <rect x="3" y="3" width="9" height="9" fill="transparent"></rect>
+                        <rect x="12" y="3" width="9" height="9" fill="#AC8766"></rect>
+                        <rect x="12" y="12" width="9" height="9" fill="#AC8766"></rect>
+                    </svg>
+                    <h1 class="text-3xl font-bold tracking-tight">Today's <span class="text-[#AC8766]">Bundle</span></h1>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <button id="btn-aviation" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Aviation Links">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/>
+                        </svg>
+                    </button>
+                    
+                    <div id="aviation-dropdown" class="absolute top-full mt-3 right-0 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 w-56 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-xl border border-gray-100 dark:border-[#333] opacity-0 invisible transition-all duration-200 z-50">
+                        <div class="flex flex-col px-5 py-2">
+                            <a href="https://herdemaviation.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity border-b border-gray-100 dark:border-[#333]">Herdem Aviation</a>
+                            <a href="https://havasosyalmedya.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity border-b border-gray-100 dark:border-[#333]">Hava Sosyal</a>
+                            <a href="https://havapersonel.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 text-center text-sm font-semibold text-[#AC8766] hover:opacity-70 transition-opacity">Hava Personel</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://aposto.com" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none font-bold text-lg" title="Aposto">
+                    A
+                </a>
+                <a href="https://evrimagaci.org" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Evrim Ağacı">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" stroke-width="1.5"></circle>
+                        <path d="M8.5 5.5c-2.5 3-1 6.5 3.5 6.5s6 3.5 3.5 6.5"></path>
+                        <path d="M15.5 5.5c2.5 3 1 6.5-3.5 6.5s-6 3.5-3.5 6.5"></path>
+                        <path d="M8 7.5h8"></path>
+                        <path d="M9.5 10h5"></path>
+                        <path d="M9.5 14h5"></path>
+                        <path d="M8 16.5h8"></path>
+                    </svg>
+                </a>
+                <button id="theme-toggle" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Toggle Mode">
+                    <!-- Sun icon for dark mode -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon icon for light mode -->
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button id="btn-today" class="px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
+                <button id="btn-yesterday" class="px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
+            </div>
+        </header>
+
+        <div class="viewer-container glass-card rounded-[2.5rem] overflow-hidden shadow-sm relative">
+            <iframe id="news-frame" src="about:blank" class="w-full h-full border-none" title="Bundle Archive"></iframe>
+            <div id="loading-overlay" class="absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-300">
+                <div class="flex flex-col items-center">
+                    <div class="w-10 h-10 border-4 border-[#F3EBE3] border-t-[#AC8766] rounded-full animate-spin mb-4"></div>
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-widest">Loading Newsletter</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const newsFrame = document.getElementById('news-frame');
+        const overlay = document.getElementById('loading-overlay');
+        const BASE_URL = "https://static.bundle.app/newsletter/";
+
+        function loadForDate(d) {
+            overlay.classList.remove('opacity-0');
+            overlay.classList.add('opacity-100');
+            
+            const day = d.getDate();
+            const month = d.getMonth() + 1;
+            const year = d.getFullYear();
+            const url = `${BASE_URL}${day}-${month}-${year}.html`;
+            
+            newsFrame.src = url;
+            
+            newsFrame.onload = () => {
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-100');
+                    overlay.classList.add('opacity-0');
+                    setTimeout(() => overlay.style.display = 'none', 300);
+                }, 500);
+            };
+        }
+
+        const today = new Date();
+        loadForDate(today);
+
+        document.getElementById('btn-today').addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            loadForDate(new Date());
+        });
+
+        document.getElementById('btn-yesterday').addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            loadForDate(yesterday);
+        });
+
+        const btnAviation = document.getElementById('btn-aviation');
+        const aviationDropdown = document.getElementById('aviation-dropdown');
+
+        btnAviation.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = !aviationDropdown.classList.contains('invisible');
+            if (isVisible) {
+                aviationDropdown.classList.add('invisible', 'opacity-0');
+                aviationDropdown.classList.remove('opacity-100');
+            } else {
+                aviationDropdown.classList.remove('invisible', 'opacity-0');
+                aviationDropdown.classList.add('opacity-100');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!aviationDropdown.contains(e.target) && e.target !== btnAviation) {
+                aviationDropdown.classList.add('invisible', 'opacity-0');
+                aviationDropdown.classList.remove('opacity-100');
+            }
+        });
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'THEME_CHANGE') {
+                if (event.data.isDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
