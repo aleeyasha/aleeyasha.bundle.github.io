@@ -141,17 +141,20 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            opacity: 0.6;
-            transition: all 0.2s ease;
+            opacity: 0.5;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
             overflow: hidden;
+            border-radius: 6px;
         }
         .small-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
-        .small-icon:hover {
+        .group:hover .small-icon, .small-icon:hover {
             opacity: 1;
+            filter: grayscale(0%);
             transform: scale(1.1);
         }
 
@@ -239,27 +242,27 @@
                     <span class="menu-col-label">Aviation Tools</span>
                     <nav class="flex flex-col gap-5">
                         <div class="flex items-center gap-4 group">
-                            <a href="https://planner.flightsimulator.com/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></a>
+                            <a href="https://planner.flightsimulator.com/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></a>
                             <a href="https://planner.flightsimulator.com/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Flight Planner</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://skybrary.aero/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=skybrary.aero&sz=64" alt=""></a>
+                            <a href="https://skybrary.aero/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=skybrary.aero&sz=64" alt=""></a>
                             <a href="https://skybrary.aero/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Skybrary</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=mgm.gov.tr&sz=64" alt=""></a>
+                            <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=mgm.gov.tr&sz=64" alt=""></a>
                             <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Meteogram</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=sportys.com&sz=64" alt=""></a>
+                            <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=sportys.com&sz=64" alt=""></a>
                             <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Sporty's</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.boldmethod.com/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=boldmethod.com&sz=64" alt=""></a>
+                            <a href="https://www.boldmethod.com/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=boldmethod.com&sz=64" alt=""></a>
                             <a href="https://www.boldmethod.com/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Boldmethod</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.easa.europa.eu/en" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=easa.europa.eu&sz=64" alt=""></a>
+                            <a href="https://www.easa.europa.eu/en" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=easa.europa.eu&sz=64" alt=""></a>
                             <a href="https://www.easa.europa.eu/en" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>EASA</span></a>
                         </div>
                     </nav>
@@ -280,7 +283,7 @@
                             <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Business Insider</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="small-icon serif-heading text-lg">A</a>
+                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="small-icon serif-heading text-lg" title="Watch on YouTube">A</a>
                             <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Aposto</a>
                         </div>
                         <!-- Custom DNA Icon for Evrim Agacı -->
@@ -308,20 +311,20 @@
                 <div>
                     <span class="menu-col-label">Aviation News</span>
                     <nav class="flex flex-col gap-4">
-                        <a onclick="openInViewer('https://herdemaviation.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer">
-                            <div class="small-icon opacity-100"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg></div>
+                        <a onclick="openInViewer('https://herdemaviation.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group">
+                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg></div>
                             <span>Herdem Aviation</span>
                         </a>
-                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer">
-                            <div class="small-icon opacity-100"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
+                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group">
+                            <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
                             <span>Hava Sosyal</span>
                         </a>
-                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                            <div class="small-icon opacity-100"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group">
+                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
                             <span>Hava Personel</span>
                         </a>
-                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                            <div class="small-icon opacity-100"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group">
+                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
                             <span>Airport Haber</span>
                         </a>
                     </nav>
@@ -334,27 +337,27 @@
                     <span class="menu-col-label">Movies & Shows</span>
                     <nav class="flex flex-col gap-5">
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=hdfilmcehennemi.nl&sz=64" alt=""></a>
+                            <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdfilmcehennemi.nl&sz=64" alt=""></a>
                             <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Film Cehennemi</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://hdtoday.tr/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=hdtoday.tr&sz=64" alt=""></a>
+                            <a href="https://hdtoday.tr/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdtoday.tr&sz=64" alt=""></a>
                             <a href="https://hdtoday.tr/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>HD Today (TR)</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://hdtoday.to/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=hdtoday.to&sz=64" alt=""></a>
+                            <a href="https://hdtoday.to/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdtoday.to&sz=64" alt=""></a>
                             <a href="https://hdtoday.to/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>HD Today (TO)</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=tvtime.com&sz=64" alt=""></a>
+                            <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=tvtime.com&sz=64" alt=""></a>
                             <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>TV Time</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://ihavenotv.com/" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=ihavenotv.com&sz=64" alt=""></a>
+                            <a href="https://ihavenotv.com/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=ihavenotv.com&sz=64" alt=""></a>
                             <a href="https://ihavenotv.com/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Docu Ihanevo</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.opensubtitles.com/en/home" target="_blank" class="small-icon opacity-100"><img src="https://www.google.com/s2/favicons?domain=opensubtitles.com&sz=64" alt=""></a>
+                            <a href="https://www.opensubtitles.com/en/home" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=opensubtitles.com&sz=64" alt=""></a>
                             <a href="https://www.opensubtitles.com/en/home" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Open Subtitle</span></a>
                         </div>
                     </nav>
@@ -448,7 +451,7 @@
     </div>
 
     <script>
-        // PWA Service Worker Registration
+        // PWA Service Worker Registration (via Blob)
         if ('serviceWorker' in navigator) {
             const swCode = `
                 self.addEventListener('install', (event) => self.skipWaiting());
