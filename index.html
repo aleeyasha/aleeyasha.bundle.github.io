@@ -83,12 +83,10 @@
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             line-height: 1.1;
             transition: all 0.3s ease;
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 1.5rem;
         }
-        .nav-item-large:hover { padding-left: 10px; color: #AC8766; }
         
         .nav-icon-box {
             width: 48px;
@@ -100,6 +98,20 @@
             background: rgba(172, 135, 102, 0.08);
             color: #AC8766;
             flex-shrink: 0;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .nav-icon-box:hover {
+            transform: scale(1.1);
+            background: rgba(172, 135, 102, 0.15);
+        }
+
+        .nav-text-block {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-text-block:hover {
+            padding-left: 10px;
+            color: #AC8766;
         }
 
         .nav-item-small {
@@ -118,7 +130,25 @@
             justify-content: center;
             flex-shrink: 0;
             opacity: 0.6;
+            transition: all 0.2s ease;
         }
+        .small-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+            color: #FF0000;
+        }
+
+        .yt-list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        .yt-list-item:hover { opacity: 1; color: #FF0000; }
+        .yt-brand-icon { color: #FF0000; flex-shrink: 0; }
     </style>
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden">
@@ -145,52 +175,52 @@
                 <span class="menu-col-label">Workspaces</span>
                 <nav class="flex flex-col gap-8">
                     <!-- Notion -->
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="nav-item-large group">
-                        <div class="nav-icon-box">
+                    <div class="nav-item-large group">
+                        <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-icon-box" title="Open in new tab">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" />
                                 <path d="M13 20 V15 H18 Z" opacity="0.4" />
                             </svg>
-                        </div>
-                        <div class="flex flex-col">
+                        </a>
+                        <div onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="nav-text-block flex flex-col flex-1" title="Open in viewer">
                             <span class="serif-heading">Notion</span>
                             <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Workspace</span>
                         </div>
-                    </a>
+                    </div>
                     <!-- Reword -->
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="nav-item-large group">
-                        <div class="nav-icon-box font-bold text-sm">RE</div>
-                        <div class="flex flex-col">
+                    <div class="nav-item-large group">
+                        <a href="https://aleeyasha.github.io/aleeyasha.reword.github.io/" target="_blank" class="nav-icon-box font-bold text-sm" title="Open in new tab">RE</a>
+                        <div onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="nav-text-block flex flex-col flex-1" title="Open in viewer">
                             <span class="serif-heading">Reword</span>
                             <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Drafts</span>
                         </div>
-                    </a>
+                    </div>
                     <!-- Mollymawk -->
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="nav-item-large group">
-                        <div class="nav-icon-box">
+                    <div class="nav-item-large group">
+                        <a href="https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/" target="_blank" class="nav-icon-box" title="Open in new tab">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/>
                                 <path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/>
                             </svg>
-                        </div>
-                        <div class="flex flex-col">
+                        </a>
+                        <div onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="nav-text-block flex flex-col flex-1" title="Open in viewer">
                             <span class="serif-heading">Mollymawk</span>
                             <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Modules</span>
                         </div>
-                    </a>
+                    </div>
                     <!-- Pomodoro -->
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="nav-item-large group">
-                        <div class="nav-icon-box">
+                    <div class="nav-item-large group">
+                        <a href="https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/" target="_blank" class="nav-icon-box" title="Open in new tab">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
-                        </div>
-                        <div class="flex flex-col">
+                        </a>
+                        <div onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="nav-text-block flex flex-col flex-1" title="Open in viewer">
                             <span class="serif-heading">Pomodoro</span>
                             <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Focus</span>
                         </div>
-                    </a>
+                    </div>
                 </nav>
             </div>
 
@@ -199,64 +229,62 @@
                 <div>
                     <span class="menu-col-label">News & Media</span>
                     <nav class="flex flex-col gap-5">
-                        <div class="flex items-center justify-between group">
-                            <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                                <div class="small-icon text-[9px] font-bold border border-current rounded p-0.5">TED</div>
-                                <span>TED</span>
-                            </a>
-                            <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        <!-- TED -->
+                        <div class="flex items-center gap-4 group">
+                            <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5" title="Watch on YouTube">TED</a>
+                            <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">TED</a>
                         </div>
-                        <div class="flex items-center justify-between group">
-                            <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                                <div class="small-icon text-[9px] font-bold border border-current rounded p-0.5">BI</div>
-                                <span>Business Insider</span>
-                            </a>
-                            <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        <!-- Business Insider -->
+                        <div class="flex items-center gap-4 group">
+                            <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5" title="Watch on YouTube">BI</a>
+                            <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Business Insider</a>
                         </div>
-                        <div class="flex items-center justify-between group">
-                            <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
-                                <div class="small-icon serif-heading text-lg">A</div>
-                                <span>Aposto</span>
-                            </a>
-                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        <!-- Aposto -->
+                        <div class="flex items-center gap-4 group">
+                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="small-icon serif-heading text-lg" title="Watch on YouTube">A</a>
+                            <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Aposto</a>
                         </div>
-                        <div class="flex items-center justify-between group">
-                            <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                                <div class="small-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                                </div>
-                                <span>Evrim Ağacı</span>
+                        <!-- Evrim Ağacı -->
+                        <div class="flex items-center gap-4 group">
+                            <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                             </a>
-                            <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                            <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Evrim Ağacı</a>
                         </div>
-                        <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
+                        <!-- Dj's Aviation -->
+                        <div class="flex items-center gap-4 group">
+                            <a href="https://www.youtube.com/@DjsAviation/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5" title="Watch on YouTube">DJ</a>
+                            <a href="https://djsaviation.net/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Dj's Aviation</a>
+                        </div>
+                        <!-- Wikipedia -->
+                        <div class="flex items-center gap-4 group">
                             <div class="small-icon serif-heading text-lg">W</div>
-                            <span>Wikipedia</span>
-                        </a>
+                            <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Wikipedia</a>
+                        </div>
                     </nav>
                 </div>
 
                 <div>
-                    <span class="menu-col-label">Aviation</span>
+                    <span class="menu-col-label">Aviation Utilities</span>
                     <nav class="flex flex-col gap-4">
                         <a onclick="openInViewer('https://herdemaviation.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
-                            <div class="small-icon">
+                            <div class="small-icon opacity-100">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg>
                             </div>
                             <span>Herdem Aviation</span>
                         </a>
                         <a onclick="openInViewer('https://havasosyalmedya.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
-                            <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
+                            <div class="small-icon opacity-100"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
                             <span>Hava Sosyal</span>
                         </a>
                         <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                            <div class="small-icon">
+                            <div class="small-icon opacity-100">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
                             </div>
                             <span>Hava Personel</span>
                         </a>
                         <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
-                            <div class="small-icon">
+                            <div class="small-icon opacity-100">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
                             </div>
                             <span>Airport Haber</span>
@@ -265,22 +293,45 @@
                 </div>
             </div>
 
-            <!-- Column 3: Featured -->
-            <div class="lg:col-span-4 flex flex-col">
-                <span class="menu-col-label">Featured Newsletter</span>
-                <div class="group cursor-pointer" onclick="loadForDate(new Date())">
-                    <div class="aspect-[3/4] rounded-xl bg-gray-100 dark:bg-[#1a1a1a] overflow-hidden border border-gray-100 dark:border-[#222] mb-6 transition-transform group-hover:scale-[1.02]">
-                        <div class="p-8 flex flex-col h-full justify-between bg-gradient-to-br from-white to-[#F3EBE3] dark:from-[#1a1a1a] dark:to-[#111]">
-                            <div class="flex flex-col gap-2">
-                                <span class="text-[10px] font-bold text-[#AC8766] uppercase tracking-widest">Today's Issue</span>
-                                <h3 class="serif-heading text-3xl leading-tight">Exploring the <br>Digital Frontier</h3>
-                            </div>
-                            <div class="text-[11px] opacity-40 leading-relaxed">
-                                Catch up on today's top stories, curated exclusively for your bundle.
-                            </div>
-                        </div>
+            <!-- Column 3: YouTube Discovery -->
+            <div class="lg:col-span-4 flex flex-col gap-8">
+                <span class="menu-col-label">YouTube Channels</span>
+                
+                <!-- Science Channels Accordion -->
+                <div class="border-b border-gray-100 dark:border-[#222] pb-6">
+                    <button onclick="toggleYT('science')" class="w-full flex items-center justify-between text-left group">
+                        <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">Science</span>
+                        <svg id="arrow-science" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div id="list-science" class="hidden flex-col mt-4">
+                        <a href="https://www.youtube.com/@Howtown/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Howtown</a>
+                        <a href="https://www.youtube.com/@answerinprogress/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Answer in Progress</a>
+                        <a href="https://www.youtube.com/@business/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Bloomberg Originals</a>
+                        <a href="https://www.youtube.com/@halfasinteresting/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Half as Interesting</a>
+                        <a href="https://www.youtube.com/@ie-explains/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> IE Explains</a>
+                        <a href="https://www.youtube.com/@johnnyharris/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Johnny Harris</a>
+                        <a href="https://www.youtube.com/@uncivilized_media/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> uncivilized</a>
+                        <a href="https://www.youtube.com/@veritasium/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Veritasium</a>
                     </div>
-                    <button class="w-full py-3 bg-[#AC8766] text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-[#906A49] transition-colors">Read Now</button>
+                </div>
+
+                <!-- Aviation Channels Accordion -->
+                <div>
+                    <button onclick="toggleYT('aviation')" class="w-full flex items-center justify-between text-left group">
+                        <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">Aviation</span>
+                        <svg id="arrow-aviation" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div id="list-aviation" class="hidden flex-col mt-4">
+                        <a href="https://www.youtube.com/@3MinutesofAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 3 Minutes of Aviation</a>
+                        <a href="https://www.youtube.com/@lucaas/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> lucaas</a>
+                        <a href="https://www.youtube.com/@MentourPodcast/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> The Mentour Podcast</a>
+                        <a href="https://www.youtube.com/@MentourBlackBox/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour's Black Box</a>
+                        <a href="https://www.youtube.com/@MentourNow/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Now</a>
+                        <a href="https://www.youtube.com/@MentourPilot/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Pilot</a>
+                        <a href="https://www.youtube.com/@GreenDotAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Green Dot Aviation</a>
+                        <a href="https://www.youtube.com/@JxJAVIATION/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> JxJ Aviation</a>
+                        <a href="https://www.youtube.com/@VASAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> VASAviation</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -338,7 +389,7 @@
     </div>
 
     <script>
-        // PWA Service Worker Registration
+        // PWA Service Worker Registration (via Blob)
         if ('serviceWorker' in navigator) {
             const swCode = `
                 self.addEventListener('install', (event) => self.skipWaiting());
@@ -352,6 +403,25 @@
             navigator.serviceWorker.register(swUrl).catch(() => {});
         }
 
+        function toggleYT(category) {
+            const list = document.getElementById(`list-${category}`);
+            const arrow = document.getElementById(`arrow-${category}`);
+            const isHidden = list.classList.contains('hidden');
+            
+            // Close all first
+            document.querySelectorAll('[id^="list-"]').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('flex');
+            });
+            document.querySelectorAll('[id^="arrow-"]').forEach(el => el.classList.remove('rotate-180'));
+
+            if (isHidden) {
+                list.classList.remove('hidden');
+                list.classList.add('flex');
+                arrow.classList.add('rotate-180');
+            }
+        }
+
         const newsFrame = document.getElementById('news-frame');
         const overlay = document.getElementById('loading-overlay');
         const viewerContainer = document.getElementById('newsletter-viewer');
@@ -360,6 +430,7 @@
         const btnToday = document.getElementById('btn-today');
         const btnYesterday = document.getElementById('btn-yesterday');
         
+        // Full Screen Panel Logic
         const btnAppsMenu = document.getElementById('btn-apps-menu');
         const appsPanel = document.getElementById('apps-panel');
         const closeApps = document.getElementById('close-apps');
@@ -383,6 +454,7 @@
         };
 
         function openInViewer(url) {
+            // Close the panel if it's open
             if (appsPanel.classList.contains('open')) togglePanel();
 
             viewerContainer.classList.remove('hidden');
@@ -396,6 +468,7 @@
             }
             
             isViewerVisible = true;
+            
             overlay.style.display = 'flex';
             setTimeout(() => {
                 overlay.classList.remove('opacity-0');
