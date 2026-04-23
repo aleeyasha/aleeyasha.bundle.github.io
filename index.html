@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>">
     <meta name="theme-color" content="#0f0f0f">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #F3EBE3; color: #222222; transition: all 0.3s ease; }
         .dark body { background-color: #0f0f0f; color: #f1f1f1; }
@@ -17,9 +17,142 @@
         .dark .bg-white { background-color: #1a1a1a !important; border-color: #333 !important; color: #eee !important; }
         .dark h1 { color: #fff !important; }
         .dark #loading-overlay { background-color: #0f0f0f; }
+        .serif-heading { font-family: 'Playfair Display', serif; }
+        
+        /* Full Screen Menu Transition */
+        #apps-panel { 
+            transform: translateY(-100%); 
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        #apps-panel.open { transform: translateY(0); }
+        
+        .menu-col-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #AC8766;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .nav-item-large {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-item-large:hover { padding-left: 10px; color: #AC8766; }
+
+        .nav-item-small {
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
     </style>
 </head>
-<body class="p-3 md:p-6">
+<body class="p-3 md:p-6 overflow-x-hidden">
+    
+    <!-- Apps Side Panel (Aposto Style - Full Screen) -->
+    <div id="apps-panel" class="fixed inset-0 w-full h-full bg-white dark:bg-[#0f0f0f] z-[100] overflow-y-auto flex flex-col p-6 md:p-12">
+        <!-- Top Bar inside Menu -->
+        <div class="flex justify-between items-center mb-16 max-w-[1400px] mx-auto w-full">
+            <button id="close-apps" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="flex items-center gap-3">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32">
+                <span class="serif-heading text-2xl tracking-tight">Today's Bundle</span>
+            </div>
+            <div class="w-12"></div> <!-- Spacer to center logo -->
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 flex-1">
+            
+            <!-- Column 1: Main Workspaces (Left) -->
+            <div class="lg:col-span-4 flex flex-col gap-8">
+                <span class="menu-col-label">Workspaces</span>
+                <nav class="flex flex-col gap-6">
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="nav-item-large serif-heading">Notion</a>
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="nav-item-large serif-heading">Reword</a>
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="nav-item-large serif-heading">Mollymawk</a>
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="nav-item-large serif-heading">Pomodoro</a>
+                </nav>
+            </div>
+
+            <!-- Column 2: Resources & Lists (Center) -->
+            <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
+                <div>
+                    <span class="menu-col-label">News & Media</span>
+                    <nav class="flex flex-col gap-4">
+                        <div class="flex items-center justify-between group">
+                            <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">TED</a>
+                            <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Business Insider</a>
+                            <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Aposto</a>
+                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        </div>
+                        <div class="flex items-center justify-between group">
+                            <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Evrim Ağacı</a>
+                            <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
+                        </div>
+                        <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Wikipedia</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <span class="menu-col-label">Aviation</span>
+                    <nav class="flex flex-col gap-4">
+                        <a onclick="openInViewer('https://herdemaviation.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Herdem Aviation</a>
+                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Hava Sosyal</a>
+                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Hava Personel</a>
+                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Airport Haber</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Column 3: Featured (Right) -->
+            <div class="lg:col-span-4 flex flex-col">
+                <span class="menu-col-label">Featured Newsletter</span>
+                <div class="group cursor-pointer" onclick="loadForDate(new Date())">
+                    <div class="aspect-[3/4] rounded-xl bg-gray-100 dark:bg-[#1a1a1a] overflow-hidden border border-gray-100 dark:border-[#222] mb-6 transition-transform group-hover:scale-[1.02]">
+                        <div class="p-8 flex flex-col h-full justify-between bg-gradient-to-br from-white to-[#F3EBE3] dark:from-[#1a1a1a] dark:to-[#111]">
+                            <div class="flex flex-col gap-2">
+                                <span class="text-[10px] font-bold text-[#AC8766] uppercase tracking-widest">Today's Issue</span>
+                                <h3 class="serif-heading text-3xl leading-tight">Exploring the <br>Digital Frontier</h3>
+                            </div>
+                            <div class="text-[11px] opacity-40 leading-relaxed">
+                                Catch up on today's top stories, curated exclusively for your bundle.
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 bg-[#AC8766] text-white rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-[#906A49] transition-colors">Read Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Footer -->
+        <div class="max-w-[1400px] mx-auto w-full mt-24 pb-12 pt-8 border-t border-gray-100 dark:border-[#222] flex flex-col md:flex-row justify-between items-center gap-8">
+            <button id="theme-toggle" class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#AC8766] transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
+                    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <span>Appearance Mode</span>
+            </button>
+            <div class="text-[10px] text-gray-400 uppercase tracking-widest">
+                © 2024 Today's Bundle • Aleeyasha
+            </div>
+        </div>
+    </div>
+
     <div class="w-full max-w-[1600px] mx-auto">
         <header class="flex flex-col md:flex-row justify-between items-center mb-6 gap-6">
             <div class="flex items-center gap-6">
@@ -29,209 +162,27 @@
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                
                 <button id="btn-today" class="hidden px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
                 <button id="btn-yesterday" class="hidden px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
                 
-                <!-- Apps Menu (3 Dots) - Moved to right position -->
-                <div class="relative hidden" id="apps-menu-container">
+                <div class="relative">
                     <button id="btn-apps-menu" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Apps Menu">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <circle cx="12" cy="5" r="1.75"></circle>
-                            <circle cx="12" cy="12" r="1.75"></circle>
-                            <circle cx="12" cy="19" r="1.75"></circle>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
                         </svg>
                     </button>
-                    
-                    <!-- Apps Dropdown List -->
-                    <div id="apps-dropdown" class="absolute top-full mt-3 right-0 w-64 bg-white dark:bg-[#1a1a1a] rounded-2xl shadow-xl border border-gray-100 dark:border-[#333] opacity-0 invisible transition-all duration-200 z-50 overflow-hidden flex flex-col py-2">
-                        
-                        <!-- Notion -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" />
-                                        <path d="M13 20 V15 H18 Z" opacity="0.5" />
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Notion</span>
-                            </a>
-                        </div>
-
-                        <!-- Reword -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-sm tracking-tight shrink-0">
-                                    Re
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Reword</span>
-                            </a>
-                        </div>
-
-                        <!-- Mollymawk -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/>
-                                        <path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/>
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Mollymawk</span>
-                            </a>
-                        </div>
-
-                        <!-- Pomodoro -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Pomodoro</span>
-                            </a>
-                        </div>
-
-                        <!-- Aviation Links (Accordion) -->
-                        <div class="flex flex-col">
-                            <button onclick="toggleAviationMenu(event)" class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors w-full text-left outline-none">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Aviation Links</span>
-                                </div>
-                                <svg id="aviation-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400 transition-transform">
-                                    <path d="M6 9l6 6 6-6"/>
-                                </svg>
-                            </button>
-                            <div id="aviation-sublinks" class="hidden flex-col bg-gray-50/50 dark:bg-[#111] pb-1 border-y border-gray-100 dark:border-[#222] my-1">
-                                <a onclick="openInViewer('https://herdemaviation.com/')" class="cursor-pointer py-2 pl-[3.75rem] pr-4 text-sm font-medium text-[#AC8766] hover:opacity-70 transition-opacity">Herdem Aviation</a>
-                                <a onclick="openInViewer('https://havasosyalmedya.com/')" class="cursor-pointer py-2 pl-[3.75rem] pr-4 text-sm font-medium text-[#AC8766] hover:opacity-70 transition-opacity">Hava Sosyal</a>
-                                <a href="https://havapersonel.com/" target="_blank" rel="noopener noreferrer" class="py-2 pl-[3.75rem] pr-4 text-sm font-medium text-[#AC8766] hover:opacity-70 transition-opacity">Hava Personel</a>
-                                <a href="https://www.airporthaber2.com/" target="_blank" rel="noopener noreferrer" class="py-2 pl-[3.75rem] pr-4 text-sm font-medium text-[#AC8766] hover:opacity-70 transition-opacity">Airport Haber</a>
-                            </div>
-                        </div>
-
-                        <!-- TED -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a href="https://www.ted.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-[10px] tracking-tight shrink-0">
-                                    TED
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">TED</span>
-                            </a>
-                            <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#AC8766]/10 text-[#AC8766] hover:bg-[#AC8766] hover:text-white flex items-center justify-center transition-colors shrink-0" title="YouTube">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <!-- Business Insider -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a href="https://www.businessinsider.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-xs tracking-tight shrink-0">
-                                    BI
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Business Insider</span>
-                            </a>
-                            <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#AC8766]/10 text-[#AC8766] hover:bg-[#AC8766] hover:text-white flex items-center justify-center transition-colors shrink-0" title="YouTube">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <!-- Wikipedia -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-lg font-serif shrink-0">
-                                    W
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Wikipedia</span>
-                            </a>
-                        </div>
-
-                        <!-- Aposto -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a onclick="openInViewer('https://aposto.com/')" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] font-bold text-base shrink-0">
-                                    A
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Aposto</span>
-                            </a>
-                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#AC8766]/10 text-[#AC8766] hover:bg-[#AC8766] hover:text-white flex items-center justify-center transition-colors shrink-0" title="YouTube">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <!-- Evrim Ağacı -->
-                        <div class="flex items-center justify-between px-3 py-1.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <a href="https://evrimagaci.org/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 flex-1 cursor-pointer">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zM12 3.5a8.5 8.5 0 100 17 8.5 8.5 0 000-17z" stroke="none"></path>
-                                        <path d="M15.5 5.5C10 8.5 16 13.5 8.5 18.5" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
-                                        <path d="M9 5.5C11.5 7.5 11.5 9 11.5 10.5" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
-                                        <path d="M12.5 13.5C12.5 15 12.5 16.5 15 18.5" stroke-width="2.5" stroke-linecap="round" fill="none"></path>
-                                        <line x1="9.5" y1="7.5" x2="13.5" y2="7.5" stroke-width="1.8"></line>
-                                        <line x1="10.5" y1="10.5" x2="14.5" y2="10.5" stroke-width="1.8"></line>
-                                        <line x1="9.5" y1="13.5" x2="13.5" y2="13.5" stroke-width="1.8"></line>
-                                        <line x1="10.5" y1="16.5" x2="14.5" y2="16.5" stroke-width="1.8"></line>
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Evrim Ağacı</span>
-                            </a>
-                            <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#AC8766]/10 text-[#AC8766] hover:bg-[#AC8766] hover:text-white flex items-center justify-center transition-colors shrink-0" title="YouTube">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        <!-- Toggle Mode -->
-                        <div class="border-t border-gray-100 dark:border-[#333] mt-1 pt-1">
-                            <button id="theme-toggle" class="flex items-center gap-3 w-full px-3 py-2.5 hover:bg-gray-50 dark:hover:bg-[#222] transition-colors outline-none text-left">
-                                <div class="w-9 h-9 rounded-full bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] flex items-center justify-center text-[#AC8766] shrink-0">
-                                    <!-- Sun icon for dark mode -->
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
-                                        <circle cx="12" cy="12" r="5"></circle>
-                                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                                    </svg>
-                                    <!-- Moon icon for light mode -->
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden">
-                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Toggle Mode</span>
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </header>
 
         <div id="newsletter-viewer" class="viewer-container glass-card rounded-[2.5rem] overflow-hidden shadow-sm relative hidden">
             <iframe id="news-frame" src="about:blank" class="w-full h-full border-none" title="Bundle Archive"></iframe>
-            <div id="loading-overlay" class="absolute inset-0 bg-white flex items-center justify-center transition-opacity duration-300">
+            <div id="loading-overlay" class="absolute inset-0 bg-white dark:bg-[#0f0f0f] flex items-center justify-center transition-opacity duration-300">
                 <div class="flex flex-col items-center">
                     <div class="w-10 h-10 border-4 border-[#F3EBE3] border-t-[#AC8766] rounded-full animate-spin mb-4"></div>
-                    <span class="text-xs text-gray-400 font-medium uppercase tracking-widest">Loading Newsletter</span>
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-widest">Loading Content</span>
                 </div>
             </div>
         </div>
@@ -246,43 +197,18 @@
         const btnToday = document.getElementById('btn-today');
         const btnYesterday = document.getElementById('btn-yesterday');
         
-        // App Menu Logic
+        // Full Screen Panel Logic
         const btnAppsMenu = document.getElementById('btn-apps-menu');
-        const appsMenuContainer = document.getElementById('apps-menu-container');
-        const appsDropdown = document.getElementById('apps-dropdown');
-        let isAppsMenuOpen = false;
+        const appsPanel = document.getElementById('apps-panel');
+        const closeApps = document.getElementById('close-apps');
 
-        btnAppsMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isAppsMenuOpen = !isAppsMenuOpen;
-            if (isAppsMenuOpen) {
-                appsDropdown.classList.remove('opacity-0', 'invisible');
-                appsDropdown.classList.add('opacity-100', 'visible');
-            } else {
-                appsDropdown.classList.add('opacity-0', 'invisible');
-                appsDropdown.classList.remove('opacity-100', 'visible');
-            }
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (isAppsMenuOpen && !appsDropdown.contains(e.target) && e.target !== btnAppsMenu) {
-                appsDropdown.classList.add('opacity-0', 'invisible');
-                appsDropdown.classList.remove('opacity-100', 'visible');
-                isAppsMenuOpen = false;
-            }
-        });
-
-        // Aviation Accordion Toggle
-        const aviationSublinks = document.getElementById('aviation-sublinks');
-        const aviationChevron = document.getElementById('aviation-chevron');
-        
-        function toggleAviationMenu(e) {
-            if(e) e.stopPropagation();
-            aviationSublinks.classList.toggle('hidden');
-            aviationSublinks.classList.toggle('flex');
-            aviationChevron.classList.toggle('rotate-180');
+        function togglePanel() {
+            appsPanel.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden');
         }
+
+        btnAppsMenu.addEventListener('click', togglePanel);
+        closeApps.addEventListener('click', togglePanel);
 
         let isViewerVisible = false;
 
@@ -295,14 +221,10 @@
         };
 
         function openInViewer(url) {
-            if (isAppsMenuOpen) {
-                appsDropdown.classList.add('opacity-0', 'invisible');
-                appsDropdown.classList.remove('opacity-100', 'visible');
-                isAppsMenuOpen = false;
-            }
+            // Close the panel if it's open
+            if (appsPanel.classList.contains('open')) togglePanel();
 
             viewerContainer.classList.remove('hidden');
-            appsMenuContainer.classList.remove('hidden'); 
             
             if (url.startsWith(BASE_URL)) {
                 btnToday.classList.remove('hidden');
@@ -328,7 +250,6 @@
             const month = d.getMonth() + 1;
             const year = d.getFullYear();
             const url = `${BASE_URL}${day}-${month}-${year}.html`;
-            
             openInViewer(url);
         }
 
@@ -337,7 +258,6 @@
                 viewerContainer.classList.add('hidden');
                 btnToday.classList.add('hidden');
                 btnYesterday.classList.add('hidden');
-                appsMenuContainer.classList.add('hidden');
                 isViewerVisible = false;
                 newsFrame.src = "about:blank"; 
             } else {
