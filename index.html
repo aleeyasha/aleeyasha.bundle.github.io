@@ -16,6 +16,8 @@
     
     <!-- PWA Manifest Generation -->
     <script>
+        const bundleLogoSVG = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>";
+
         const manifest = {
             "name": "Today's Bundle",
             "short_name": "Bundle",
@@ -26,14 +28,16 @@
             "description": "Daily newsletter and workspace hub.",
             "icons": [
                 {
-                    "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23AC8766'><rect x='3' y='3' width='18' height='18' rx='4'/></svg>",
+                    "src": bundleLogoSVG,
                     "sizes": "192x192",
-                    "type": "image/svg+xml"
+                    "type": "image/svg+xml",
+                    "purpose": "any"
                 },
                 {
-                    "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23AC8766'><rect x='0' y='0' width='24' height='24'/></svg>",
+                    "src": bundleLogoSVG,
                     "sizes": "512x512",
-                    "type": "image/svg+xml"
+                    "type": "image/svg+xml",
+                    "purpose": "any"
                 }
             ]
         };
@@ -59,7 +63,6 @@
         .dark #loading-overlay { background-color: #0f0f0f; }
         .serif-heading { font-family: 'Playfair Display', serif; }
         
-        /* Full Screen Menu Transition */
         #apps-panel { 
             transform: translateY(-100%); 
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
@@ -81,12 +84,40 @@
             line-height: 1.1;
             transition: all 0.3s ease;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
         .nav-item-large:hover { padding-left: 10px; color: #AC8766; }
+        
+        .nav-icon-box {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(172, 135, 102, 0.08);
+            color: #AC8766;
+            flex-shrink: 0;
+        }
 
         .nav-item-small {
             font-size: 1.1rem;
             transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .small-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -94,7 +125,7 @@
     
     <!-- Apps Side Panel (Aposto Style - Full Screen) -->
     <div id="apps-panel" class="fixed inset-0 w-full h-full bg-white dark:bg-[#0f0f0f] z-[100] overflow-y-auto flex flex-col p-6 md:p-12">
-        <!-- Top Bar inside Menu -->
+        <!-- Top Bar -->
         <div class="flex justify-between items-center mb-16 max-w-[1400px] mx-auto w-full">
             <button id="close-apps" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -103,60 +134,138 @@
                 <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32">
                 <span class="serif-heading text-2xl tracking-tight">Today's Bundle</span>
             </div>
-            <div class="w-12"></div> <!-- Spacer to center logo -->
+            <div class="w-12"></div>
         </div>
 
         <!-- Main Content Area -->
         <div class="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 flex-1">
             
-            <!-- Column 1: Main Workspaces (Left) -->
+            <!-- Column 1: Main Workspaces -->
             <div class="lg:col-span-4 flex flex-col gap-8">
                 <span class="menu-col-label">Workspaces</span>
-                <nav class="flex flex-col gap-6">
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="nav-item-large serif-heading">Notion</a>
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="nav-item-large serif-heading">Reword</a>
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="nav-item-large serif-heading">Mollymawk</a>
-                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="nav-item-large serif-heading">Pomodoro</a>
+                <nav class="flex flex-col gap-8">
+                    <!-- Notion -->
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.notion.github.io/')" class="nav-item-large group">
+                        <div class="nav-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" />
+                                <path d="M13 20 V15 H18 Z" opacity="0.4" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="serif-heading">Notion</span>
+                            <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Workspace</span>
+                        </div>
+                    </a>
+                    <!-- Reword -->
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.reword.github.io/')" class="nav-item-large group">
+                        <div class="nav-icon-box font-bold text-sm">RE</div>
+                        <div class="flex flex-col">
+                            <span class="serif-heading">Reword</span>
+                            <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Drafts</span>
+                        </div>
+                    </a>
+                    <!-- Mollymawk -->
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/')" class="nav-item-large group">
+                        <div class="nav-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/>
+                                <path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="serif-heading">Mollymawk</span>
+                            <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Modules</span>
+                        </div>
+                    </a>
+                    <!-- Pomodoro -->
+                    <a onclick="openInViewer('https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/')" class="nav-item-large group">
+                        <div class="nav-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="serif-heading">Pomodoro</span>
+                            <span class="text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">Focus</span>
+                        </div>
+                    </a>
                 </nav>
             </div>
 
-            <!-- Column 2: Resources & Lists (Center) -->
+            <!-- Column 2: Resources -->
             <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
                 <div>
                     <span class="menu-col-label">News & Media</span>
-                    <nav class="flex flex-col gap-4">
+                    <nav class="flex flex-col gap-5">
                         <div class="flex items-center justify-between group">
-                            <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">TED</a>
+                            <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
+                                <div class="small-icon text-[9px] font-bold border border-current rounded p-0.5">TED</div>
+                                <span>TED</span>
+                            </a>
                             <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
                         </div>
                         <div class="flex items-center justify-between group">
-                            <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Business Insider</a>
+                            <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
+                                <div class="small-icon text-[9px] font-bold border border-current rounded p-0.5">BI</div>
+                                <span>Business Insider</span>
+                            </a>
                             <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
                         </div>
                         <div class="flex items-center justify-between group">
-                            <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Aposto</a>
+                            <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
+                                <div class="small-icon serif-heading text-lg">A</div>
+                                <span>Aposto</span>
+                            </a>
                             <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
                         </div>
                         <div class="flex items-center justify-between group">
-                            <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Evrim Ağacı</a>
+                            <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
+                                <div class="small-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                                </div>
+                                <span>Evrim Ağacı</span>
+                            </a>
                             <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" class="text-[9px] font-bold opacity-40 hover:opacity-100 transition-opacity">YT</a>
                         </div>
-                        <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Wikipedia</a>
+                        <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
+                            <div class="small-icon serif-heading text-lg">W</div>
+                            <span>Wikipedia</span>
+                        </a>
                     </nav>
                 </div>
 
                 <div>
                     <span class="menu-col-label">Aviation</span>
                     <nav class="flex flex-col gap-4">
-                        <a onclick="openInViewer('https://herdemaviation.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Herdem Aviation</a>
-                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Hava Sosyal</a>
-                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Hava Personel</a>
-                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Airport Haber</a>
+                        <a onclick="openInViewer('https://herdemaviation.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
+                            <div class="small-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg>
+                            </div>
+                            <span>Herdem Aviation</span>
+                        </a>
+                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">
+                            <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
+                            <span>Hava Sosyal</span>
+                        </a>
+                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
+                            <div class="small-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+                            </div>
+                            <span>Hava Personel</span>
+                        </a>
+                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">
+                            <div class="small-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                            </div>
+                            <span>Airport Haber</span>
+                        </a>
                     </nav>
                 </div>
             </div>
 
-            <!-- Column 3: Featured (Right) -->
+            <!-- Column 3: Featured -->
             <div class="lg:col-span-4 flex flex-col">
                 <span class="menu-col-label">Featured Newsletter</span>
                 <div class="group cursor-pointer" onclick="loadForDate(new Date())">
@@ -229,13 +338,12 @@
     </div>
 
     <script>
-        // PWA Service Worker Registration (via Blob)
+        // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
             const swCode = `
                 self.addEventListener('install', (event) => self.skipWaiting());
                 self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
                 self.addEventListener('fetch', (event) => {
-                    // Simple pass-through for online-first experience
                     event.respondWith(fetch(event.request).catch(() => new Response('Offline')));
                 });
             `;
@@ -252,7 +360,6 @@
         const btnToday = document.getElementById('btn-today');
         const btnYesterday = document.getElementById('btn-yesterday');
         
-        // Full Screen Panel Logic
         const btnAppsMenu = document.getElementById('btn-apps-menu');
         const appsPanel = document.getElementById('apps-panel');
         const closeApps = document.getElementById('close-apps');
@@ -276,7 +383,6 @@
         };
 
         function openInViewer(url) {
-            // Close the panel if it's open
             if (appsPanel.classList.contains('open')) togglePanel();
 
             viewerContainer.classList.remove('hidden');
@@ -290,7 +396,6 @@
             }
             
             isViewerVisible = true;
-            
             overlay.style.display = 'flex';
             setTimeout(() => {
                 overlay.classList.remove('opacity-0');
