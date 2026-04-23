@@ -179,7 +179,7 @@
         <!-- Top Bar -->
         <div class="flex justify-between items-center mb-16 max-w-[1400px] mx-auto w-full">
             <div class="flex items-center gap-3">
-                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32" alt="Logo">
                 <span class="serif-heading text-2xl tracking-tight">Today's Bundle</span>
             </div>
             <div class="flex items-center gap-4">
@@ -191,7 +191,7 @@
                 <!-- Rounded ILK YARDIM Button -->
                 <a href="https://ilkyardim.meb.gov.tr/" target="_blank" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all">ILK YARDIM</a>
                 
-                <button id="close-apps" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors">
+                <button id="close-apps" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors" aria-label="Close Apps">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
@@ -341,14 +341,6 @@
                             <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Film Cehennemi</span></a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://hdtoday.tr/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdtoday.tr&sz=64" alt=""></a>
-                            <a href="https://hdtoday.tr/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>HD Today (TR)</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://hdtoday.to/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdtoday.to&sz=64" alt=""></a>
-                            <a href="https://hdtoday.to/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>HD Today (TO)</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
                             <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=tvtime.com&sz=64" alt=""></a>
                             <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>TV Time</span></a>
                         </div>
@@ -408,7 +400,7 @@
 
         <!-- Menu Footer -->
         <div class="max-w-[1400px] mx-auto w-full mt-24 pb-12 pt-8 border-t border-gray-100 dark:border-[#222] flex flex-col md:flex-row justify-between items-center gap-8">
-            <button id="theme-toggle" class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#AC8766] transition-colors">
+            <button id="theme-toggle" class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#AC8766] transition-colors" aria-label="Toggle Theme">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <span>Appearance Mode</span>
