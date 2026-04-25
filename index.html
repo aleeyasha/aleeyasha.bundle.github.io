@@ -183,24 +183,86 @@
                 <span class="serif-heading text-2xl tracking-tight">Today's Bundle</span>
             </div>
             <div class="flex items-center gap-4">
-                <!-- Workspace Icons -->
-                <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 dark:border-[#333] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all" title="Notion">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg>
-                </a>
-                <a href="https://aleeyasha.github.io/aleeyasha.reword.github.io/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 dark:border-[#333] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all" title="Reword">
-                    <span class="font-bold text-[11px]">RE</span>
-                </a>
-                <a href="https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 dark:border-[#333] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all" title="Mollymawk">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/><path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/></svg>
-                </a>
-                <a href="https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 dark:border-[#333] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all" title="Pomodoro">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                </a>
+                <!-- Movies & Shows Dropdown -->
+                <div class="relative">
+                    <button id="btn-movies-shows" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MOVIES & SHOWS</button>
+                    <div id="movies-shows-popup" class="absolute top-full right-0 mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
+                        <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdfilmcehennemi.nl&sz=64" alt=""></div>
+                            <span class="text-sm">Film Cehennemi</span>
+                        </a>
+                        <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=tvtime.com&sz=64" alt=""></div>
+                            <span class="text-sm">TV Time</span>
+                        </a>
+                        <a href="https://ihavenotv.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=ihavenotv.com&sz=64" alt=""></div>
+                            <span class="text-sm">Docu Ihanevo</span>
+                        </a>
+                        <a href="https://www.opensubtitles.com/en/home" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=opensubtitles.com&sz=64" alt=""></div>
+                            <span class="text-sm">Open Subtitle</span>
+                        </a>
+                    </div>
+                </div>
 
-                <!-- Windy Button -->
-                <a href="https://www.windy.com/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-200 dark:border-[#333] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all" title="Windy">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a3.5 3.5 0 0 0 .5-6.91A5 5 0 0 0 8 13.09 3.5 3.5 0 0 0 8.5 20"/><path d="M11 20H4.5"/><path d="M7 16H3"/></svg>
-                </a>
+                <!-- Aviation Tools Dropdown -->
+                <div class="relative">
+                    <button id="btn-aviation-tools" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION TOOLS</button>
+                    <div id="aviation-tools-popup" class="absolute top-full right-0 mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
+                        <a href="https://planner.flightsimulator.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></div>
+                            <span class="text-sm">Flight Planner</span>
+                        </a>
+                        <a href="https://skybrary.aero/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=skybrary.aero&sz=64" alt=""></div>
+                            <span class="text-sm">Skybrary</span>
+                        </a>
+                        <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=mgm.gov.tr&sz=64" alt=""></div>
+                            <span class="text-sm">Meteogram</span>
+                        </a>
+                        <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=sportys.com&sz=64" alt=""></div>
+                            <span class="text-sm">Sporty's</span>
+                        </a>
+                        <a href="https://www.boldmethod.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=boldmethod.com&sz=64" alt=""></div>
+                            <span class="text-sm">Boldmethod</span>
+                        </a>
+                        <a href="https://www.easa.europa.eu/en" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=easa.europa.eu&sz=64" alt=""></div>
+                            <span class="text-sm">EASA</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tools Dropdown -->
+                <div class="relative">
+                    <button id="btn-tools" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none">TOOLS</button>
+                    <div id="tools-popup" class="absolute top-full right-0 mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
+                        <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg></div>
+                            <span class="text-sm font-medium">Notion</span>
+                        </a>
+                        <a href="https://aleeyasha.github.io/aleeyasha.reword.github.io/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><span class="font-bold text-[11px]">RE</span></div>
+                            <span class="text-sm font-medium">Reword</span>
+                        </a>
+                        <a href="https://aleeyasha.github.io/aleeyasha.mollymawk.github.io/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/><path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/></svg></div>
+                            <span class="text-sm font-medium">Mollymawk</span>
+                        </a>
+                        <a href="https://aleeyasha.github.io/aleeyasha.pomodoro.github.io/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                            <span class="text-sm font-medium">Pomodoro</span>
+                        </a>
+                        <a href="https://www.windy.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a3.5 3.5 0 0 0 .5-6.91A5 5 0 0 0 8 13.09 3.5 3.5 0 0 0 8.5 20"/><path d="M11 20H4.5"/><path d="M7 16H3"/></svg></div>
+                            <span class="text-sm font-medium">Windy</span>
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Rounded ILK YARDIM Button -->
                 <a href="https://ilkyardim.meb.gov.tr/" target="_blank" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all">ILK YARDIM</a>
@@ -214,40 +276,7 @@
         <!-- Main Content Area -->
         <div class="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 flex-1">
             
-            <!-- Column 1: Aviation Tools -->
-            <div class="lg:col-span-4 flex flex-col gap-10">
-                <div>
-                    <span class="menu-col-label">Aviation Tools</span>
-                    <nav class="flex flex-col gap-5">
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://planner.flightsimulator.com/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></a>
-                            <a href="https://planner.flightsimulator.com/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Flight Planner</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://skybrary.aero/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=skybrary.aero&sz=64" alt=""></a>
-                            <a href="https://skybrary.aero/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Skybrary</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=mgm.gov.tr&sz=64" alt=""></a>
-                            <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Meteogram</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=sportys.com&sz=64" alt=""></a>
-                            <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Sporty's</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.boldmethod.com/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=boldmethod.com&sz=64" alt=""></a>
-                            <a href="https://www.boldmethod.com/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Boldmethod</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.easa.europa.eu/en" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=easa.europa.eu&sz=64" alt=""></a>
-                            <a href="https://www.easa.europa.eu/en" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>EASA</span></a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-
-            <!-- Column 2: Resources & Aviation News -->
+            <!-- Column 1: Resources & Aviation News -->
             <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
                 <div>
                     <span class="menu-col-label">News & Media</span>
@@ -287,31 +316,9 @@
                 </div>
             </div>
 
-            <!-- Column 3: Movies & Video Channels -->
+            <!-- Column 3: Video Channels -->
             <div class="lg:col-span-4 flex flex-col gap-10">
-                <div>
-                    <span class="menu-col-label">Movies & Shows</span>
-                    <nav class="flex flex-col gap-5">
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdfilmcehennemi.nl&sz=64" alt=""></a>
-                            <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Film Cehennemi</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=tvtime.com&sz=64" alt=""></a>
-                            <a href="https://app.tvtime.com/movies/watchlist" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>TV Time</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://ihavenotv.com/" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=ihavenotv.com&sz=64" alt=""></a>
-                            <a href="https://ihavenotv.com/" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Docu Ihanevo</span></a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.opensubtitles.com/en/home" target="_blank" class="small-icon"><img src="https://www.google.com/s2/favicons?domain=opensubtitles.com&sz=64" alt=""></a>
-                            <a href="https://www.opensubtitles.com/en/home" target="_blank" class="nav-item-small flex-1 hover:text-[#AC8766]"><span>Open Subtitle</span></a>
-                        </div>
-                    </nav>
-                </div>
-
-                <div class="pt-4 border-t border-gray-100 dark:border-[#222]">
+                <div class="pt-4 border-t border-gray-100 dark:border-[#222] lg:border-none lg:pt-0">
                     <span class="menu-col-label">Video Channels</span>
                     <div class="flex flex-col gap-6">
                         <div class="pb-2">
@@ -347,6 +354,32 @@
                                 <a href="https://www.youtube.com/@JxJAVIATION/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> JxJ Aviation</a>
                                 <a href="https://www.youtube.com/@VASAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> VASAviation</a>
                                 <a href="https://www.dailymotion.com/user/yurtseveronr1" target="_blank" class="yt-list-item"><svg class="dm-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zm-1.84-9.352v5.704l4.593-2.852-4.593-2.852z"/></svg> Air Crash Investigation</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button onclick="toggleYT('knowledge')" class="w-full flex items-center justify-between text-left group">
+                                <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">Knowledge</span>
+                                <svg id="arrow-knowledge" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div id="list-knowledge" class="hidden flex-col mt-4">
+                                <a href="https://www.youtube.com/@cnklgl/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Flu TV</a>
+                                <a href="https://www.youtube.com/@49W/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 49W</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button onclick="toggleYT('english')" class="w-full flex items-center justify-between text-left group">
+                                <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">English</span>
+                                <svg id="arrow-english" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div id="list-english" class="hidden flex-col mt-4">
+                                <a href="https://www.youtube.com/@englishspeaking360/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> English Speaking 360</a>
+                                <a href="https://www.youtube.com/@EngVid/posts" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> engVid: Learn English</a>
+                                <a href="https://www.youtube.com/@kasiitadiriisa2244/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Kasiita Diriisa</a>
+                                <a href="https://www.youtube.com/@NacarHoca/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Nacar Hoca</a>
+                                <a href="https://www.youtube.com/@sezginostek5564/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Sezgin Östek</a>
+                                <a href="https://www.youtube.com/@yetiskince/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Yetişkince Sınav</a>
                             </div>
                         </div>
                     </div>
@@ -475,6 +508,39 @@
 
         const btnAviationNews = document.getElementById('btn-aviation-news');
         const popupAviationNews = document.getElementById('aviation-news-popup');
+        
+        const btnMoviesShows = document.getElementById('btn-movies-shows');
+        const popupMoviesShows = document.getElementById('movies-shows-popup');
+        
+        const btnAviationTools = document.getElementById('btn-aviation-tools');
+        const popupAviationTools = document.getElementById('aviation-tools-popup');
+        
+        const btnTools = document.getElementById('btn-tools');
+        const popupTools = document.getElementById('tools-popup');
+
+        if (btnMoviesShows) {
+            btnMoviesShows.addEventListener('click', (e) => {
+                popupMoviesShows.classList.toggle('hidden');
+                popupMoviesShows.classList.toggle('flex');
+                e.stopPropagation();
+            });
+        }
+
+        if (btnAviationTools) {
+            btnAviationTools.addEventListener('click', (e) => {
+                popupAviationTools.classList.toggle('hidden');
+                popupAviationTools.classList.toggle('flex');
+                e.stopPropagation();
+            });
+        }
+
+        if (btnTools) {
+            btnTools.addEventListener('click', (e) => {
+                popupTools.classList.toggle('hidden');
+                popupTools.classList.toggle('flex');
+                e.stopPropagation();
+            });
+        }
 
         btnAviationNews.addEventListener('click', (e) => {
             popupAviationNews.classList.toggle('hidden');
@@ -483,18 +549,59 @@
         });
 
         document.addEventListener('click', (e) => {
-            if (!popupAviationNews.contains(e.target) && !btnAviationNews.contains(e.target)) {
+            if (popupAviationNews && !popupAviationNews.contains(e.target) && !btnAviationNews.contains(e.target)) {
                 popupAviationNews.classList.add('hidden');
                 popupAviationNews.classList.remove('flex');
             }
+            if (popupMoviesShows && !popupMoviesShows.contains(e.target) && !btnMoviesShows.contains(e.target)) {
+                popupMoviesShows.classList.add('hidden');
+                popupMoviesShows.classList.remove('flex');
+            }
+            if (popupAviationTools && !popupAviationTools.contains(e.target) && !btnAviationTools.contains(e.target)) {
+                popupAviationTools.classList.add('hidden');
+                popupAviationTools.classList.remove('flex');
+            }
+            if (popupTools && !popupTools.contains(e.target) && !btnTools.contains(e.target)) {
+                popupTools.classList.add('hidden');
+                popupTools.classList.remove('flex');
+            }
         });
 
-        popupAviationNews.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                popupAviationNews.classList.add('hidden');
-                popupAviationNews.classList.remove('flex');
+        if (popupAviationNews) {
+            popupAviationNews.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    popupAviationNews.classList.add('hidden');
+                    popupAviationNews.classList.remove('flex');
+                });
             });
-        });
+        }
+        
+        if (popupMoviesShows) {
+            popupMoviesShows.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    popupMoviesShows.classList.add('hidden');
+                    popupMoviesShows.classList.remove('flex');
+                });
+            });
+        }
+        
+        if (popupAviationTools) {
+            popupAviationTools.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    popupAviationTools.classList.add('hidden');
+                    popupAviationTools.classList.remove('flex');
+                });
+            });
+        }
+        
+        if (popupTools) {
+            popupTools.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    popupTools.classList.add('hidden');
+                    popupTools.classList.remove('flex');
+                });
+            });
+        }
 
         let isViewerVisible = false;
 
