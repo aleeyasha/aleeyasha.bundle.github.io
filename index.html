@@ -58,11 +58,18 @@
         }
     </script>
     <style>
+        html { color-scheme: light; }
+        html.dark { color-scheme: dark; }
         body { font-family: 'Poppins', sans-serif; background-color: #F3EBE3; color: #222222; transition: background-color 0.3s ease, color 0.3s ease; }
         .dark body { background-color: #0f0f0f; color: #f1f1f1; }
         .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); }
         .dark .glass-card { background: rgba(26, 26, 26, 0.9); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .viewer-container { height: calc(100vh - 120px); min-height: 85vh; }
+        
+        .viewer-container { height: calc(100dvh - 180px); min-height: 60vh; }
+        @media (min-width: 768px) {
+            .viewer-container { height: calc(100vh - 120px); min-height: 85vh; }
+        }
+
         .dark .bg-white { background-color: #1a1a1a !important; border-color: #333 !important; color: #eee !important; }
         .dark h1 { color: #fff !important; }
         .dark #loading-overlay { background-color: #0f0f0f; }
@@ -177,16 +184,19 @@
     <!-- Apps Side Panel -->
     <div id="apps-panel" class="fixed inset-0 w-full h-full bg-white dark:bg-[#0f0f0f] z-[100] overflow-y-auto flex flex-col p-6 md:p-12">
         <!-- Top Bar -->
-        <div class="flex justify-between items-center mb-16 max-w-[1400px] mx-auto w-full">
-            <div class="flex items-center gap-3">
-                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32" alt="Logo">
-                <span class="serif-heading text-2xl tracking-tight">Today's Bundle</span>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-10 md:mb-16 max-w-[1400px] mx-auto w-full gap-6">
+            <div class="flex items-center justify-between w-full md:w-auto gap-3">
+                <div class="flex items-center gap-3">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32" alt="Logo">
+                    <span class="serif-heading text-xl md:text-2xl tracking-tight">Today's Bundle</span>
+                </div>
             </div>
-            <div class="flex items-center gap-4">
+            
+            <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
                 <!-- Movies & Shows Dropdown -->
                 <div class="relative">
-                    <button id="btn-movies-shows" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MOVIES & SHOWS</button>
-                    <div id="movies-shows-popup" class="absolute top-full right-0 mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
+                    <button id="btn-movies-shows" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MOVIES & SHOWS</button>
+                    <div id="movies-shows-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transition-all">
                         <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                             <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdfilmcehennemi.nl&sz=64" alt=""></div>
                             <span class="text-sm">Film Cehennemi</span>
@@ -208,8 +218,8 @@
 
                 <!-- Aviation Tools Dropdown -->
                 <div class="relative">
-                    <button id="btn-aviation-tools" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION TOOLS</button>
-                    <div id="aviation-tools-popup" class="absolute top-full right-0 mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
+                    <button id="btn-aviation-tools" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION TOOLS</button>
+                    <div id="aviation-tools-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transition-all">
                         <a href="https://planner.flightsimulator.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                             <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></div>
                             <span class="text-sm">Flight Planner</span>
@@ -239,8 +249,8 @@
 
                 <!-- Tools Dropdown -->
                 <div class="relative">
-                    <button id="btn-tools" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none">TOOLS</button>
-                    <div id="tools-popup" class="absolute top-full right-0 mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
+                    <button id="btn-tools" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none">TOOLS</button>
+                    <div id="tools-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transition-all">
                         <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                             <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg></div>
                             <span class="text-sm font-medium">Notion</span>
@@ -265,10 +275,15 @@
                 </div>
 
                 <!-- Rounded ILK YARDIM Button -->
-                <a href="https://ilkyardim.meb.gov.tr/" target="_blank" class="px-5 py-2 rounded-full border border-gray-200 dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all">ILK YARDIM</a>
+                <a href="https://ilkyardim.meb.gov.tr/" target="_blank" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all whitespace-nowrap">ILK YARDIM</a>
                 
-                <button id="close-apps" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors" aria-label="Close Apps">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <button id="theme-toggle" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors text-gray-400 hover:text-[#AC8766]" aria-label="Toggle Theme" title="Appearance Mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block md:w-[22px] md:h-[22px]"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden md:w-[22px] md:h-[22px]"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+
+                <button id="close-apps" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors" aria-label="Close Apps">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[28px] md:h-[28px]"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
         </div>
@@ -301,11 +316,11 @@
                             <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Evrim Ağacı</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@DjsAviation/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5">DJ</a>
+                            <a href="https://www.youtube.com/@DjsAviation/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5" title="Watch on YouTube">DJ</a>
                             <a href="https://djsaviation.net/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Dj's Aviation</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@interestingengineeringie/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5">IE</a>
+                            <a href="https://www.youtube.com/@interestingengineeringie/videos" target="_blank" class="small-icon text-[9px] font-bold border border-gray-400 dark:border-gray-600 rounded p-0.5" title="Watch on YouTube">IE</a>
                             <a href="https://interestingengineering.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Interesting Engineering</a>
                         </div>
                         <div class="flex items-center gap-4 group">
@@ -388,12 +403,7 @@
         </div>
 
         <!-- Menu Footer -->
-        <div class="max-w-[1400px] mx-auto w-full mt-24 pb-12 pt-8 border-t border-gray-100 dark:border-[#222] flex flex-col md:flex-row justify-between items-center gap-8">
-            <button id="theme-toggle" class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-[#AC8766] transition-colors" aria-label="Toggle Theme">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <span>Appearance Mode</span>
-            </button>
+        <div class="max-w-[1400px] mx-auto w-full mt-24 pb-12 pt-8 border-t border-gray-100 dark:border-[#222] flex justify-center items-center">
             <div class="text-[10px] text-gray-400 uppercase tracking-widest">
                 © 2026 Today's Bundle • Aliyasa
             </div>
@@ -401,49 +411,73 @@
     </div>
 
     <div class="w-full max-w-[1600px] mx-auto">
-        <header class="flex flex-col md:flex-row justify-between items-center mb-6 gap-6">
-            <div class="flex items-center gap-6">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-6 gap-4 md:gap-6">
+            <div class="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
                 <div class="flex items-center gap-4">
                     <img id="bundle-logo" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="36" height="36" alt="Bundle Icon" class="select-none cursor-pointer hover:scale-105 transition-transform" title="Toggle Newsletter">
-                    <h1 class="text-3xl font-bold tracking-tight">Today's <span class="text-[#AC8766]">Bundle</span></h1>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Today's <span class="text-[#AC8766]">Bundle</span></h1>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
+            
+            <div class="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-3 w-full md:w-auto">
                 <button id="btn-today" class="hidden px-6 py-2.5 bg-[#AC8766] text-white rounded-full text-xs font-semibold uppercase tracking-widest shadow-md hover:bg-[#906A49] transition-all">Today</button>
                 <button id="btn-yesterday" class="hidden px-6 py-2.5 bg-white text-gray-600 rounded-full text-xs font-semibold uppercase tracking-widest shadow-sm hover:bg-gray-50 border border-[#E5D7CC] transition-all">Yesterday</button>
                 
-                <div class="relative">
-                    <button id="btn-aviation-news" class="px-4 md:px-5 py-2.5 rounded-full border border-[#E5D7CC] dark:border-[#333] text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION NEWS</button>
-                    <div id="aviation-news-popup" class="absolute top-full right-0 mt-3 w-56 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transform origin-top-right transition-all">
-                        <a onclick="openInViewer('https://herdemaviation.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg></div>
-                            <span class="text-sm">Herdem Aviation</span>
-                        </a>
-                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
-                            <span class="text-sm">Hava Sosyal</span>
-                        </a>
-                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
-                            <span class="text-sm">Hava Personel</span>
-                        </a>
-                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-                            <span class="text-sm">Airport Haber</span>
-                        </a>
+                <!-- Icons container to keep them grouped nicely -->
+                <div class="flex items-center justify-center gap-2 md:gap-3 order-1 md:order-none">
+                    <!-- Molly Button -->
+                    <button onclick="openInViewer('https://molly.iskirik.com/')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Molly">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><line x1="9" y1="9" x2="9" y2="19"></line><path d="M4 9h16"></path><path d="M15 9v8a2 2 0 0 0 2 2h1"></path></svg>
+                    </button>
+
+                    <!-- Mathler Button -->
+                    <button onclick="openInViewer('https://www.mathler.com/normal')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Mathler">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><path d="M18 7V4H6l6 8-6 8h12v-3"/></svg>
+                    </button>
+
+                    <!-- Wordle Button -->
+                    <button onclick="openInViewer('https://wordle.global/')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Wordle">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.401 6.5a3 3 0 0 1-.399-1.375"/><path d="M12 13h0"/><path d="M12 18h0"/></svg>
+                    </button>
+                    
+                    <!-- Apps Menu Button -->
+                    <div class="relative">
+                        <button id="btn-apps-menu" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Apps Menu">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                        </button>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <button id="btn-apps-menu" class="bg-white dark:bg-[#1a1a1a] shadow-sm rounded-full w-10 h-10 flex items-center justify-center border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none" title="Apps Menu">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                    </button>
+                <!-- Text buttons container -->
+                <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 order-2 md:order-none">
+                    <!-- Aviation News Dropdown -->
+                    <div class="relative">
+                        <button id="btn-aviation-news" class="px-3 md:px-5 py-1.5 md:py-2.5 rounded-full border border-[#E5D7CC] dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION NEWS</button>
+                        <div id="aviation-news-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-56 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-1 z-[110] transition-all">
+                            <a onclick="openInViewer('https://herdemaviation.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg></div>
+                                <span class="text-sm">Herdem Aviation</span>
+                            </a>
+                            <a onclick="openInViewer('https://havasosyalmedya.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
+                                <span class="text-sm">Hava Sosyal</span>
+                            </a>
+                            <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+                                <span class="text-sm">Hava Personel</span>
+                            </a>
+                            <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+                                <span class="text-sm">Airport Haber</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
 
         <div id="newsletter-viewer" class="viewer-container glass-card rounded-[2.5rem] overflow-hidden shadow-sm relative hidden">
-            <iframe id="news-frame" src="about:blank" class="w-full h-full border-none" title="Bundle Archive"></iframe>
+            <iframe id="news-frame" src="about:blank" style="color-scheme: inherit;" class="w-full h-full border-none bg-white dark:bg-[#0f0f0f]" title="Bundle Archive"></iframe>
             <div id="loading-overlay" class="absolute inset-0 bg-white dark:bg-[#0f0f0f] flex items-center justify-center transition-opacity duration-300">
                 <div class="flex flex-col items-center">
                     <div class="w-10 h-10 border-4 border-[#F3EBE3] border-t-[#AC8766] rounded-full animate-spin mb-4"></div>
@@ -542,11 +576,13 @@
             });
         }
 
-        btnAviationNews.addEventListener('click', (e) => {
-            popupAviationNews.classList.toggle('hidden');
-            popupAviationNews.classList.toggle('flex');
-            e.stopPropagation();
-        });
+        if (btnAviationNews) {
+            btnAviationNews.addEventListener('click', (e) => {
+                popupAviationNews.classList.toggle('hidden');
+                popupAviationNews.classList.toggle('flex');
+                e.stopPropagation();
+            });
+        }
 
         document.addEventListener('click', (e) => {
             if (popupAviationNews && !popupAviationNews.contains(e.target) && !btnAviationNews.contains(e.target)) {
@@ -681,6 +717,11 @@
             } else if (event.data.type === 'OPEN_URL' || event.data.type === 'OPEN_MODULE') {
                 if (event.data.url) openInViewer(event.data.url);
             }
+        });
+
+        // Open Wordle by default on initial load
+        window.addEventListener('DOMContentLoaded', () => {
+            openInViewer('https://wordle.global/');
         });
     </script>
 </body>
