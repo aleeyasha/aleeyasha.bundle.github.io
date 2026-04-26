@@ -159,7 +159,7 @@
             height: 100%;
             object-fit: contain;
         }
-        .group:hover .small-icon, .small-icon:hover {
+        .nav-item-small:hover .small-icon, .small-icon:hover {
             opacity: 1;
             filter: grayscale(0%);
             transform: scale(1.1);
@@ -443,41 +443,74 @@
                 
                 <!-- Icons container to keep them grouped nicely -->
                 <div class="flex items-center justify-center gap-2 md:gap-3 order-1 md:order-none">
-                    <!-- Confused Button -->
-                    <button onclick="openInViewer('https://mantikhatalari.com/')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Mantık Hataları">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 15.5l2-1.5 2 1.5 2-1.5 2 1.5"></path>
-                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                        </svg>
-                    </button>
-
-                    <!-- Cube Button -->
-                    <button onclick="openInViewer('https://onlinecube.com/play/')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Rubik's Cube">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="9" y1="3" x2="9" y2="21"></line>
-                            <line x1="15" y1="3" x2="15" y2="21"></line>
-                            <line x1="3" y1="9" x2="21" y2="9"></line>
-                            <line x1="3" y1="15" x2="21" y2="15"></line>
-                        </svg>
-                    </button>
-
-                    <!-- Molly Button -->
-                    <button onclick="openInViewer('https://molly.iskirik.com/')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Molly">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><line x1="9" y1="9" x2="9" y2="19"></line><path d="M4 9h16"></path><path d="M15 9v8a2 2 0 0 0 2 2h1"></path></svg>
-                    </button>
-
-                    <!-- Mathler Button -->
-                    <button onclick="openInViewer('https://www.mathler.com/normal')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Mathler">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><path d="M18 7V4H6l6 8-6 8h12v-3"/></svg>
-                    </button>
-
-                    <!-- Wordle Button -->
-                    <button onclick="openInViewer('https://wordle.global/')" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Wordle">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.401 6.5a3 3 0 0 1-.399-1.375"/><path d="M12 13h0"/><path d="M12 18h0"/></svg>
-                    </button>
+                    
+                    <!-- Games Dropdown -->
+                    <div class="relative group">
+                        <button id="btn-games" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Games">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]">
+                                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                                <path d="M6 12h4"></path>
+                                <path d="M8 10v4"></path>
+                                <path d="M15 13h.01"></path>
+                                <path d="M18 11h.01"></path>
+                            </svg>
+                        </button>
+                        <div id="games-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                            <a onclick="openInViewer('https://wordle.global/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                                        <line x1="3" y1="15" x2="21" y2="15"></line>
+                                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                                        <line x1="15" y1="3" x2="15" y2="21"></line>
+                                    </svg>
+                                </div>
+                                <span class="text-sm">Wordle</span>
+                            </a>
+                            <a onclick="openInViewer('https://www.mathler.com/normal')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon">
+                                    <span class="font-serif text-lg leading-none">π</span>
+                                </div>
+                                <span class="text-sm">Mathler</span>
+                            </a>
+                            <a onclick="openInViewer('https://nerdlegame.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon">
+                                    <span class="font-serif text-lg leading-none">Σ</span>
+                                </div>
+                                <span class="text-sm">Sigma</span>
+                            </a>
+                            <a onclick="openInViewer('https://molly.iskirik.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path></svg>
+                                </div>
+                                <span class="text-sm">Molly</span>
+                            </a>
+                            <a onclick="openInViewer('https://onlinecube.com/play/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                                        <line x1="15" y1="3" x2="15" y2="21"></line>
+                                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                                        <line x1="3" y1="15" x2="21" y2="15"></line>
+                                    </svg>
+                                </div>
+                                <span class="text-sm">Rubik's Cube</span>
+                            </a>
+                            <a onclick="openInViewer('https://mantikhatalari.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M8 15.5l2-1.5 2 1.5 2-1.5 2 1.5"></path>
+                                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                    </svg>
+                                </div>
+                                <span class="text-sm">Mantık Hataları</span>
+                            </a>
+                        </div>
+                    </div>
                     
                     <!-- Apps Menu Button -->
                     <div class="relative">
