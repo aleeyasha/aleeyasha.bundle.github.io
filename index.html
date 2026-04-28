@@ -17,7 +17,6 @@
     <!-- PWA Manifest Generation -->
     <script>
         const bundleLogoSVG = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>";
-        const pwaLogoSVG = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>.bg{fill:%23000000;stroke:none;}.r{stroke:%23AC8766;fill:none;}.f{fill:%23AC8766;stroke:%23AC8766;}</style><rect width='24' height='24' class='bg'/><rect x='3' y='3' width='9' height='9' class='r'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>";
 
         const manifest = {
             "name": "Today's Bundle",
@@ -28,8 +27,8 @@
             "theme_color": "#0f0f0f",
             "description": "Daily newsletter and workspace hub.",
             "icons": [
-                { "src": pwaLogoSVG, "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
-                { "src": pwaLogoSVG, "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }
+                { "src": bundleLogoSVG, "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
+                { "src": bundleLogoSVG, "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }
             ]
         };
         
