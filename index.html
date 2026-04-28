@@ -16,26 +16,48 @@
     
     <!-- PWA Manifest Generation -->
     <script>
-        const bundleLogoSVG = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>";
+        function createIconPNG(size) {
+            return new Promise(resolve => {
+                const svgData = `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:#AC8766;}.f{fill:#AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>`;
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+                img.onload = () => {
+                    ctx.drawImage(img, 0, 0, size, size);
+                    resolve(canvas.toDataURL('image/png'));
+                };
+                img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
+            });
+        }
 
-        const manifest = {
-            "name": "Today's Bundle",
-            "short_name": "Bundle",
-            "start_url": window.location.href.split('?')[0],
-            "display": "standalone",
-            "background_color": "#0f0f0f",
-            "theme_color": "#0f0f0f",
-            "description": "Daily newsletter and workspace hub.",
-            "icons": [
-                { "src": bundleLogoSVG, "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
-                { "src": bundleLogoSVG, "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }
-            ]
-        };
-        
-        const link = document.createElement('link');
-        link.rel = 'manifest';
-        link.href = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(manifest));
-        document.head.appendChild(link);
+        Promise.all([createIconPNG(192), createIconPNG(512)]).then(([png192, png512]) => {
+            const manifest = {
+                "name": "Today's Bundle",
+                "short_name": "Bundle",
+                "start_url": window.location.href.split('?')[0] || ".",
+                "display": "standalone",
+                "background_color": "#0f0f0f",
+                "theme_color": "#0f0f0f",
+                "description": "Daily newsletter and workspace hub.",
+                "icons": [
+                    { "src": png192, "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+                    { "src": png512, "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+                ]
+            };
+            
+            const link = document.createElement('link');
+            link.rel = 'manifest';
+            link.href = 'data:application/manifest+json;charset=utf-8,' + encodeURIComponent(JSON.stringify(manifest));
+            document.head.appendChild(link);
+
+            // Add Apple Touch Icon dynamically
+            const appleLink = document.createElement('link');
+            appleLink.rel = 'apple-touch-icon';
+            appleLink.href = png192;
+            document.head.appendChild(appleLink);
+        });
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
