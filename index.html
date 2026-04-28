@@ -104,6 +104,49 @@
             </div>
             
             <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
+                <!-- MÜNEVVER Dropdown -->
+                <div class="relative group">
+                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MÜNEVVER</button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                        <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=ted.com&sz=64" alt=""></div>
+                            <span class="text-sm">TED</span>
+                        </a>
+                        <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=businessinsider.com&sz=64" alt=""></div>
+                            <span class="text-sm">Business Insider</span>
+                        </a>
+                        <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=aposto.com&sz=64" alt=""></div>
+                            <span class="text-sm">Aposto</span>
+                        </a>
+                        <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=evrimagaci.org&sz=64" alt=""></div>
+                            <span class="text-sm">Evrim Ağacı</span>
+                        </a>
+                        <a href="https://djsaviation.net/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=djsaviation.net&sz=64" alt=""></div>
+                            <span class="text-sm">Dj's Aviation</span>
+                        </a>
+                        <a href="https://interestingengineering.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=interestingengineering.com&sz=64" alt=""></div>
+                            <span class="text-sm">Interesting Engineering</span>
+                        </a>
+                        <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=wikipedia.org&sz=64" alt=""></div>
+                            <span class="text-sm">Wikipedia</span>
+                        </a>
+                        <a href="https://www.nationalgeographic.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-0.5">
+                                    <rect x="4" y="2" width="16" height="20" stroke="#FFCC00" stroke-width="3.5"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm">National Geographic</span>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Movies & Shows Dropdown -->
                 <div class="relative group">
                     <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MOVIES & SHOWS</button>
@@ -202,70 +245,29 @@
         <!-- Content Area -->
         <div class="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 flex-1">
             
-            <!-- Column 1: Resources & Aviation News -->
-            <div class="lg:col-span-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
-                <div>
-                    <span class="menu-col-label">News & Media</span>
-                    <nav class="flex flex-col gap-5">
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@TEDEd/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCsooa4yRKGN_zEE8iknghZA" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=ted.com&sz=128" alt="TED">
-                            </a>
-                            <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">TED</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@BusinessInsider/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCcyq283he07B7_KUX07mmtA" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=businessinsider.com&sz=128" alt="BI">
-                            </a>
-                            <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Business Insider</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@apostonews/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC1yTrnCty_0wAcD2mVCfw9A" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=aposto.com&sz=128" alt="Aposto">
-                            </a>
-                            <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Aposto</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@evrimagaci/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCatnasFAiXUvWwH8NlSdd3A" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=evrimagaci.org&sz=128" alt="Evrim Ağacı">
-                            </a>
-                            <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Evrim Ağacı</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@DjsAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC29_CCc5qpnRaVryYIKiLeg" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=djsaviation.net&sz=128" alt="DJ's Aviation">
-                            </a>
-                            <a href="https://djsaviation.net/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Dj's Aviation</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@interestingengineeringie/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEuiOszNd6msGgqsD0f9YAQ" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=interestingengineering.com&sz=128" alt="IE">
-                            </a>
-                            <a href="https://interestingengineering.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Interesting Engineering</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <div class="small-icon">
-                                <img src="https://www.google.com/s2/favicons?domain=wikipedia.org&sz=128" alt="Wikipedia">
-                            </div>
-                            <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Wikipedia</a>
-                        </div>
-                        <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@natgeotvturkiye/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEJpsccgPoP90jGQPz35KDA" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="4" y="2" width="16" height="20" stroke="#FFCC00" stroke-width="3.5"/>
-                                </svg>
-                            </a>
-                            <a href="https://www.nationalgeographic.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">National Geographic</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-
             <!-- Column 3: Video Channels -->
             <div class="lg:col-span-4 flex flex-col gap-10">
                 <div class="pt-4 border-t border-gray-100 dark:border-[#222] lg:border-none lg:pt-0">
                     <span class="menu-col-label">Video Channels</span>
                     <div class="flex flex-col gap-6">
+                        
+                        <!-- News & Media Video Channel -->
+                        <div class="pb-2">
+                            <button onclick="toggleYT('newsmedia')" class="w-full flex items-center justify-between text-left group">
+                                <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">Münevver</span>
+                                <svg id="arrow-newsmedia" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div id="list-newsmedia" class="hidden flex-col mt-4">
+                                <a href="https://www.youtube.com/@TEDEd/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCsooa4yRKGN_zEE8iknghZA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> TED</a>
+                                <a href="https://www.youtube.com/@BusinessInsider/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCcyq283he07B7_KUX07mmtA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Business Insider</a>
+                                <a href="https://www.youtube.com/@apostonews/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC1yTrnCty_0wAcD2mVCfw9A" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Aposto</a>
+                                <a href="https://www.youtube.com/@evrimagaci/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCatnasFAiXUvWwH8NlSdd3A" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Evrim Ağacı</a>
+                                <a href="https://www.youtube.com/@DjsAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC29_CCc5qpnRaVryYIKiLeg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Dj's Aviation</a>
+                                <a href="https://www.youtube.com/@interestingengineeringie/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEuiOszNd6msGgqsD0f9YAQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Interesting Engineering</a>
+                                <a href="https://www.youtube.com/@natgeotvturkiye/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEJpsccgPoP90jGQPz35KDA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> National Geographic</a>
+                            </div>
+                        </div>
+
                         <div class="pb-2">
                             <button onclick="toggleYT('science')" class="w-full flex items-center justify-between text-left group">
                                 <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">Science</span>
@@ -387,12 +389,6 @@
                                     <span class="font-serif text-lg leading-none">π</span>
                                 </div>
                                 <span class="text-sm">Mathler</span>
-                            </a>
-                            <a onclick="openInViewer('https://nerdlegame.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                                <div class="small-icon">
-                                    <span class="font-serif text-lg leading-none">Σ</span>
-                                </div>
-                                <span class="text-sm">Sigma</span>
                             </a>
                             <a onclick="openInViewer('https://molly.iskirik.com/')" class="nav-item-small hover:text-[#AC8766] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                                 <div class="small-icon">
@@ -813,111 +809,147 @@
             "Air Crash Investigation"
         ];
 
+        function openPreview(item) {
+            const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
+            let titleText = item.textContent.trim() || item.title || 'YouTube Channel';
+
+            if (disabledPreviews.includes(titleText)) return;
+
+            if(url && url.startsWith('http')) {
+                currentPreviewUrl = url;
+                if(previewTitle) previewTitle.textContent = titleText;
+                
+                if (previewWindow) {
+                    previewWindow.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        previewWindow.classList.remove('opacity-0');
+                        previewWindow.classList.add('opacity-100');
+                    });
+
+                    const rect = item.getBoundingClientRect();
+                    let top = rect.top - 80;
+                    let left = rect.right + 20;
+
+                    // Bounding box protection to ensure the popup stays entirely on screen
+                    if (top + 230 > window.innerHeight) top = window.innerHeight - 250;
+                    if (top < 20) top = 20;
+
+                    if (left + 350 > window.innerWidth) {
+                        left = rect.left - 370; // Try placing it to the left of the cursor instead
+                    }
+                    if (left < 20) {
+                        left = 20; // Pin left edge
+                        top = rect.bottom + 20; // Move beneath cursor so we don't cover it
+                    }
+
+                    previewWindow.style.top = top + 'px';
+                    previewWindow.style.left = left + 'px';
+                }
+
+                if (url.includes('feeds/videos.xml')) {
+                    // FAST CACHED THUMBNAIL RENDER
+                    if(previewFrame) previewFrame.style.display = 'none';
+                    if(previewContent) previewContent.style.display = 'none';
+                    if(previewLoading) previewLoading.style.display = 'flex';
+
+                    fetchAndCacheYTData(url, titleText).then(video => {
+                        // Double check the user hasn't moved their mouse to another link while we were getting data
+                        if (currentPreviewUrl !== url) return;
+
+                        if (video && previewContent) {
+                            if(previewLoading) previewLoading.style.display = 'none';
+                            previewContent.style.display = 'block';
+                            previewContent.innerHTML = `
+                                <div class="flex flex-col h-full w-full bg-white dark:bg-[#1a1a1a]">
+                                    <div class="w-full h-[120px] relative bg-black">
+                                        <img src="${video.thumbnail}" class="w-full h-full object-cover opacity-90" alt="Thumbnail" onerror="this.src='https://via.placeholder.com/350x120?text=No+Thumbnail'" />
+                                        <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                                            <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 flex flex-col gap-1.5 h-[67px] justify-center">
+                                        <span class="font-semibold text-xs text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug" title="${video.title.replace(/"/g, '&quot;')}">${video.title}</span>
+                                        <span class="text-[10px] text-gray-500 font-medium">${video.pubDate ? video.pubDate + ' • ' : ''}${video.author}</span>
+                                    </div>
+                                </div>`;
+                        } else if (previewContent) {
+                            if(previewLoading) previewLoading.style.display = 'none';
+                            previewContent.style.display = 'block';
+                            previewContent.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-red-400">No videos found.</div>';
+                        }
+                    });
+                } else {
+                    // Standard URL logic for non-YouTube links
+                    if(previewContent) previewContent.style.display = 'none';
+                    if(previewLoading) previewLoading.style.display = 'flex';
+                    if(previewFrame) {
+                        previewFrame.style.display = 'block';
+                        previewFrame.src = url;
+                        previewFrame.onload = () => {
+                            if(previewLoading) previewLoading.style.display = 'none';
+                        };
+                    }
+                }
+            }
+        }
+
+        function hidePreview() {
+            clearTimeout(previewTimeout);
+            currentPreviewUrl = null;
+            if(previewWindow) {
+                previewWindow.classList.remove('opacity-100');
+                previewWindow.classList.add('opacity-0');
+                setTimeout(() => {
+                    if(previewWindow.classList.contains('opacity-0')) {
+                        previewWindow.style.display = 'none';
+                        if(previewFrame) previewFrame.src = 'about:blank';
+                        if(previewContent) previewContent.innerHTML = '';
+                    }
+                }, 200);
+            }
+        }
+
         const linksToPreview = document.querySelectorAll('.yt-list-item, a[href*="youtube.com"]');
         linksToPreview.forEach(item => {
+            // Dynamically inject the arrow button for video channels (.yt-list-item)
+            if (item.classList.contains('yt-list-item')) {
+                item.classList.add('group', 'w-full', 'pr-2'); 
+                
+                const btn = document.createElement('div');
+                btn.className = "yt-preview-trigger opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md hover:bg-black/10 dark:hover:bg-white/10 ml-auto cursor-pointer flex-shrink-0 flex items-center justify-center";
+                btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-500"><path d="M6 9l6 6 6-6"/></svg>`;
+                
+                // Show preview immediately on click
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    clearTimeout(previewTimeout);
+                    openPreview(item);
+                });
+                
+                item.appendChild(btn);
+            }
+
             item.addEventListener('mouseenter', (e) => {
-                const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
-                let titleText = item.textContent.trim() || item.title || 'YouTube Channel';
-
-                if (disabledPreviews.includes(titleText)) return;
-
-                if(url && url.startsWith('http')) {
-                    previewTimeout = setTimeout(() => {
-                        currentPreviewUrl = url;
-                        if(previewTitle) previewTitle.textContent = titleText;
-                        
-                        if (previewWindow) {
-                            previewWindow.style.display = 'block';
-                            requestAnimationFrame(() => {
-                                previewWindow.classList.remove('opacity-0');
-                                previewWindow.classList.add('opacity-100');
-                            });
-
-                            const rect = item.getBoundingClientRect();
-                            let top = rect.top - 80;
-                            let left = rect.right + 20;
-
-                            // Bounding box protection to ensure the popup stays entirely on screen
-                            if (top + 230 > window.innerHeight) top = window.innerHeight - 250;
-                            if (top < 20) top = 20;
-
-                            if (left + 350 > window.innerWidth) {
-                                left = rect.left - 370; // Try placing it to the left of the cursor instead
-                            }
-                            if (left < 20) {
-                                left = 20; // Pin left edge
-                                top = rect.bottom + 20; // Move beneath cursor so we don't cover it
-                            }
-
-                            previewWindow.style.top = top + 'px';
-                            previewWindow.style.left = left + 'px';
-                        }
-
-                        if (url.includes('feeds/videos.xml')) {
-                            // FAST CACHED THUMBNAIL RENDER
-                            if(previewFrame) previewFrame.style.display = 'none';
-                            if(previewContent) previewContent.style.display = 'none';
-                            if(previewLoading) previewLoading.style.display = 'flex';
-
-                            fetchAndCacheYTData(url, titleText).then(video => {
-                                // Double check the user hasn't moved their mouse to another link while we were getting data
-                                if (currentPreviewUrl !== url) return;
-
-                                if (video && previewContent) {
-                                    if(previewLoading) previewLoading.style.display = 'none';
-                                    previewContent.style.display = 'block';
-                                    previewContent.innerHTML = `
-                                        <div class="flex flex-col h-full w-full bg-white dark:bg-[#1a1a1a]">
-                                            <div class="w-full h-[120px] relative bg-black">
-                                                <img src="${video.thumbnail}" class="w-full h-full object-cover opacity-90" alt="Thumbnail" onerror="this.src='https://via.placeholder.com/350x120?text=No+Thumbnail'" />
-                                                <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
-                                                    <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
-                                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="p-3 flex flex-col gap-1.5 h-[67px] justify-center">
-                                                <span class="font-semibold text-xs text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug" title="${video.title.replace(/"/g, '&quot;')}">${video.title}</span>
-                                                <span class="text-[10px] text-gray-500 font-medium">${video.pubDate ? video.pubDate + ' • ' : ''}${video.author}</span>
-                                            </div>
-                                        </div>`;
-                                } else if (previewContent) {
-                                    if(previewLoading) previewLoading.style.display = 'none';
-                                    previewContent.style.display = 'block';
-                                    previewContent.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-red-400">No videos found.</div>';
-                                }
-                            });
-                        } else {
-                            // Standard URL logic for non-YouTube links
-                            if(previewContent) previewContent.style.display = 'none';
-                            if(previewLoading) previewLoading.style.display = 'flex';
-                            if(previewFrame) {
-                                previewFrame.style.display = 'block';
-                                previewFrame.src = url;
-                                previewFrame.onload = () => {
-                                    if(previewLoading) previewLoading.style.display = 'none';
-                                };
-                            }
-                        }
-                    }, 200); 
-                }
+                previewTimeout = setTimeout(() => {
+                    openPreview(item);
+                }, 200); 
             });
             
             item.addEventListener('mouseleave', () => {
-                clearTimeout(previewTimeout);
-                currentPreviewUrl = null;
-                if(previewWindow) {
-                    previewWindow.classList.remove('opacity-100');
-                    previewWindow.classList.add('opacity-0');
-                    setTimeout(() => {
-                        if(previewWindow.classList.contains('opacity-0')) {
-                            previewWindow.style.display = 'none';
-                            if(previewFrame) previewFrame.src = 'about:blank';
-                            if(previewContent) previewContent.innerHTML = '';
-                        }
-                    }, 200);
-                }
+                hidePreview();
             });
+        });
+
+        // Click outside listener to dismiss preview (useful for mobile interactions)
+        document.addEventListener('click', (e) => {
+            if (previewWindow && previewWindow.style.display === 'block') {
+                if (!previewWindow.contains(e.target) && !e.target.closest('.yt-preview-trigger') && !e.target.closest('.yt-list-item') && !e.target.closest('a[href*="youtube.com"]')) {
+                    hidePreview();
+                }
+            }
         });
 
         window.addEventListener('message', (event) => {
