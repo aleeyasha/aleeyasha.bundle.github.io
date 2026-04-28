@@ -27,18 +27,8 @@
             "theme_color": "#0f0f0f",
             "description": "Daily newsletter and workspace hub.",
             "icons": [
-                {
-                    "src": bundleLogoSVG,
-                    "sizes": "192x192",
-                    "type": "image/svg+xml",
-                    "purpose": "any"
-                },
-                {
-                    "src": bundleLogoSVG,
-                    "sizes": "512x512",
-                    "type": "image/svg+xml",
-                    "purpose": "any"
-                }
+                { "src": bundleLogoSVG, "sizes": "192x192", "type": "image/svg+xml", "purpose": "any" },
+                { "src": bundleLogoSVG, "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
             ]
         };
         const stringManifest = JSON.stringify(manifest);
@@ -82,98 +72,19 @@
         #apps-panel.open { transform: translateY(0); }
         
         .menu-col-label {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: #AC8766;
-            margin-bottom: 1.5rem;
-            display: block;
+            font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #AC8766; margin-bottom: 1.5rem; display: block;
         }
 
-        .nav-item-large {
-            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-            line-height: 1.1;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
-        }
+        .nav-item-large { font-size: clamp(1.6rem, 3.5vw, 2.2rem); line-height: 1.1; transition: all 0.3s ease; display: flex; align-items: center; gap: 1.25rem; }
+        .nav-text-block { cursor: pointer; transition: all 0.3s ease; }
+        .nav-text-block:hover { padding-left: 8px; color: #AC8766; }
+        .nav-item-small { font-size: 1.1rem; transition: color 0.2s ease; display: flex; align-items: center; gap: 0.75rem; }
         
-        .nav-icon-box {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: rgba(172, 135, 102, 0.08);
-            color: #AC8766;
-            flex-shrink: 0;
-            transition: transform 0.2s ease, background 0.2s ease;
-            overflow: hidden;
-        }
-        .nav-icon-box:hover {
-            transform: scale(1.1);
-            background: rgba(172, 135, 102, 0.15);
-        }
-        .nav-icon-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 4px;
-        }
+        .small-icon { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; opacity: 0.5; filter: grayscale(100%); transition: all 0.3s ease; overflow: hidden; border-radius: 6px; }
+        .small-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .nav-item-small:hover .small-icon, .small-icon:hover { opacity: 1; filter: grayscale(0%); transform: scale(1.1); }
 
-        .nav-text-block {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .nav-text-block:hover {
-            padding-left: 8px;
-            color: #AC8766;
-        }
-
-        .nav-item-small {
-            font-size: 1.1rem;
-            transition: color 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .small-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            opacity: 0.5;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            border-radius: 6px;
-        }
-        .small-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .nav-item-small:hover .small-icon, .small-icon:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.1);
-        }
-
-        .yt-list-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 0;
-            opacity: 0.6;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-        }
+        .yt-list-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; opacity: 0.6; transition: all 0.2s ease; font-size: 0.9rem; }
         .yt-list-item:hover { opacity: 1; color: #FF0000; }
         .yt-brand-icon { color: #FF0000; flex-shrink: 0; }
         .dm-brand-icon { color: #0066dc; flex-shrink: 0; }
@@ -181,7 +92,7 @@
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden">
     
-    <!-- Apps Side Panel -->
+    <!-- Apps Side Panel (Overlay) -->
     <div id="apps-panel" class="fixed inset-0 w-full h-full bg-white dark:bg-[#0f0f0f] z-[100] overflow-y-auto flex flex-col p-6 md:p-12">
         <!-- Top Bar -->
         <div class="flex flex-col md:flex-row justify-between items-center mb-10 md:mb-16 max-w-[1400px] mx-auto w-full gap-6">
@@ -195,8 +106,8 @@
             <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
                 <!-- Movies & Shows Dropdown -->
                 <div class="relative group">
-                    <button id="btn-movies-shows" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MOVIES & SHOWS</button>
-                    <div id="movies-shows-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">MOVIES & SHOWS</button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
                         <a href="https://www.hdfilmcehennemi.nl/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                             <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=hdfilmcehennemi.nl&sz=64" alt=""></div>
                             <span class="text-sm">Film Cehennemi</span>
@@ -218,8 +129,8 @@
 
                 <!-- Aviation Tools Dropdown -->
                 <div class="relative group">
-                    <button id="btn-aviation-tools" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION TOOLS</button>
-                    <div id="aviation-tools-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm whitespace-nowrap">AVIATION TOOLS</button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
                         <a href="https://planner.flightsimulator.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                             <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></div>
                             <span class="text-sm">Flight Planner</span>
@@ -249,8 +160,8 @@
 
                 <!-- Tools Dropdown -->
                 <div class="relative group">
-                    <button id="btn-tools" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none">TOOLS</button>
-                    <div id="tools-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#AC8766] hover:text-white hover:border-[#AC8766] transition-all outline-none">TOOLS</button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
                         <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                             <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg></div>
                             <span class="text-sm font-medium">Notion</span>
@@ -274,7 +185,7 @@
                     </div>
                 </div>
 
-                <!-- Rounded ILK YARDIM Button -->
+                <!-- Rounded ILK YARDIM Button (Appears in Top Bar overlay only) -->
                 <a href="https://ilkyardim.meb.gov.tr/" target="_blank" class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#DC2626] hover:text-white hover:border-[#DC2626] transition-all whitespace-nowrap">ILK YARDIM</a>
                 
                 <button id="theme-toggle" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors text-gray-400 hover:text-[#AC8766]" aria-label="Toggle Theme" title="Appearance Mode">
@@ -288,7 +199,7 @@
             </div>
         </div>
 
-        <!-- Main Content Area -->
+        <!-- Content Area -->
         <div class="max-w-[1400px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 flex-1">
             
             <!-- Column 1: Resources & Aviation News -->
@@ -297,37 +208,37 @@
                     <span class="menu-col-label">News & Media</span>
                     <nav class="flex flex-col gap-5">
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@TEDEd/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                            <a href="https://www.youtube.com/@TEDEd/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCsooa4yRKGN_zEE8iknghZA" target="_blank" class="small-icon" title="Watch on YouTube">
                                 <img src="https://www.google.com/s2/favicons?domain=ted.com&sz=128" alt="TED">
                             </a>
                             <a href="https://www.ted.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">TED</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@BusinessInsider/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                            <a href="https://www.youtube.com/@BusinessInsider/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCcyq283he07B7_KUX07mmtA" target="_blank" class="small-icon" title="Watch on YouTube">
                                 <img src="https://www.google.com/s2/favicons?domain=businessinsider.com&sz=128" alt="BI">
                             </a>
                             <a href="https://www.businessinsider.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Business Insider</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@apostonews/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                            <a href="https://www.youtube.com/@apostonews/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC1yTrnCty_0wAcD2mVCfw9A" target="_blank" class="small-icon" title="Watch on YouTube">
                                 <img src="https://www.google.com/s2/favicons?domain=aposto.com&sz=128" alt="Aposto">
                             </a>
                             <a onclick="openInViewer('https://aposto.com/')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Aposto</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@evrimagaci/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                            <a href="https://www.youtube.com/@evrimagaci/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCatnasFAiXUvWwH8NlSdd3A" target="_blank" class="small-icon" title="Watch on YouTube">
                                 <img src="https://www.google.com/s2/favicons?domain=evrimagaci.org&sz=128" alt="Evrim Ağacı">
                             </a>
                             <a href="https://evrimagaci.org/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Evrim Ağacı</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@DjsAviation/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                            <a href="https://www.youtube.com/@DjsAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC29_CCc5qpnRaVryYIKiLeg" target="_blank" class="small-icon" title="Watch on YouTube">
                                 <img src="https://www.google.com/s2/favicons?domain=djsaviation.net&sz=128" alt="DJ's Aviation">
                             </a>
                             <a href="https://djsaviation.net/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Dj's Aviation</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@interestingengineeringie/videos" target="_blank" class="small-icon" title="Watch on YouTube">
+                            <a href="https://www.youtube.com/@interestingengineeringie/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEuiOszNd6msGgqsD0f9YAQ" target="_blank" class="small-icon" title="Watch on YouTube">
                                 <img src="https://www.google.com/s2/favicons?domain=interestingengineering.com&sz=128" alt="IE">
                             </a>
                             <a href="https://interestingengineering.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">Interesting Engineering</a>
@@ -339,8 +250,10 @@
                             <a onclick="openInViewer('https://en.wikipedia.org/wiki/Main_Page')" class="cursor-pointer nav-item-small hover:text-[#AC8766]">Wikipedia</a>
                         </div>
                         <div class="flex items-center gap-4 group">
-                            <a href="https://www.youtube.com/@natgeotvturkiye/videos" target="_blank" class="small-icon" title="Watch on YouTube">
-                                <img src="https://www.google.com/s2/favicons?domain=nationalgeographic.com&sz=128" alt="National Geographic">
+                            <a href="https://www.youtube.com/@natgeotvturkiye/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEJpsccgPoP90jGQPz35KDA" target="_blank" class="small-icon" title="Watch on YouTube">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="4" y="2" width="16" height="20" stroke="#FFCC00" stroke-width="3.5"/>
+                                </svg>
                             </a>
                             <a href="https://www.nationalgeographic.com/" target="_blank" class="nav-item-small hover:text-[#AC8766]">National Geographic</a>
                         </div>
@@ -359,14 +272,14 @@
                                 <svg id="arrow-science" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
                             <div id="list-science" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@Howtown/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Howtown</a>
-                                <a href="https://www.youtube.com/@answerinprogress/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Answer in Progress</a>
-                                <a href="https://www.youtube.com/@business/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Bloomberg Originals</a>
-                                <a href="https://www.youtube.com/@halfasinteresting/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Half as Interesting</a>
-                                <a href="https://www.youtube.com/@ie-explains/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> IE Explains</a>
-                                <a href="https://www.youtube.com/@johnnyharris/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Johnny Harris</a>
-                                <a href="https://www.youtube.com/@uncivilized_media/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> uncivilized</a>
-                                <a href="https://www.youtube.com/@veritasium/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Veritasium</a>
+                                <a href="https://www.youtube.com/@Howtown/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGudGqToOw9hWGR88W9Jutg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Howtown</a>
+                                <a href="https://www.youtube.com/@answerinprogress/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCqVEHtQoXHmUCfJ-9smpTSg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Answer in Progress</a>
+                                <a href="https://www.youtube.com/@business/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCUMZ7gohGI9HcU9VNsr2FJQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Bloomberg Originals</a>
+                                <a href="https://www.youtube.com/@halfasinteresting/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCuCkxoKLYO_EQ2GeFtbM_bw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Half as Interesting</a>
+                                <a href="https://www.youtube.com/@ie-explains/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC7Oi2DoJh-ZcjpXaWJrNWkQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> IE Explains</a>
+                                <a href="https://www.youtube.com/@johnnyharris/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCmGSJVG3mCRXVOP4yZrU1Dw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Johnny Harris</a>
+                                <a href="https://www.youtube.com/@uncivilized_media/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGglb26hdG81eW08n4dagUw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> uncivilized</a>
+                                <a href="https://www.youtube.com/@veritasium/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Veritasium</a>
                             </div>
                         </div>
 
@@ -376,15 +289,15 @@
                                 <svg id="arrow-aviation" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
                             <div id="list-aviation" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@3MinutesofAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 3 Minutes of Aviation</a>
-                                <a href="https://www.youtube.com/@lucaas/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> lucaas</a>
-                                <a href="https://www.youtube.com/@MentourPodcast/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> The Mentour Podcast</a>
-                                <a href="https://www.youtube.com/@MentourBlackBox/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour's Black Box</a>
-                                <a href="https://www.youtube.com/@MentourNow/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Now</a>
-                                <a href="https://www.youtube.com/@MentourPilot/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Pilot</a>
-                                <a href="https://www.youtube.com/@GreenDotAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Green Dot Aviation</a>
-                                <a href="https://www.youtube.com/@JxJAVIATION/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> JxJ Aviation</a>
-                                <a href="https://www.youtube.com/@VASAviation/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> VASAviation</a>
+                                <a href="https://www.youtube.com/@3MinutesofAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCCB1oLQY3XM86ACD05Lq4HQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 3 Minutes of Aviation</a>
+                                <a href="https://www.youtube.com/@lucaas/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCfb2YpWR9FWTJMjzvAlP0_Q" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> lucaas</a>
+                                <a href="https://www.youtube.com/@MentourPodcast/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCopzNlZ8i6Xgw0q9eWQlvQw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> The Mentour Podcast</a>
+                                <a href="https://www.youtube.com/@MentourBlackBox/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCoftW9U27KfkNz5jFES7htg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour's Black Box</a>
+                                <a href="https://www.youtube.com/@MentourNow/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCTbcSRduRJJTMaQhUVqywRw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Now</a>
+                                <a href="https://www.youtube.com/@MentourPilot/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCwpHKudUkP5tNgmMdexB3ow" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Pilot</a>
+                                <a href="https://www.youtube.com/@GreenDotAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCfCNU6LWB66VR48V58d2KOg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Green Dot Aviation</a>
+                                <a href="https://www.youtube.com/@JxJAVIATION/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCxaXu_wNt_yUIzSogt1OjpA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> JxJ Aviation</a>
+                                <a href="https://www.youtube.com/@VASAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCuedf_fJVrOppky5gl3U6QQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> VASAviation</a>
                                 <a href="https://www.dailymotion.com/user/yurtseveronr1" target="_blank" class="yt-list-item"><svg class="dm-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zm-1.84-9.352v5.704l4.593-2.852-4.593-2.852z"/></svg> Air Crash Investigation</a>
                             </div>
                         </div>
@@ -395,8 +308,8 @@
                                 <svg id="arrow-knowledge" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
                             <div id="list-knowledge" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@cnklgl/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Flu TV</a>
-                                <a href="https://www.youtube.com/@49W/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 49W</a>
+                                <a href="https://www.youtube.com/@cnklgl/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC-xTvXTm-lrLWYk308-Km3A" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Flu TV</a>
+                                <a href="https://www.youtube.com/@49W/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC5_0UPuXT5SAGsbTe2T_PJg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 49W</a>
                             </div>
                         </div>
 
@@ -406,7 +319,7 @@
                                 <svg id="arrow-english" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
                             <div id="list-english" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@englishspeaking360/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> English Speaking 360</a>
+                                <a href="https://www.youtube.com/@englishspeaking360/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGezWlaEZh7dR5t0BLbzUVQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> English Speaking 360</a>
                                 <a href="https://www.youtube.com/@EngVid/posts" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> engVid: Learn English</a>
                                 <a href="https://www.youtube.com/@kasiitadiriisa2244/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Kasiita Diriisa</a>
                                 <a href="https://www.youtube.com/@NacarHoca/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Nacar Hoca</a>
@@ -426,9 +339,10 @@
             </div>
         </div>
     </div>
+    <!-- END Apps Side Panel -->
 
     <!-- Main Page Content -->
-    <div class="w-full max-w-[1600px] mx-auto">
+    <div class="w-full max-w-[1600px] mx-auto relative z-10">
         <header class="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-6 gap-4 md:gap-6">
             <div class="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
                 <div class="flex items-center gap-4">
@@ -563,9 +477,30 @@
             </div>
         </div>
     </div>
+    <!-- END Main Page Content -->
+
+    <!-- Hover Preview Window -->
+    <div id="hover-preview-window" class="fixed hidden z-[9999] w-[350px] h-[220px] bg-white dark:bg-[#1a1a1a] rounded-xl shadow-2xl border border-[#E5D7CC] dark:border-[#333] overflow-hidden pointer-events-none transition-opacity duration-200 opacity-0">
+        <div class="bg-gray-50 dark:bg-[#222] px-3 py-2 border-b border-[#E5D7CC] dark:border-[#333] flex items-center gap-2">
+            <div class="flex gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+            </div>
+            <span class="text-[10px] font-semibold text-gray-500 dark:text-gray-400 ml-1 truncate" id="preview-title">Preview Window</span>
+        </div>
+        <div class="w-full relative bg-gray-100 dark:bg-[#0f0f0f]" style="height: calc(100% - 33px);">
+            <div id="preview-loading-text" class="absolute inset-0 flex flex-col items-center justify-center text-xs text-gray-400 text-center px-4">
+                <div class="w-6 h-6 border-2 border-[#F3EBE3] border-t-[#AC8766] rounded-full animate-spin mb-2"></div>
+                <span>Loading preview...</span>
+            </div>
+            <div id="hover-preview-content" class="absolute inset-0 z-20 hidden overflow-hidden bg-gray-100 dark:bg-[#0f0f0f]"></div>
+            <iframe id="hover-preview-frame" class="relative z-10 w-full h-full border-none pointer-events-none bg-transparent"></iframe>
+        </div>
+    </div>
 
     <script>
-        // PWA Service Worker Registration (via Blob)
+        // PWA Service Worker Registration
         if ('serviceWorker' in navigator) {
             const swCode = `
                 self.addEventListener('install', (event) => self.skipWaiting());
@@ -684,9 +619,7 @@
         }
 
         if (btnToday) {
-            btnToday.addEventListener('click', () => {
-                loadForDate(new Date());
-            });
+            btnToday.addEventListener('click', () => { loadForDate(new Date()); });
         }
 
         if (btnYesterday) {
@@ -697,13 +630,283 @@
             });
         }
 
-        // Theme Toggle logic refined for global page impact
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); }
+        document.querySelectorAll('#theme-toggle').forEach(btn => { btn.addEventListener('click', toggleTheme); });
+
+        // --- Fast Background Prefetching Engine ---
+        const ytPreviewCache = new Map();
+        let currentPreviewUrl = null;
+
+        // Custom timeout fetch to prevent stalling
+        async function fetchWithTimeout(resource, options = {}) {
+            const { timeout = 4000 } = options;
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
+            try {
+                const response = await fetch(resource, { ...options, signal: controller.signal });
+                clearTimeout(id);
+                return response;
+            } catch(err) {
+                clearTimeout(id);
+                throw err;
+            }
         }
 
-        document.querySelectorAll('#theme-toggle').forEach(btn => {
-            btn.addEventListener('click', toggleTheme);
+        // Secure Multi-Proxy Fetcher with strict timeouts
+        async function fetchFeed(url) {
+            const encodedUrl = encodeURIComponent(url);
+            
+            try {
+                const res = await fetchWithTimeout(`https://api.rss2json.com/v1/api.json?rss_url=${encodedUrl}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.status === 'ok') return { type: 'json', data: data };
+                }
+            } catch(e) {}
+
+            try {
+                const res = await fetchWithTimeout(`https://api.allorigins.win/get?url=${encodedUrl}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.contents && data.contents.includes('<entry>')) return { type: 'xml', data: data.contents };
+                }
+            } catch(e) {}
+
+            try {
+                const res = await fetchWithTimeout(`https://api.codetabs.com/v1/proxy?quest=${encodedUrl}`);
+                if (res.ok) {
+                    const text = await res.text();
+                    if (text.includes('<entry>')) return { type: 'xml', data: text };
+                }
+            } catch(e) {}
+
+            throw new Error('All feed proxies failed.');
+        }
+
+        function extractVideoFromData(result, defaultAuthor) {
+            if (result.type === 'json') {
+                const items = result.data.items || [];
+                for (let item of items) {
+                    const title = item.title || '';
+                    const desc = item.description || '';
+                    const linkStr = item.link || '';
+                    
+                    const isShortURL = linkStr.toLowerCase().includes('/shorts/');
+                    const isStandardURL = linkStr.toLowerCase().includes('/v/') || linkStr.toLowerCase().includes('watch?v=');
+                    const hasShortTags = title.toLowerCase().includes('#short') || desc.toLowerCase().includes('#short') || desc.toLowerCase().includes('/shorts/');
+
+                    if (!isShortURL && isStandardURL && !hasShortTags) {
+                        return {
+                            title: title,
+                            author: item.author || defaultAuthor,
+                            pubDate: item.pubDate ? new Date(item.pubDate.replace(/-/g, '/')).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '',
+                            thumbnail: item.thumbnail || ''
+                        };
+                    }
+                }
+                if (items.length > 0) {
+                    return {
+                        title: items[0].title || 'Unknown Title',
+                        author: items[0].author || defaultAuthor,
+                        pubDate: items[0].pubDate ? new Date(items[0].pubDate.replace(/-/g, '/')).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '',
+                        thumbnail: items[0].thumbnail || ''
+                    };
+                }
+                return null;
+            } else if (result.type === 'xml') {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(result.data, "text/xml");
+                const entries = xml.getElementsByTagName('entry');
+                
+                for(let i = 0; i < entries.length; i++) {
+                    const entry = entries[i];
+                    const title = entry.getElementsByTagName('title')[0]?.textContent || '';
+                    const mediaGroup = entry.getElementsByTagName('media:group')[0];
+                    const desc = mediaGroup ? (mediaGroup.getElementsByTagName('media:description')[0]?.textContent || '') : '';
+                    const linkNode = entry.getElementsByTagName('link')[0];
+                    const linkStr = linkNode ? linkNode.getAttribute('href') : '';
+                    
+                    const isShortURL = linkStr.toLowerCase().includes('/shorts/');
+                    const isStandardURL = linkStr.toLowerCase().includes('/v/') || linkStr.toLowerCase().includes('watch?v=');
+                    const hasShortTags = title.toLowerCase().includes('#short') || desc.toLowerCase().includes('#short') || desc.toLowerCase().includes('/shorts/');
+
+                    if (!isShortURL && isStandardURL && !hasShortTags) {
+                        const pubDateNode = entry.getElementsByTagName('published')[0];
+                        const authorNode = entry.getElementsByTagName('author')[0];
+                        const thumbnailNode = mediaGroup ? mediaGroup.getElementsByTagName('media:thumbnail')[0] : null;
+
+                        return {
+                            title: title,
+                            author: authorNode ? (authorNode.getElementsByTagName('name')[0]?.textContent || defaultAuthor) : defaultAuthor,
+                            pubDate: pubDateNode ? new Date(pubDateNode.textContent).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '',
+                            thumbnail: thumbnailNode ? thumbnailNode.getAttribute('url') : ''
+                        };
+                    }
+                }
+                
+                if (entries.length > 0) {
+                    const entry = entries[0];
+                    const title = entry.getElementsByTagName('title')[0]?.textContent || 'Unknown Title';
+                    const mediaGroup = entry.getElementsByTagName('media:group')[0];
+                    const pubDateNode = entry.getElementsByTagName('published')[0];
+                    const authorNode = entry.getElementsByTagName('author')[0];
+                    const thumbnailNode = mediaGroup ? mediaGroup.getElementsByTagName('media:thumbnail')[0] : null;
+
+                    return {
+                        title: title,
+                        author: authorNode ? (authorNode.getElementsByTagName('name')[0]?.textContent || defaultAuthor) : defaultAuthor,
+                        pubDate: pubDateNode ? new Date(pubDateNode.textContent).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '',
+                        thumbnail: thumbnailNode ? thumbnailNode.getAttribute('url') : ''
+                    };
+                }
+                return null;
+            }
+        }
+
+        // Cache Management function (Ensures we only fetch each URL once)
+        function fetchAndCacheYTData(url, titleText) {
+            if (!ytPreviewCache.has(url) || ytPreviewCache.get(url) === null) {
+                const promise = fetchFeed(url)
+                    .then(result => {
+                        const video = extractVideoFromData(result, titleText);
+                        if (!video) throw new Error("No video found");
+                        return video;
+                    })
+                    .catch(err => {
+                        console.error("Feed error for " + titleText + ":", err);
+                        ytPreviewCache.delete(url); // Remove from cache to allow retries on manual hover
+                        return null;
+                    });
+                ytPreviewCache.set(url, promise);
+            }
+            return ytPreviewCache.get(url);
+        }
+
+        // Pre-fetch all thumbnails automatically in the background, sequentially
+        async function prefetchAllYouTubeFeeds() {
+            const ytLinks = document.querySelectorAll('[data-preview-url*="feeds/videos.xml"]');
+            for (let link of ytLinks) {
+                const url = link.getAttribute('data-preview-url');
+                const titleText = link.textContent.trim() || link.title || 'YouTube Channel';
+                
+                if (url && !ytPreviewCache.has(url)) {
+                    fetchAndCacheYTData(url, titleText); // initiate without awaiting
+                    await new Promise(r => setTimeout(r, 1500)); // Wait 1.5 seconds between prefetch requests to avoid IP limits
+                }
+            }
+        }
+
+        // --- Hover Execution ---
+        const previewWindow = document.getElementById('hover-preview-window');
+        const previewFrame = document.getElementById('hover-preview-frame');
+        const previewTitle = document.getElementById('preview-title');
+        const previewContent = document.getElementById('hover-preview-content');
+        const previewLoading = document.getElementById('preview-loading-text');
+        let previewTimeout;
+
+        const linksToPreview = document.querySelectorAll('.yt-list-item, a[href*="youtube.com"]');
+        linksToPreview.forEach(item => {
+            item.addEventListener('mouseenter', (e) => {
+                const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
+                let titleText = item.textContent.trim() || item.title || 'YouTube Channel';
+
+                if(url && url.startsWith('http')) {
+                    previewTimeout = setTimeout(() => {
+                        currentPreviewUrl = url;
+                        if(previewTitle) previewTitle.textContent = titleText;
+                        
+                        if (previewWindow) {
+                            previewWindow.style.display = 'block';
+                            requestAnimationFrame(() => {
+                                previewWindow.classList.remove('opacity-0');
+                                previewWindow.classList.add('opacity-100');
+                            });
+
+                            const rect = item.getBoundingClientRect();
+                            let top = rect.top - 80;
+                            let left = rect.right + 20;
+
+                            // Bounding box protection to ensure the popup stays entirely on screen
+                            if (top + 230 > window.innerHeight) top = window.innerHeight - 250;
+                            if (top < 20) top = 20;
+
+                            if (left + 350 > window.innerWidth) {
+                                left = rect.left - 370; // Try placing it to the left of the cursor instead
+                            }
+                            if (left < 20) {
+                                left = 20; // Pin left edge
+                                top = rect.bottom + 20; // Move beneath cursor so we don't cover it
+                            }
+
+                            previewWindow.style.top = top + 'px';
+                            previewWindow.style.left = left + 'px';
+                        }
+
+                        if (url.includes('feeds/videos.xml')) {
+                            // FAST CACHED THUMBNAIL RENDER
+                            if(previewFrame) previewFrame.style.display = 'none';
+                            if(previewContent) previewContent.style.display = 'none';
+                            if(previewLoading) previewLoading.style.display = 'flex';
+
+                            fetchAndCacheYTData(url, titleText).then(video => {
+                                // Double check the user hasn't moved their mouse to another link while we were getting data
+                                if (currentPreviewUrl !== url) return;
+
+                                if (video && previewContent) {
+                                    if(previewLoading) previewLoading.style.display = 'none';
+                                    previewContent.style.display = 'block';
+                                    previewContent.innerHTML = `
+                                        <div class="flex flex-col h-full w-full bg-white dark:bg-[#1a1a1a]">
+                                            <div class="w-full h-[120px] relative bg-black">
+                                                <img src="${video.thumbnail}" class="w-full h-full object-cover opacity-90" alt="Thumbnail" onerror="this.src='https://via.placeholder.com/350x120?text=No+Thumbnail'" />
+                                                <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                                                    <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
+                                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="p-3 flex flex-col gap-1.5 h-[67px] justify-center">
+                                                <span class="font-semibold text-xs text-gray-900 dark:text-gray-100 line-clamp-2 leading-snug" title="${video.title.replace(/"/g, '&quot;')}">${video.title}</span>
+                                                <span class="text-[10px] text-gray-500 font-medium">${video.pubDate ? video.pubDate + ' • ' : ''}${video.author}</span>
+                                            </div>
+                                        </div>`;
+                                } else if (previewContent) {
+                                    if(previewLoading) previewLoading.style.display = 'none';
+                                    previewContent.style.display = 'block';
+                                    previewContent.innerHTML = '<div class="flex items-center justify-center h-full text-xs text-red-400">No videos found.</div>';
+                                }
+                            });
+                        } else {
+                            // Standard URL logic for non-YouTube links
+                            if(previewContent) previewContent.style.display = 'none';
+                            if(previewLoading) previewLoading.style.display = 'flex';
+                            if(previewFrame) {
+                                previewFrame.style.display = 'block';
+                                previewFrame.src = url;
+                                previewFrame.onload = () => {
+                                    if(previewLoading) previewLoading.style.display = 'none';
+                                };
+                            }
+                        }
+                    }, 200); 
+                }
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                clearTimeout(previewTimeout);
+                currentPreviewUrl = null;
+                if(previewWindow) {
+                    previewWindow.classList.remove('opacity-100');
+                    previewWindow.classList.add('opacity-0');
+                    setTimeout(() => {
+                        if(previewWindow.classList.contains('opacity-0')) {
+                            previewWindow.style.display = 'none';
+                            if(previewFrame) previewFrame.src = 'about:blank';
+                            if(previewContent) previewContent.innerHTML = '';
+                        }
+                    }, 200);
+                }
+            });
         });
 
         window.addEventListener('message', (event) => {
@@ -718,9 +921,10 @@
             }
         });
 
-        // Open Wordle by default on initial load
         window.addEventListener('DOMContentLoaded', () => {
             openInViewer('https://wordle.global/');
+            // Start the background prefetching engine automatically
+            prefetchAllYouTubeFeeds();
         });
     </script>
 </body>
