@@ -804,11 +804,22 @@
         const previewLoading = document.getElementById('preview-loading-text');
         let previewTimeout;
 
+        const disabledPreviews = [
+            "engVid: Learn English",
+            "Kasiita Diriisa",
+            "Nacar Hoca",
+            "Sezgin Östek",
+            "Yetişkince Sınav",
+            "Air Crash Investigation"
+        ];
+
         const linksToPreview = document.querySelectorAll('.yt-list-item, a[href*="youtube.com"]');
         linksToPreview.forEach(item => {
             item.addEventListener('mouseenter', (e) => {
                 const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
                 let titleText = item.textContent.trim() || item.title || 'YouTube Channel';
+
+                if (disabledPreviews.includes(titleText)) return;
 
                 if(url && url.startsWith('http')) {
                     previewTimeout = setTimeout(() => {
