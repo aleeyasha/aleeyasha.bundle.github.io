@@ -609,6 +609,8 @@
         const searchSubmit = document.getElementById('search-submit');
         const searchRecs = document.getElementById('search-recommendations');
         let appLinks = [];
+        let currentSearchIndex = -1;
+        let currentSearchMatches = [];
         
         const btnMusic = document.getElementById('btn-music');
         const musicPopup = document.getElementById('music-popup');
@@ -667,7 +669,23 @@
             closeSearch();
         }
 
+        function updateSearchSelection(index) {
+            const items = document.querySelectorAll('.search-result-item');
+            if (!items.length) return;
+            
+            items.forEach(el => el.classList.remove('bg-gray-100', 'dark:bg-[#333]'));
+            
+            if (index >= 0 && index < items.length) {
+                currentSearchIndex = index;
+                items[index].classList.add('bg-gray-100', 'dark:bg-[#333]');
+                items[index].scrollIntoView({ block: 'nearest' });
+            } else {
+                currentSearchIndex = -1;
+            }
+        }
+
         function renderRecommendations(query) {
+            currentSearchIndex = -1;
             if (!query || !searchRecs) {
                 if (searchRecs) {
                     searchRecs.classList.add('hidden');
@@ -676,25 +694,43 @@
                 return;
             }
             const q = query.toLowerCase();
-            const matches = appLinks.filter(app => app.title.toLowerCase().includes(q));
+            currentSearchMatches = appLinks.filter(app => app.title.toLowerCase().includes(q));
             
-            if (matches.length > 0) {
-                searchRecs.classList.remove('hidden');
-                searchRecs.innerHTML = matches.map((app, index) => `
-                    <button class="search-result-item flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#333] transition-colors text-left" data-index="${index}">
-                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">${app.title}</span>
+            let html = '';
+            if (currentSearchMatches.length > 0) {
+                html += currentSearchMatches.map((app, index) => `
+                    <button class="search-result-item flex items-center p-2 rounded-lg transition-colors text-left" data-index="${index}">
+                        <span class="text-sm font-medium text-[#AC8766] truncate">${app.title}</span>
                     </button>
                 `).join('');
-
-                document.querySelectorAll('.search-result-item').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        executeSearchApp(matches[btn.getAttribute('data-index')]);
-                    });
-                });
-            } else {
-                searchRecs.classList.remove('hidden');
-                searchRecs.innerHTML = `<div class="p-2 text-xs text-gray-500 text-center">No apps found</div>`;
             }
+            
+            // Add Google search fallback
+            const googleIndex = currentSearchMatches.length;
+            html += `
+                <button class="search-result-item flex items-center p-2 rounded-lg transition-colors text-left group" data-index="${googleIndex}">
+                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate group-hover:text-[#AC8766]">🔍 Search Google for "${query}"</span>
+                </button>
+            `;
+
+            searchRecs.classList.remove('hidden');
+            searchRecs.innerHTML = html;
+
+            document.querySelectorAll('.search-result-item').forEach((btn, idx) => {
+                btn.addEventListener('click', () => {
+                    if (idx === googleIndex) {
+                        window.open(`https://www.google.com/search?udm=50&q=${encodeURIComponent(query)}`, '_blank');
+                        closeSearch();
+                    } else {
+                        executeSearchApp(currentSearchMatches[idx]);
+                    }
+                });
+                btn.addEventListener('mouseenter', () => updateSearchSelection(idx));
+                btn.addEventListener('mouseleave', () => {
+                    btn.classList.remove('bg-gray-100', 'dark:bg-[#333]');
+                    currentSearchIndex = -1;
+                });
+            });
         }
 
         if (searchInput) {
@@ -702,20 +738,40 @@
                 renderRecommendations(e.target.value.trim());
             });
             searchInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
+                const items = document.querySelectorAll('.search-result-item');
+                if (e.key === 'ArrowDown') {
                     e.preventDefault();
-                    searchSubmit.click();
+                    if (items.length > 0) {
+                        let next = currentSearchIndex + 1;
+                        if (next >= items.length) next = 0;
+                        updateSearchSelection(next);
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (items.length > 0) {
+                        let prev = currentSearchIndex - 1;
+                        if (prev < 0) prev = items.length - 1;
+                        updateSearchSelection(prev);
+                    }
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (currentSearchIndex >= 0 && items[currentSearchIndex]) {
+                        items[currentSearchIndex].click();
+                    } else if (items.length > 0) {
+                        items[0].click();
+                    }
                 }
             });
         }
 
         if (searchSubmit) {
-            searchSubmit.addEventListener('click', () => {
-                const query = searchInput.value.trim().toLowerCase();
-                if(!query) return;
-                const matches = appLinks.filter(app => app.title.toLowerCase().includes(query));
-                if(matches.length > 0) {
-                    executeSearchApp(matches[0]);
+            searchSubmit.addEventListener('click', (e) => {
+                e.preventDefault();
+                const items = document.querySelectorAll('.search-result-item');
+                if (currentSearchIndex >= 0 && items[currentSearchIndex]) {
+                    items[currentSearchIndex].click();
+                } else if (items.length > 0) {
+                    items[0].click();
                 }
             });
         }
