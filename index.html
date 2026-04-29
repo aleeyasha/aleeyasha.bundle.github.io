@@ -426,6 +426,32 @@
                 <!-- Icons container to keep them grouped nicely -->
                 <div class="flex items-center justify-center gap-2 md:gap-3 order-1 md:order-none">
                     
+                    <!-- Search Button -->
+                    <div class="relative">
+                        <button id="btn-search" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Search Apps">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                        <div id="search-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-[260px] bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden flex-col gap-2 z-[110] transition-all">
+                            <div class="flex items-center w-full bg-gray-50 dark:bg-[#222] rounded-xl overflow-hidden px-2 border border-transparent focus-within:border-[#AC8766] transition-colors">
+                                <input type="text" id="search-input" placeholder="Search apps..." class="w-full bg-transparent text-sm py-2.5 px-2 outline-none text-gray-800 dark:text-gray-200" autocomplete="off">
+                                <button id="search-submit" class="text-[#AC8766] hover:text-[#906A49] p-1 transition-colors">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </button>
+                            </div>
+                            <div id="search-recommendations" class="flex flex-col gap-1 max-h-[180px] overflow-y-auto hidden mt-1 custom-scrollbar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Music Button -->
+                    <div class="relative">
+                        <button id="btn-music" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Spotify Playlist">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                        </button>
+                        <div id="music-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-[300px] md:w-[350px] bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-2 hidden flex-col gap-2 z-[110] transition-all">
+                            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3qqrBTfECBUNXyBLcEgQu2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
                     <!-- Apps Menu Button -->
                     <div class="relative">
                         <button id="btn-apps-menu" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#AC8766] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Apps Menu">
@@ -576,6 +602,123 @@
         const btnToday = document.getElementById('btn-today');
         const btnYesterday = document.getElementById('btn-yesterday');
         const appsPanel = document.getElementById('apps-panel');
+        
+        const btnSearch = document.getElementById('btn-search');
+        const searchPopup = document.getElementById('search-popup');
+        const searchInput = document.getElementById('search-input');
+        const searchSubmit = document.getElementById('search-submit');
+        const searchRecs = document.getElementById('search-recommendations');
+        let appLinks = [];
+        
+        const btnMusic = document.getElementById('btn-music');
+        const musicPopup = document.getElementById('music-popup');
+
+        function closeSearch() {
+            if (searchPopup) {
+                searchPopup.classList.add('hidden');
+                searchPopup.classList.remove('flex');
+            }
+            if (searchInput) searchInput.value = '';
+            if (searchRecs) searchRecs.classList.add('hidden');
+        }
+
+        if (btnSearch && searchPopup) {
+            btnSearch.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (musicPopup) { musicPopup.classList.add('hidden'); musicPopup.classList.remove('flex'); }
+                const isHidden = searchPopup.classList.contains('hidden');
+                if (isHidden) {
+                    searchPopup.classList.remove('hidden');
+                    searchPopup.classList.add('flex');
+                    setTimeout(() => searchInput.focus(), 50);
+                    renderRecommendations(searchInput.value.trim());
+                } else {
+                    closeSearch();
+                }
+            });
+            searchPopup.addEventListener('click', (e) => e.stopPropagation());
+        }
+
+        if (btnMusic && musicPopup) {
+            btnMusic.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeSearch();
+                const isHidden = musicPopup.classList.contains('hidden');
+                if (isHidden) {
+                    musicPopup.classList.remove('hidden');
+                    musicPopup.classList.add('flex');
+                } else {
+                    musicPopup.classList.add('hidden');
+                    musicPopup.classList.remove('flex');
+                }
+            });
+            musicPopup.addEventListener('click', (e) => e.stopPropagation());
+        }
+
+        function executeSearchApp(app) {
+            if (!app) return;
+            if (app.isCustom) {
+                app.action();
+            } else if (app.isViewer) {
+                openInViewer(app.url);
+            } else {
+                window.open(app.url, '_blank');
+            }
+            closeSearch();
+        }
+
+        function renderRecommendations(query) {
+            if (!query || !searchRecs) {
+                if (searchRecs) {
+                    searchRecs.classList.add('hidden');
+                    searchRecs.innerHTML = '';
+                }
+                return;
+            }
+            const q = query.toLowerCase();
+            const matches = appLinks.filter(app => app.title.toLowerCase().includes(q));
+            
+            if (matches.length > 0) {
+                searchRecs.classList.remove('hidden');
+                searchRecs.innerHTML = matches.map((app, index) => `
+                    <button class="search-result-item flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#333] transition-colors text-left" data-index="${index}">
+                        <span class="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">${app.title}</span>
+                    </button>
+                `).join('');
+
+                document.querySelectorAll('.search-result-item').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        executeSearchApp(matches[btn.getAttribute('data-index')]);
+                    });
+                });
+            } else {
+                searchRecs.classList.remove('hidden');
+                searchRecs.innerHTML = `<div class="p-2 text-xs text-gray-500 text-center">No apps found</div>`;
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                renderRecommendations(e.target.value.trim());
+            });
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    searchSubmit.click();
+                }
+            });
+        }
+
+        if (searchSubmit) {
+            searchSubmit.addEventListener('click', () => {
+                const query = searchInput.value.trim().toLowerCase();
+                if(!query) return;
+                const matches = appLinks.filter(app => app.title.toLowerCase().includes(query));
+                if(matches.length > 0) {
+                    executeSearchApp(matches[0]);
+                }
+            });
+        }
 
         function togglePanel() {
             appsPanel?.classList.toggle('open');
@@ -993,6 +1136,15 @@
             if (previewWindow?.style.display === 'block' && !previewWindow.contains(e.target) && !e.target.closest('.yt-preview-trigger') && !e.target.closest('.yt-list-item') && !e.target.closest('a[href*="youtube.com"]')) {
                 hidePreview();
             }
+
+            if (searchPopup && !searchPopup.classList.contains('hidden') && !btnSearch.contains(e.target)) {
+                closeSearch();
+            }
+
+            if (musicPopup && !musicPopup.classList.contains('hidden') && !btnMusic.contains(e.target)) {
+                musicPopup.classList.add('hidden');
+                musicPopup.classList.remove('flex');
+            }
         });
 
         window.addEventListener('message', (e) => {
@@ -1012,6 +1164,29 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
+            // Build internal search dictionary dynamically from the DOM so it stays updated
+            document.querySelectorAll('.nav-item-small, .yt-list-item').forEach(el => {
+                const title = el.textContent.trim();
+                let url = el.getAttribute('href'); // Use direct href for all links including YouTube channels
+                let isViewer = false;
+                
+                if (!url || url === '#' || url.includes('javascript:')) {
+                    const onclick = el.getAttribute('onclick');
+                    if (onclick && onclick.includes('openInViewer')) {
+                        const match = onclick.match(/'([^']+)'/);
+                        if (match) { url = match[1]; isViewer = true; }
+                    }
+                }
+
+                if (title && url && !appLinks.some(l => l.title === title)) {
+                    appLinks.push({ title, url, isViewer });
+                }
+            });
+
+            // Add custom internal search commands
+            appLinks.push({ title: "Latest Videos", isCustom: true, action: () => document.getElementById('btn-show-latest-videos')?.click() });
+            appLinks.push({ title: "Bundle", isCustom: true, action: () => loadForDate(new Date()) });
+
             openInViewer('https://wordle.global/');
             prefetchAllYouTubeFeeds();
         });
