@@ -103,11 +103,11 @@
         .yt-brand-icon { color: #FF0000; flex-shrink: 0; }
         .dm-brand-icon { color: #0066dc; flex-shrink: 0; }
 
-        /* Custom Scrollbar for latest videos */
-        #latest-videos-view::-webkit-scrollbar { width: 8px; }
-        #latest-videos-view::-webkit-scrollbar-track { background: transparent; }
-        #latest-videos-view::-webkit-scrollbar-thumb { background: rgba(172, 135, 102, 0.3); border-radius: 4px; }
-        #latest-videos-view::-webkit-scrollbar-thumb:hover { background: rgba(172, 135, 102, 0.6); }
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(172, 135, 102, 0.3); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(172, 135, 102, 0.6); }
     </style>
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden pt-[max(0.75rem,env(safe-area-inset-top))] md:pt-[max(1.5rem,env(safe-area-inset-top))]">
@@ -380,21 +380,26 @@
                                 <a href="https://www.dailymotion.com/user/yurtseveronr1" target="_blank" class="yt-list-item"><svg class="dm-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zm-1.84-9.352v5.704l4.593-2.852-4.593-2.852z"/></svg> Air Crash Investigation</a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <div>
-                            <button onclick="toggleYT('english')" class="w-full flex items-center justify-between text-left group">
-                                <span class="serif-heading text-3xl group-hover:text-[#AC8766] transition-colors">English</span>
-                                <svg id="arrow-english" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
+            <!-- To Do List Section -->
+            <div class="lg:col-span-4 flex flex-col gap-10">
+                <div class="pt-4 border-t border-gray-100 dark:border-[#222] lg:border-none lg:pt-0 h-full flex flex-col">
+                    <div class="flex items-center justify-between mb-[1.5rem]">
+                        <span class="menu-col-label !mb-0">To Do List</span>
+                    </div>
+                    <div class="flex flex-col gap-4 flex-1">
+                        <form id="todo-form" class="flex gap-2">
+                            <input type="text" id="todo-input" placeholder="Add a new task..." class="w-full bg-gray-50 dark:bg-[#222] text-sm py-2.5 px-3 rounded-xl outline-none text-gray-800 dark:text-gray-200 border border-transparent focus:border-[#AC8766] transition-colors" autocomplete="off" required>
+                            <button type="submit" class="bg-[#AC8766] text-white px-3 py-2.5 rounded-xl hover:bg-[#906A49] transition-colors focus:outline-none flex-shrink-0" title="Add Task">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                             </button>
-                            <div id="list-english" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@englishspeaking360/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGezWlaEZh7dR5t0BLbzUVQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> English Speaking 360</a>
-                                <a href="https://www.youtube.com/@EngVid/posts" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> engVid: Learn English</a>
-                                <a href="https://www.youtube.com/@kasiitadiriisa2244/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Kasiita Diriisa</a>
-                                <a href="https://www.youtube.com/@NacarHoca/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Nacar Hoca</a>
-                                <a href="https://www.youtube.com/@sezginostek5564/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Sezgin Östek</a>
-                                <a href="https://www.youtube.com/@yetiskince/videos" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Yetişkince Sınav</a>
-                            </div>
-                        </div>
+                        </form>
+                        <ul id="todo-list" class="flex flex-col gap-2 max-h-[350px] overflow-y-auto custom-scrollbar pr-1 flex-1">
+                            <li class="text-xs text-gray-500 text-center py-6 empty-todo-msg">No tasks yet. You're all caught up!</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1218,6 +1223,84 @@
                 if (targetUrl) window.open(targetUrl, '_blank');
             }
         });
+
+        // To Do List Logic
+        const todoForm = document.getElementById('todo-form');
+        const todoInput = document.getElementById('todo-input');
+        const todoList = document.getElementById('todo-list');
+        
+        if (todoForm && todoInput && todoList) {
+            todoForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const text = todoInput.value.trim();
+                if (!text) return;
+
+                const emptyMsg = todoList.querySelector('.empty-todo-msg');
+                if (emptyMsg) emptyMsg.remove();
+
+                const li = document.createElement('li');
+                li.className = "flex items-start justify-between gap-3 p-3 bg-gray-50 dark:bg-[#222] rounded-xl group transition-all duration-200 ease-in-out";
+                
+                const leftDiv = document.createElement('div');
+                leftDiv.className = "flex items-start gap-3 overflow-hidden mt-0.5";
+                
+                const checkBtn = document.createElement('button');
+                checkBtn.className = "w-4 h-4 mt-0.5 flex-shrink-0 rounded-md border-2 border-gray-300 dark:border-gray-500 hover:border-[#AC8766] dark:hover:border-[#AC8766] transition-colors flex items-center justify-center focus:outline-none bg-transparent";
+                
+                const checkIcon = document.createElement('span');
+                checkIcon.innerHTML = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 transition-all duration-200 scale-50"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                checkBtn.appendChild(checkIcon);
+
+                const span = document.createElement('span');
+                span.className = "text-sm text-gray-800 dark:text-gray-200 transition-all break-words leading-snug";
+                span.textContent = text;
+
+                leftDiv.appendChild(checkBtn);
+                leftDiv.appendChild(span);
+
+                const delBtn = document.createElement('button');
+                delBtn.className = "text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity focus:outline-none p-1 flex-shrink-0";
+                delBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>`;
+
+                li.appendChild(leftDiv);
+                li.appendChild(delBtn);
+
+                let isCompleted = false;
+                checkBtn.addEventListener('click', () => {
+                    isCompleted = !isCompleted;
+                    const svgIcon = checkIcon.querySelector('svg');
+                    if (isCompleted) {
+                        checkBtn.classList.replace('border-gray-300', 'border-[#AC8766]');
+                        checkBtn.classList.replace('dark:border-gray-500', 'dark:border-[#AC8766]');
+                        checkBtn.classList.replace('bg-transparent', 'bg-[#AC8766]');
+                        svgIcon.classList.remove('opacity-0', 'scale-50');
+                        svgIcon.classList.add('opacity-100', 'scale-100');
+                        span.classList.add('line-through', 'opacity-40');
+                    } else {
+                        checkBtn.classList.replace('border-[#AC8766]', 'border-gray-300');
+                        checkBtn.classList.replace('dark:border-[#AC8766]', 'dark:border-gray-500');
+                        checkBtn.classList.replace('bg-[#AC8766]', 'bg-transparent');
+                        svgIcon.classList.add('opacity-0', 'scale-50');
+                        svgIcon.classList.remove('opacity-100', 'scale-100');
+                        span.classList.remove('line-through', 'opacity-40');
+                    }
+                });
+
+                delBtn.addEventListener('click', () => {
+                    li.style.opacity = '0';
+                    li.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        li.remove();
+                        if (todoList.children.length === 0) {
+                            todoList.innerHTML = `<li class="text-xs text-gray-500 text-center py-6 empty-todo-msg">No tasks yet. You're all caught up!</li>`;
+                        }
+                    }, 200);
+                });
+
+                todoList.appendChild(li);
+                todoInput.value = '';
+            });
+        }
 
         window.addEventListener('DOMContentLoaded', () => {
             // Build internal search dictionary dynamically from the DOM so it stays updated
