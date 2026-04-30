@@ -1021,20 +1021,48 @@
         const todoForm = document.getElementById('todo-form');
         const todoInput = document.getElementById('todo-input');
         const todoList = document.getElementById('todo-list');
-        if (todoForm) todoForm.onsubmit = (e) => {
-            e.preventDefault();
-            const text = todoInput.value.trim();
-            if (!text) return;
-            const empty = todoList.querySelector('.empty-todo-msg'); if (empty) empty.remove();
+        
+        function saveTodos() {
+            if (!todoList) return;
+            const todos = [];
+            todoList.querySelectorAll('li:not(.empty-todo-msg)').forEach(li => {
+                const span = li.querySelector('span');
+                const btn = li.querySelector('button');
+                if (span && btn) todos.push({ text: span.textContent, completed: btn.classList.contains('bg-[#AC8766]') });
+            });
+            localStorage.setItem('bundle_todos', JSON.stringify(todos));
+        }
+
+        function createTodoItem(text, isCompleted = false) {
             const li = document.createElement('li');
             li.className = "flex items-start justify-between p-3 bg-gray-50 dark:bg-[#222] rounded-xl group";
-            li.innerHTML = `<div class="flex items-start gap-3"><button class="w-4 h-4 mt-1 border-2 border-gray-300 dark:border-gray-500 rounded-md"></button><span class="text-sm leading-snug">${text}</span></div><button class="opacity-0 group-hover:opacity-100 text-red-500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>`;
+            li.innerHTML = `<div class="flex items-start gap-3"><button class="w-4 h-4 mt-1 border-2 border-gray-300 dark:border-gray-500 rounded-md ${isCompleted ? 'bg-[#AC8766]' : ''}"></button><span class="text-sm leading-snug ${isCompleted ? 'line-through opacity-40' : ''}">${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</span></div><button class="opacity-0 group-hover:opacity-100 text-red-500 transition-opacity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>`;
             const btn = li.querySelector('button');
             const span = li.querySelector('span');
-            btn.onclick = () => { btn.classList.toggle('bg-[#AC8766]'); span.classList.toggle('line-through'); span.classList.toggle('opacity-40'); };
-            li.querySelector('button:last-child').onclick = () => { li.remove(); if (!todoList.children.length) todoList.innerHTML = '<li class="empty-todo-msg text-xs text-center py-6 text-gray-500">No tasks yet.</li>'; };
-            todoList.appendChild(li); todoInput.value = '';
-        };
+            btn.onclick = () => { btn.classList.toggle('bg-[#AC8766]'); span.classList.toggle('line-through'); span.classList.toggle('opacity-40'); saveTodos(); };
+            li.querySelector('button:last-child').onclick = () => { li.remove(); if (!todoList.children.length) todoList.innerHTML = '<li class="empty-todo-msg text-xs text-center py-6 text-gray-500">No tasks yet.</li>'; saveTodos(); };
+            return li;
+        }
+
+        if (todoForm && todoInput && todoList) {
+            try {
+                const saved = JSON.parse(localStorage.getItem('bundle_todos') || '[]');
+                if (saved.length > 0) {
+                    todoList.innerHTML = '';
+                    saved.forEach(t => todoList.appendChild(createTodoItem(t.text, t.completed)));
+                }
+            } catch(e) { console.error("Failed to load to-dos", e); }
+
+            todoForm.onsubmit = (e) => {
+                e.preventDefault();
+                const text = todoInput.value.trim();
+                if (!text) return;
+                const empty = todoList.querySelector('.empty-todo-msg'); if (empty) empty.remove();
+                todoList.appendChild(createTodoItem(text, false)); 
+                todoInput.value = '';
+                saveTodos();
+            };
+        }
 
         window.onload = () => {
             document.querySelectorAll('.nav-item-small, .yt-list-item').forEach(el => {
