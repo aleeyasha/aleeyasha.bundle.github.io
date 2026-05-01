@@ -108,8 +108,6 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(172, 135, 102, 0.3); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(172, 135, 102, 0.6); }
-
-        .mobile-menu-open { display: flex !important; }
     </style>
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden pt-[max(0.75rem,env(safe-area-inset-top))] md:pt-[max(1.5rem,env(safe-area-inset-top))]">
@@ -1035,32 +1033,6 @@
 
         window.addEventListener('message', (e) => { if (e.data.type === 'THEME_CHANGE') { document.documentElement.classList.toggle('dark', !!e.data.isDark); updateThemeColor(); } else if (e.data.url) openInViewer(e.data.url); });
         document.onkeydown = (e) => { if (e.shiftKey && e.key.toLowerCase() === 'q') { const u = currentHoveredVideoLink || (currentPreviewUrl && !currentPreviewUrl.includes('feeds') ? currentPreviewUrl : null); if (u) window.open(u, '_blank'); } };
-
-        // Mobile Dropdown Support
-        document.querySelectorAll('.group > button, .group\\/sub > a').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const menu = btn.nextElementSibling;
-                if (menu && menu.classList.contains('absolute')) {
-                    const isOpen = menu.classList.contains('mobile-menu-open');
-                    
-                    // Close other open menus on the same level
-                    if (btn.tagName === 'BUTTON') {
-                        document.querySelectorAll('.group > div.absolute').forEach(m => m.classList.remove('mobile-menu-open'));
-                    }
-                    
-                    if (!isOpen) {
-                        menu.classList.add('mobile-menu-open');
-                    } else {
-                        menu.classList.remove('mobile-menu-open');
-                    }
-                    e.stopPropagation();
-                }
-            });
-        });
-
-        document.addEventListener('click', () => {
-            document.querySelectorAll('.mobile-menu-open').forEach(m => m.classList.remove('mobile-menu-open'));
-        });
 
         // Fullscreen Logic
         const btnFullscreen = document.getElementById('btn-fullscreen');
