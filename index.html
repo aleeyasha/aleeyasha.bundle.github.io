@@ -1121,6 +1121,36 @@
         }
 
         if (btnFullscreen && viewerContainer) {
+            btnFullscreen.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (!newsFrame) return;
+                
+                try {
+                    // Try to inject selective inversion CSS inside the iframe (if same-origin allows)
+                    const doc = newsFrame.contentDocument || newsFrame.contentWindow.document;
+                    let style = doc.getElementById('smart-dark-mode');
+                    if (style) {
+                        style.remove();
+                    } else {
+                        style = doc.createElement('style');
+                        style.id = 'smart-dark-mode';
+                        style.textContent = `
+                            html { filter: invert(1) hue-rotate(180deg) !important; background: #fff !important; }
+                            img, picture, video, iframe, canvas, svg, [style*="background-image"] { filter: invert(1) hue-rotate(180deg) !important; }
+                        `;
+                        doc.head.appendChild(style);
+                    }
+                } catch(err) {
+                    // CORS Fallback: Invert the entire iframe from the outside
+                    if (newsFrame.style.filter === 'invert(1) hue-rotate(180deg)') {
+                        newsFrame.style.filter = 'none';
+                    } else {
+                        newsFrame.style.filter = 'invert(1) hue-rotate(180deg)';
+                    }
+                }
+            });
+
             btnFullscreen.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
