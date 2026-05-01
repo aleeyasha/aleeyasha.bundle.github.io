@@ -1052,7 +1052,7 @@
         };
 
         // Mobile Dropdown Support
-        document.querySelectorAll('.group > button, .group\\/sub > a').forEach(btn => {
+        document.querySelectorAll('.group > button:not(#btn-fullscreen), .group\\/sub > a').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const menu = btn.nextElementSibling;
                 if (menu && menu.classList.contains('absolute')) {
@@ -1084,31 +1084,58 @@
         const btnFullscreen = document.getElementById('btn-fullscreen');
         const iconFsEnter = document.getElementById('icon-fullscreen-enter');
         const iconFsExit = document.getElementById('icon-fullscreen-exit');
+        let isManualFullscreen = false;
+
+        function updateFullscreenUI(isFullscreen) {
+            if (isFullscreen) {
+                iconFsEnter.classList.add('hidden');
+                iconFsExit.classList.remove('hidden');
+                viewerContainer.classList.remove('rounded-[2.5rem]', 'relative');
+                viewerContainer.classList.add('!fixed', 'inset-0', 'z-[9999]', '!h-[100dvh]', '!w-screen', '!max-w-none', '!rounded-none', '!m-0');
+                document.body.style.overflow = 'hidden';
+            } else {
+                iconFsExit.classList.add('hidden');
+                iconFsEnter.classList.remove('hidden');
+                viewerContainer.classList.add('rounded-[2.5rem]', 'relative');
+                viewerContainer.classList.remove('!fixed', 'inset-0', 'z-[9999]', '!h-[100dvh]', '!w-screen', '!max-w-none', '!rounded-none', '!m-0');
+                document.body.style.overflow = '';
+            }
+        }
 
         if (btnFullscreen && viewerContainer) {
-            btnFullscreen.addEventListener('click', () => {
-                if (!document.fullscreenElement) {
-                    if (viewerContainer.requestFullscreen) viewerContainer.requestFullscreen();
-                    else if (viewerContainer.webkitRequestFullscreen) viewerContainer.webkitRequestFullscreen();
-                    else if (viewerContainer.msRequestFullscreen) viewerContainer.msRequestFullscreen();
+            btnFullscreen.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isNativeFS = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+                if (!isNativeFS && !isManualFullscreen) {
+                    if (viewerContainer.requestFullscreen) {
+                        viewerContainer.requestFullscreen().catch(() => {
+                            isManualFullscreen = true;
+                            updateFullscreenUI(true);
+                        });
+                    } else if (viewerContainer.webkitRequestFullscreen) {
+                        viewerContainer.webkitRequestFullscreen();
+                    } else if (viewerContainer.msRequestFullscreen) {
+                        viewerContainer.msRequestFullscreen();
+                    } else {
+                        isManualFullscreen = true;
+                        updateFullscreenUI(true);
+                    }
                 } else {
-                    if (document.exitFullscreen) document.exitFullscreen();
-                    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
-                    else if (document.msExitFullscreen) document.msExitFullscreen();
+                    if (isNativeFS) {
+                        if (document.exitFullscreen) document.exitFullscreen();
+                        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                        else if (document.msExitFullscreen) document.msExitFullscreen();
+                    } else {
+                        isManualFullscreen = false;
+                        updateFullscreenUI(false);
+                    }
                 }
             });
 
-            document.addEventListener('fullscreenchange', () => {
-                if (document.fullscreenElement) {
-                    iconFsEnter.classList.add('hidden');
-                    iconFsExit.classList.remove('hidden');
-                    viewerContainer.classList.remove('rounded-[2.5rem]');
-                } else {
-                    iconFsExit.classList.add('hidden');
-                    iconFsEnter.classList.remove('hidden');
-                    viewerContainer.classList.add('rounded-[2.5rem]');
-                }
-            });
+            document.addEventListener('fullscreenchange', () => updateFullscreenUI(!!document.fullscreenElement));
+            document.addEventListener('webkitfullscreenchange', () => updateFullscreenUI(!!document.webkitFullscreenElement));
+            document.addEventListener('msfullscreenchange', () => updateFullscreenUI(!!document.msFullscreenElement));
         }
 
         // To Do List
