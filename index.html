@@ -108,6 +108,8 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(172, 135, 102, 0.3); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(172, 135, 102, 0.6); }
+
+        .mobile-menu-open { display: flex !important; }
     </style>
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden pt-[max(0.75rem,env(safe-area-inset-top))] md:pt-[max(1.5rem,env(safe-area-inset-top))]">
@@ -119,7 +121,7 @@
             <div class="flex items-center justify-between w-full md:w-auto gap-3">
                 <div class="flex items-center gap-3">
                     <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="32" height="32" alt="Logo">
-                    <span class="serif-heading text-xl md:text-2xl tracking-tight">Today's Bundle</span>
+                    <span class="serif-heading text-xl md:text-2xl tracking-tight"><span id="theme-toggle-panel" class="cursor-pointer hover:text-[#AC8766] transition-colors" title="Toggle Appearance Mode">Today's</span> Bundle</span>
                 </div>
             </div>
             
@@ -321,11 +323,6 @@
 
                 <button id="install-app-btn-panel" class="hidden px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-green-500 dark:border-green-600 text-[9px] md:text-[10px] font-bold tracking-widest uppercase text-green-600 dark:text-green-500 hover:bg-green-600 hover:text-white dark:hover:bg-green-500 dark:hover:text-white transition-all whitespace-nowrap">INSTALL APP</button>
                 
-                <button id="theme-toggle" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors text-gray-400 hover:text-[#AC8766]" aria-label="Toggle Theme" title="Appearance Mode">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block md:w-[22px] md:h-[22px]"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden md:w-[22px] md:h-[22px]"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
-
                 <button id="close-apps" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors" aria-label="Close Apps">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[28px] md:h-[28px]"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -414,6 +411,7 @@
                                 <a href="https://www.youtube.com/@GreenDotAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCfCNU6LWB66VR48V58d2KOg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Green Dot Aviation</a>
                                 <a href="https://www.youtube.com/@JxJAVIATION/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCxaXu_wNt_yUIzSogt1OjpA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> JxJ Aviation</a>
                                 <a href="https://www.youtube.com/@VASAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCuedf_fJVrOppky5gl3U6QQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> VASAviation</a>
+                                <a href="https://www.youtube.com/@1PilotunGozunden/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCd9RvC6WC3uCJpJDNY1EcsA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Bir Pilotun Gözünden</a>
                                 <a href="https://www.dailymotion.com/user/yurtseveronr1" target="_blank" class="yt-list-item"><svg class="dm-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zm-1.84-9.352v5.704l4.593-2.852-4.593-2.852z"/></svg> Air Crash Investigation</a>
                             </div>
                         </div>
@@ -473,7 +471,7 @@
             <div class="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
                 <div class="flex items-center gap-4">
                     <img id="bundle-logo" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'><style>rect{stroke:%23AC8766;}.f{fill:%23AC8766;}</style><rect x='3' y='3' width='9' height='9' fill='none'/><rect x='12' y='3' width='9' height='9' class='f'/><rect x='12' y='12' width='9' height='9' class='f'/></svg>" width="36" height="36" alt="Bundle Icon" class="select-none cursor-pointer hover:scale-105 transition-transform" title="Open Today's Bundle">
-                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Today's <span id="bundle-text" class="text-[#AC8766] cursor-pointer hover:opacity-80 transition-opacity" title="Open Default Website">Bundle</span></h1>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight"><span id="theme-toggle-main" class="cursor-pointer hover:text-[#AC8766] transition-colors" title="Toggle Appearance Mode">Today's</span> <span id="bundle-text" class="text-[#AC8766] cursor-pointer hover:opacity-80 transition-opacity" title="Open Default Website">Bundle</span></h1>
                 </div>
             </div>
             
@@ -545,10 +543,6 @@
                     </div>
                 </div>
 
-                <button id="theme-toggle" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors text-gray-400 hover:text-[#AC8766]" aria-label="Toggle Theme" title="Appearance Mode">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block md:w-[22px] md:h-[22px]"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block dark:hidden md:w-[22px] md:h-[22px]"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
             </div>
         </header>
 
@@ -556,7 +550,7 @@
             <iframe id="news-frame" src="about:blank" style="color-scheme: inherit;" class="w-full h-full border-none bg-white dark:bg-[#0f0f0f]" title="Bundle Archive"></iframe>
             
             <!-- Fullscreen Button -->
-            <button id="btn-fullscreen" class="absolute bottom-6 right-6 z-50 p-2.5 bg-black/40 hover:bg-black/70 text-white rounded-xl backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 focus:outline-none" title="Toggle Fullscreen">
+            <button id="btn-fullscreen" class="absolute bottom-6 right-6 z-50 p-2.5 bg-black/40 hover:bg-black/70 text-white rounded-xl backdrop-blur-sm opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300 focus:outline-none" title="Toggle Fullscreen">
                 <svg id="icon-fullscreen-enter" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
                 <svg id="icon-fullscreen-exit" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
             </button>
@@ -720,7 +714,7 @@
             const metaTheme = document.getElementById('meta-theme-color');
             if (metaTheme) metaTheme.setAttribute('content', document.documentElement.classList.contains('dark') ? '#0f0f0f' : '#F3EBE3');
         }
-        document.querySelectorAll('#theme-toggle').forEach(btn => btn.addEventListener('click', () => {
+        document.querySelectorAll('#theme-toggle-main, #theme-toggle-panel').forEach(btn => btn.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             updateThemeColor();
         }));
@@ -840,6 +834,27 @@
         // Video Feeds / Grid
         const ytPreviewCache = new Map();
         let currentPreviewUrl = null;
+        
+        function getWatchedVideos() {
+            try { return JSON.parse(localStorage.getItem('bundle_watched_videos') || '[]'); }
+            catch(e) { return []; }
+        }
+
+        window.markAsWatched = function(url, event) {
+            const watched = getWatchedVideos();
+            if (!watched.includes(url)) {
+                watched.push(url);
+                localStorage.setItem('bundle_watched_videos', JSON.stringify(watched));
+            }
+            if (event && event.currentTarget) {
+                const imgContainer = event.currentTarget.querySelector('.aspect-video');
+                if (imgContainer && !imgContainer.querySelector('.watched-badge')) {
+                     imgContainer.insertAdjacentHTML('beforeend', '<div class="watched-badge absolute top-2 left-2 bg-green-500/90 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider backdrop-blur-sm z-20 flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> WATCHED</div>');
+                     event.currentTarget.classList.add('opacity-70');
+                }
+            }
+        };
+
         async function fetchWithTimeout(r, o = { timeout: 4000 }) {
             const ctrl = new AbortController();
             const id = setTimeout(() => ctrl.abort(), o.timeout);
@@ -915,22 +930,27 @@
             if (vidView) vidView.style.display = 'block';
             isViewerVisible = true;
             if (overlay) { overlay.style.display = 'flex'; overlay.classList.remove('opacity-0'); overlay.classList.add('opacity-100'); }
+            
             const links = document.querySelectorAll('[data-preview-url*="feeds/videos.xml"]');
             Promise.all(Array.from(links).map(l => fetchAndCacheYTData(l.getAttribute('data-preview-url'), l.textContent.trim()))).then(videos => {
                 const valid = videos.filter(v => v).sort((a,b) => b.timestamp - a.timestamp);
                 const grid = document.getElementById('latest-videos-grid');
-                if (grid) grid.innerHTML = valid.map(v => `
-                    <a href="${v.videoLink}" target="_blank" class="group flex flex-col gap-3 transition-opacity duration-300 hover:!opacity-100 group-hover/grid:opacity-40">
+                if (grid) grid.innerHTML = valid.map(v => {
+                    const isWatched = getWatchedVideos().includes(v.videoLink);
+                    return `
+                    <a href="${v.videoLink}" target="_blank" onclick="window.markAsWatched('${v.videoLink}', event)" class="group flex flex-col gap-3 transition-opacity duration-300 hover:!opacity-100 group-hover/grid:opacity-40 ${isWatched ? 'opacity-70' : ''}">
                         <div class="aspect-video rounded-2xl overflow-hidden bg-gray-100 dark:bg-[#222] relative border border-gray-200 dark:border-[#333]">
                             <img src="${v.thumbnail}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="" loading="lazy"/>
                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                            ${isWatched ? '<div class="watched-badge absolute top-2 left-2 bg-green-500/90 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider backdrop-blur-sm z-20 flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> WATCHED</div>' : ''}
                         </div>
                         <div class="flex flex-col gap-1 px-1">
                             <h3 class="font-semibold text-sm line-clamp-2 leading-snug group-hover:text-[#AC8766] transition-colors">${v.title}</h3>
                             <div class="text-xs text-gray-500 flex items-center gap-1.5 mt-1"><span>${v.author}</span><span>•</span><span>${v.pubDate}</span></div>
                         </div>
                     </a>
-                `).join('');
+                    `;
+                }).join('');
                 if (overlay) { overlay.classList.add('opacity-0'); setTimeout(() => overlay.style.display = 'none', 300); }
             });
         });
@@ -947,7 +967,7 @@
             clearTimeout(hideTimeout);
             const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
             let text = item.textContent.trim();
-            if (["TED", "Business Insider", "Aposto", "Evrim Ağacı", "Dj's Aviation", "Interesting Engineering", "49W", "Flu TV", "Fey", "Science", "Howtown", "Answer in Progress", "Bloomberg Originals", "Half as Interesting", "IE Explains", "Johnny Harris", "uncivilized", "Veritasium", "Aviation", "3 Minutes of Aviation", "lucaas", "The Mentour Podcast", "Mentour's Black Box", "Mentour Now", "Mentour Pilot", "Green Dot Aviation", "JxJ Aviation", "VASAviation", "English", "English Speaking 360"].some(s => text.includes(s))) {
+            if (["TED", "Business Insider", "Aposto", "Evrim Ağacı", "Dj's Aviation", "Interesting Engineering", "49W", "Flu TV", "Fey", "Science", "Howtown", "Answer in Progress", "Bloomberg Originals", "Half as Interesting", "IE Explains", "Johnny Harris", "uncivilized", "Veritasium", "Aviation", "3 Minutes of Aviation", "lucaas", "The Mentour Podcast", "Mentour's Black Box", "Mentour Now", "Mentour Pilot", "Green Dot Aviation", "JxJ Aviation", "VASAviation", "Bir Pilotun Gözünden", "English", "English Speaking 360"].some(s => text.includes(s))) {
                 currentPreviewUrl = url;
                 if(previewTitle) previewTitle.textContent = text;
                 if (previewWindow) {
@@ -1026,10 +1046,36 @@
         }
 
         document.onclick = (e) => {
-            if (!previewWindow.contains(e.target) && !e.target.closest('.yt-list-item')) hidePreview();
-            if (!searchPopup.contains(e.target) && !btnSearch.contains(e.target)) closeSearch();
-            if (!musicPopup.contains(e.target) && !btnMusic.contains(e.target)) musicPopup.classList.add('hidden');
+            if (previewWindow && !previewWindow.contains(e.target) && !e.target.closest('.yt-list-item')) hidePreview();
+            if (searchPopup && btnSearch && !searchPopup.contains(e.target) && !btnSearch.contains(e.target)) closeSearch();
+            if (musicPopup && btnMusic && !musicPopup.contains(e.target) && !btnMusic.contains(e.target)) musicPopup.classList.add('hidden');
         };
+
+        // Mobile Dropdown Support
+        document.querySelectorAll('.group > button, .group\\/sub > a').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const menu = btn.nextElementSibling;
+                if (menu && menu.classList.contains('absolute')) {
+                    const isOpen = menu.classList.contains('mobile-menu-open');
+                    
+                    // Close other open menus on the same level
+                    if (btn.tagName === 'BUTTON') {
+                        document.querySelectorAll('.group > div.absolute').forEach(m => m.classList.remove('mobile-menu-open'));
+                    }
+                    
+                    if (!isOpen) {
+                        menu.classList.add('mobile-menu-open');
+                    } else {
+                        menu.classList.remove('mobile-menu-open');
+                    }
+                    e.stopPropagation();
+                }
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.mobile-menu-open').forEach(m => m.classList.remove('mobile-menu-open'));
+        });
 
         window.addEventListener('message', (e) => { if (e.data.type === 'THEME_CHANGE') { document.documentElement.classList.toggle('dark', !!e.data.isDark); updateThemeColor(); } else if (e.data.url) openInViewer(e.data.url); });
         document.onkeydown = (e) => { if (e.shiftKey && e.key.toLowerCase() === 'q') { const u = currentHoveredVideoLink || (currentPreviewUrl && !currentPreviewUrl.includes('feeds') ? currentPreviewUrl : null); if (u) window.open(u, '_blank'); } };
