@@ -39,7 +39,7 @@
                 "name": "Today's Bundle",
                 "short_name": "Bundle",
                 "start_url": window.location.href.split('?')[0] || ".",
-                "display": "standalone",
+                "display": "fullscreen",
                 "background_color": "#0f0f0f",
                 "theme_color": "#0f0f0f",
                 "description": "Daily newsletter and workspace hub.",
@@ -122,6 +122,9 @@
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden pt-[max(0.75rem,env(safe-area-inset-top))] md:pt-[max(1.5rem,env(safe-area-inset-top))]">
     
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] flex flex-col gap-2 pointer-events-none"></div>
+
     <!-- Apps Side Panel (Overlay) -->
     <div id="apps-panel" class="fixed inset-0 w-full h-full bg-white dark:bg-[#0f0f0f] z-[100] overflow-y-auto flex flex-col p-6 md:p-12 pt-[max(1.5rem,env(safe-area-inset-top))]">
         <!-- Top Bar -->
@@ -354,12 +357,6 @@
             <!-- Visuals Section (Left) -->
             <div class="lg:col-span-4 flex flex-col gap-10">
                 <div class="pt-4 border-t border-gray-100 dark:border-[#222] lg:border-none lg:pt-0 h-full flex flex-col">
-                    <div class="flex items-center justify-between mb-[1.5rem]">
-                        <span class="menu-col-label !mb-0">Zoomquilt 2</span>
-                        <button onclick="openInViewer('https://zzz.zoomquilt2.com/')" class="text-[#AC8766] opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 p-1.5 rounded-lg transition-all focus:outline-none" title="Open in Main Viewer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2V8a2 2 0 0 1 2-2h6"></path></svg>
-                        </button>
-                    </div>
                     <div class="flex-1 w-full h-[352px] rounded-2xl overflow-hidden border border-gray-100 dark:border-[#222] bg-black">
                         <iframe src="https://zzz.zoomquilt2.com/" width="100%" height="100%" frameBorder="0" allowfullscreen="" loading="lazy"></iframe>
                     </div>
@@ -624,6 +621,31 @@
     </div>
 
     <script>
+        // Custom Toast Notification System
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            
+            const toast = document.createElement('div');
+            toast.className = 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-4 py-3 rounded-xl shadow-2xl text-sm font-medium transform transition-all duration-300 translate-y-10 opacity-0 flex items-center gap-3 pointer-events-auto';
+            toast.innerHTML = `
+                <div class="bg-[#AC8766] p-1.5 rounded-full text-white">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 6000);
+        }
+
         // PWA Service Worker
         if ('serviceWorker' in navigator) {
             const swCode = `
@@ -1321,7 +1343,7 @@
             return li;
         }
 
-        // Reminder Checker
+        // Reminder Checker (Replaced alert() with showToast())
         setInterval(() => {
             const list = document.getElementById('todo-list');
             if (!list) return;
@@ -1347,10 +1369,11 @@
                     } else if ("Notification" in window && Notification.permission !== "denied") {
                         Notification.requestPermission().then(permission => {
                             if (permission === "granted") new Notification("Bundle Task Reminder", { body: text });
-                            else alert("⏰ Reminder: " + text);
+                            else showToast("Reminder: " + text);
                         });
                     } else {
-                        alert("⏰ Reminder: " + text);
+                        // Replaced alert() with custom toast
+                        showToast("Reminder: " + text);
                     }
                     
                     remSpan.setAttribute('data-notified', 'true');
@@ -1399,6 +1422,19 @@
             appLinks.push({ title: "Zoomquilt 2", isCustom: true, action: () => openInViewer('https://zzz.zoomquilt2.com/') });
             openInViewer(ambientUrls[Math.floor(Math.random() * ambientUrls.length)]);
             prefetchAllYouTubeFeeds();
+
+            // Mobile auto-fullscreen on first touch to hide status bar
+            const enterNativeFullscreen = () => {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    const docEl = document.documentElement;
+                    const requestFS = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen;
+                    if (requestFS && !document.fullscreenElement && !document.webkitFullscreenElement) {
+                        requestFS.call(docEl).catch(()=>{});
+                    }
+                }
+                document.removeEventListener('touchstart', enterNativeFullscreen);
+            };
+            document.addEventListener('touchstart', enterNativeFullscreen, { passive: true });
         };
     </script>
 </body>
