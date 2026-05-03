@@ -110,6 +110,14 @@
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(172, 135, 102, 0.6); }
 
         .mobile-menu-open { display: flex !important; }
+        
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(0.5);
+        }
+        .dark input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.8);
+        }
     </style>
 </head>
 <body class="p-3 md:p-6 overflow-x-hidden pt-[max(0.75rem,env(safe-area-inset-top))] md:pt-[max(1.5rem,env(safe-area-inset-top))]">
@@ -460,11 +468,21 @@
                         <span class="menu-col-label !mb-0">To Do List</span>
                     </div>
                     <div class="flex flex-col gap-4 flex-1">
-                        <form id="todo-form" class="flex gap-2">
-                            <input type="text" id="todo-input" placeholder="Add a new task..." class="w-full bg-gray-50 dark:bg-[#222] text-sm py-2.5 px-3 rounded-xl outline-none text-gray-800 dark:text-gray-200 border border-transparent focus:border-[#AC8766] transition-colors" autocomplete="off" required>
-                            <button type="submit" class="bg-[#AC8766] text-white px-3 py-2.5 rounded-xl hover:bg-[#906A49] transition-colors focus:outline-none flex-shrink-0" title="Add Task">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                            </button>
+                        <form id="todo-form" class="flex flex-col gap-2">
+                            <div class="flex gap-2">
+                                <input type="text" id="todo-input" placeholder="Add a new task..." class="w-full bg-gray-50 dark:bg-[#222] text-sm py-2.5 px-3 rounded-xl outline-none text-gray-800 dark:text-gray-200 border border-transparent focus:border-[#AC8766] transition-colors" autocomplete="off" required>
+                                <button type="button" onclick="document.getElementById('todo-reminder-wrapper').classList.toggle('hidden')" class="bg-gray-100 dark:bg-[#333] text-gray-500 dark:text-gray-400 px-3 py-2.5 rounded-xl hover:text-[#AC8766] transition-colors focus:outline-none flex-shrink-0" title="Add Reminder">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </button>
+                                <button type="submit" class="bg-[#AC8766] text-white px-3 py-2.5 rounded-xl hover:bg-[#906A49] transition-colors focus:outline-none flex-shrink-0" title="Add Task">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                </button>
+                            </div>
+                            <div id="todo-reminder-wrapper" class="hidden flex items-center bg-gray-50 dark:bg-[#222] rounded-xl px-3 py-2 border border-transparent focus-within:border-[#AC8766] transition-colors">
+                                <svg width="14" height="14" class="text-[#AC8766] mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <input type="datetime-local" id="todo-reminder" class="bg-transparent text-xs outline-none text-gray-600 dark:text-gray-300 w-full font-medium" title="Set Reminder Date & Time">
+                                <button type="button" onclick="document.getElementById('todo-reminder').value=''; document.getElementById('todo-reminder-wrapper').classList.add('hidden')" class="ml-2 text-gray-400 hover:text-red-500 focus:outline-none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                            </div>
                         </form>
                         <ul id="todo-list" class="flex flex-col gap-2 max-h-[350px] overflow-y-auto custom-scrollbar pr-1 flex-1">
                             <li class="text-xs text-gray-500 text-center py-6 empty-todo-msg">No tasks yet. You're all caught up!</li>
@@ -556,13 +574,13 @@
                             <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
                             <span class="text-sm">Hava Sosyal</span>
                         </a>
-                        <a href="https://aistudio.google.com/apps/3fb0e8f6-72e1-4068-ab84-ab660615b98c?fullscreenApplet=true&showPreview=true&showAssistant=true" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
-                            <span class="text-sm font-medium">AeroTerms</span>
+                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+                            <span class="text-sm">Hava Personel</span>
                         </a>
-                        <a href="https://drive.google.com/drive/folders/1OdtjcXHYm7ZApNGHAnYad6QPd47TJQcS?usp=sharing" target="_blank" class="nav-item-small hover:text-[#AC8766] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#AC8766]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></div>
-                            <span class="text-sm font-medium">Quran</span>
+                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#AC8766] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+                            <span class="text-sm">Airport Haber</span>
                         </a>
                     </div>
                 </div>
@@ -627,6 +645,10 @@
             `;
             const blob = new Blob([swCode], {type: 'application/javascript'});
             navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+        }
+        
+        if ("Notification" in window && Notification.permission !== "denied") {
+            Notification.requestPermission();
         }
 
         function toggleYT(category) {
@@ -862,7 +884,7 @@
             const list = document.getElementById('todo-list');
             if (!list) return;
             const empty = list.querySelector('.empty-todo-msg'); if (empty) empty.remove();
-            list.appendChild(createTodoItem(title, false, url)); 
+            list.appendChild(createTodoItem(title, false, url, null, false)); 
             saveTodos();
             
             const btn = event.currentTarget;
@@ -991,7 +1013,7 @@
             clearTimeout(hideTimeout);
             const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
             let text = item.textContent.trim();
-            if (["TED", "Business Insider", "Aposto", "Evrim Ağacı", "Dj's Aviation", "Interesting Engineering", "49W", "Science", "Howtown", "Answer in Progress", "Bloomberg Originals", "Half as Interesting", "IE Explains", "Johnny Harris", "uncivilized", "Veritasium", "Aviation", "3 Minutes of Aviation", "lucaas", "The Mentour Podcast", "Mentour's Black Box", "Mentour Now", "Mentour Pilot", "Green Dot Aviation", "JxJ Aviation", "VASAviation", "Bir Pilotun Gözünden", "English", "English Speaking 360", "Barış Özcan", "Teke Tek Bilim", "Havacılık Kazaları"].some(s => text.includes(s))) {
+            if (["TED", "Business Insider", "Aposto", "Evrim Ağacı", "Dj's Aviation", "Interesting Engineering", "49W", "Science", "Howtown", "Answer in Progress", "Bloomberg Originals", "Half as Interesting", "IE Explains", "Johnny Harris", "uncivilized", "Veritasium", "Aviation", "3 Minutes of Aviation", "lucaas", "The Mentour Podcast", "Mentour's Black Box", "Mentour Now", "Mentour Pilot", "Green Dot Aviation", "JxJ Aviation", "VASAviation", "Bir Pilotun Gözünden", "English Speaking 360", "Barış Özcan", "Teke Tek Bilim", "Havacılık Kazaları"].some(s => text.includes(s))) {
                 currentPreviewUrl = url;
                 if(previewTitle) previewTitle.textContent = text;
                 if (previewWindow) {
@@ -1049,6 +1071,7 @@
         }
 
         document.querySelectorAll('.yt-list-item, a[href*="youtube.com"]').forEach(item => {
+            if (item.textContent.includes('engVid')) return;
             if (item.classList.contains('yt-list-item')) {
                 const btn = document.createElement('button');
                 btn.className = "ml-auto p-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-[#AC8766] focus:outline-none flex-shrink-0";
@@ -1210,15 +1233,25 @@
             if (!todoList) return;
             const todos = [];
             todoList.querySelectorAll('li:not(.empty-todo-msg)').forEach(li => {
-                const span = li.querySelector('span');
+                const span = li.querySelector('.task-text');
                 const btn = li.querySelector('button');
                 const link = span ? span.getAttribute('data-link') : null;
-                if (span && btn) todos.push({ text: span.textContent, completed: btn.classList.contains('bg-[#AC8766]'), link: link });
+                const remSpan = li.querySelector('.reminder-time');
+                const reminder = remSpan ? remSpan.getAttribute('data-raw') : null;
+                const notified = remSpan ? remSpan.getAttribute('data-notified') === 'true' : false;
+                
+                if (span && btn) todos.push({ 
+                    text: span.textContent, 
+                    completed: btn.classList.contains('bg-[#AC8766]'), 
+                    link: link,
+                    reminder: reminder,
+                    notified: notified
+                });
             });
             localStorage.setItem('bundle_todos', JSON.stringify(todos));
         }
 
-        function createTodoItem(text, isCompleted = false, link = null) {
+        function createTodoItem(text, isCompleted = false, link = null, reminder = null, notified = false) {
             const li = document.createElement('li');
             li.className = "flex items-start justify-between p-3 bg-gray-50 dark:bg-[#222] rounded-xl group";
             
@@ -1227,30 +1260,112 @@
                 textHtml = `<a href="${link}" target="_blank" class="hover:text-[#AC8766] transition-colors underline decoration-dotted underline-offset-2">${textHtml}</a>`;
             }
 
-            li.innerHTML = `<div class="flex items-start gap-3 min-w-0 flex-1"><button class="flex-shrink-0 w-4 h-4 mt-1 border-2 border-gray-300 dark:border-gray-500 rounded-md ${isCompleted ? 'bg-[#AC8766]' : ''}"></button><span class="text-sm leading-snug break-words ${isCompleted ? 'line-through opacity-40' : ''}" ${link ? `data-link="${link}"` : ''}>${textHtml}</span></div><button class="opacity-0 group-hover:opacity-100 text-red-500 transition-opacity flex-shrink-0 ml-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>`;
+            let reminderHtml = '';
+            if (reminder) {
+                const d = new Date(reminder);
+                const timeStr = d.toLocaleDateString([], {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+                const isOverdue = notified || (!isCompleted && new Date() >= d);
+                reminderHtml = `<div class="w-full mt-1.5 flex"><span class="reminder-time text-[10px] flex items-center gap-1.5 ${isOverdue ? 'text-red-500 dark:text-red-400' : 'text-gray-400 dark:text-gray-500'} font-medium bg-white dark:bg-[#1a1a1a] px-2 py-0.5 rounded shadow-sm border border-[#E5D7CC] dark:border-[#333]" data-time="${d.getTime()}" data-raw="${reminder}" data-notified="${notified}">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                ${timeStr}</span></div>`;
+            }
+
+            li.innerHTML = `<div class="flex items-start gap-3 min-w-0 flex-1">
+                <button class="flex-shrink-0 w-4 h-4 mt-1 border-2 border-gray-300 dark:border-gray-500 rounded-md transition-colors ${isCompleted ? 'bg-[#AC8766] border-[#AC8766]' : ''}"></button>
+                <div class="flex flex-col min-w-0 flex-1">
+                    <span class="task-text text-sm leading-snug break-words ${isCompleted ? 'line-through opacity-40' : ''}" ${link ? `data-link="${link}"` : ''}>${textHtml}</span>
+                    ${reminderHtml}
+                </div>
+            </div>
+            <button class="opacity-0 group-hover:opacity-100 text-red-500 transition-opacity flex-shrink-0 ml-2 mt-0.5 focus:outline-none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>`;
+            
             const btn = li.querySelector('button');
-            const span = li.querySelector('span');
-            btn.onclick = () => { btn.classList.toggle('bg-[#AC8766]'); span.classList.toggle('line-through'); span.classList.toggle('opacity-40'); saveTodos(); };
+            const span = li.querySelector('.task-text');
+            btn.onclick = () => { 
+                btn.classList.toggle('bg-[#AC8766]');
+                btn.classList.toggle('border-[#AC8766]');
+                span.classList.toggle('line-through'); 
+                span.classList.toggle('opacity-40'); 
+                
+                const remSpan = li.querySelector('.reminder-time');
+                if (remSpan) {
+                    if (btn.classList.contains('bg-[#AC8766]')) {
+                        remSpan.classList.remove('text-red-500', 'dark:text-red-400');
+                        remSpan.classList.add('text-gray-400', 'dark:text-gray-500');
+                    } else if (remSpan.getAttribute('data-notified') === 'true' || new Date() >= new Date(remSpan.getAttribute('data-raw'))) {
+                        remSpan.classList.add('text-red-500', 'dark:text-red-400');
+                        remSpan.classList.remove('text-gray-400', 'dark:text-gray-500');
+                    }
+                }
+                saveTodos(); 
+            };
             li.querySelector('button:last-child').onclick = () => { li.remove(); if (!todoList.children.length) todoList.innerHTML = '<li class="empty-todo-msg text-xs text-center py-6 text-gray-500">No tasks yet.</li>'; saveTodos(); };
             return li;
         }
+
+        // Reminder Checker
+        setInterval(() => {
+            const list = document.getElementById('todo-list');
+            if (!list) return;
+            let changed = false;
+            const now = new Date().getTime();
+            
+            list.querySelectorAll('li:not(.empty-todo-msg)').forEach(li => {
+                const btn = li.querySelector('button');
+                const isCompleted = btn && btn.classList.contains('bg-[#AC8766]');
+                if (isCompleted) return;
+                
+                const remSpan = li.querySelector('.reminder-time');
+                if (!remSpan) return;
+                
+                const remTime = parseInt(remSpan.getAttribute('data-time'));
+                const notified = remSpan.getAttribute('data-notified') === 'true';
+                
+                if (!notified && remTime && now >= remTime) {
+                    const text = li.querySelector('.task-text').textContent;
+                    
+                    if ("Notification" in window && Notification.permission === "granted") {
+                        new Notification("Bundle Task Reminder", { body: text });
+                    } else if ("Notification" in window && Notification.permission !== "denied") {
+                        Notification.requestPermission().then(permission => {
+                            if (permission === "granted") new Notification("Bundle Task Reminder", { body: text });
+                            else alert("⏰ Reminder: " + text);
+                        });
+                    } else {
+                        alert("⏰ Reminder: " + text);
+                    }
+                    
+                    remSpan.setAttribute('data-notified', 'true');
+                    remSpan.classList.remove('text-gray-400', 'dark:text-gray-500');
+                    remSpan.classList.add('text-red-500', 'dark:text-red-400');
+                    changed = true;
+                }
+            });
+            if (changed) saveTodos();
+        }, 10000);
 
         if (todoForm && todoInput && todoList) {
             try {
                 const saved = JSON.parse(localStorage.getItem('bundle_todos') || '[]');
                 if (saved.length > 0) {
                     todoList.innerHTML = '';
-                    saved.forEach(t => todoList.appendChild(createTodoItem(t.text, t.completed, t.link)));
+                    saved.forEach(t => todoList.appendChild(createTodoItem(t.text, t.completed, t.link, t.reminder, t.notified)));
                 }
             } catch(e) { console.error("Failed to load to-dos", e); }
 
             todoForm.onsubmit = (e) => {
                 e.preventDefault();
                 const text = todoInput.value.trim();
+                const remInput = document.getElementById('todo-reminder');
+                const reminderVal = remInput && remInput.value ? remInput.value : null;
                 if (!text) return;
                 const empty = todoList.querySelector('.empty-todo-msg'); if (empty) empty.remove();
-                todoList.appendChild(createTodoItem(text, false)); 
+                todoList.appendChild(createTodoItem(text, false, null, reminderVal, false)); 
                 todoInput.value = '';
+                if (remInput) {
+                    remInput.value = '';
+                    document.getElementById('todo-reminder-wrapper').classList.add('hidden');
+                }
                 saveTodos();
             };
         }
