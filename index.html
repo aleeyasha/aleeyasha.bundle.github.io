@@ -1010,7 +1010,6 @@
             e.preventDefault();
             e.stopPropagation();
             if (newsFrame && newsFrame.src && newsFrame.src !== 'about:blank') {
-                showToast("Refreshing page...");
                 // Bypassing CORS restrictions to perform a hard reload of the iframe's origin URL
                 const currentSrc = newsFrame.src;
                 newsFrame.src = currentSrc;
