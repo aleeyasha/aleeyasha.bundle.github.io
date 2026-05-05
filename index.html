@@ -629,10 +629,6 @@
             const blob = new Blob([swCode], {type: 'application/javascript'});
             navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
         }
-        
-        if ("Notification" in window && Notification.permission !== "denied") {
-            Notification.requestPermission();
-        }
 
         function toggleYT(category) {
             const targetList = document.getElementById(`list-${category}`);
@@ -1293,25 +1289,6 @@
             appLinks.push({ title: "Zoomquilt 2", isCustom: true, action: () => openInViewer('https://zzz.zoomquilt2.com/') });
             openInViewer(ambientUrls[Math.floor(Math.random() * ambientUrls.length)]);
             prefetchAllYouTubeFeeds();
-
-            // Mobile auto-fullscreen on first touch/click/scroll to hide status bar
-            const enterNativeFullscreen = (e) => {
-                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    const docEl = document.documentElement;
-                    const requestFS = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen;
-                    if (requestFS && !document.fullscreenElement && !document.webkitFullscreenElement) {
-                        requestFS.call(docEl).catch(()=>{});
-                    }
-                }
-                
-                ['touchstart', 'click', 'scroll'].forEach(evt => {
-                    document.removeEventListener(evt, enterNativeFullscreen);
-                });
-            };
-            
-            ['touchstart', 'click', 'scroll'].forEach(evt => {
-                document.addEventListener(evt, enterNativeFullscreen, { passive: true, once: true });
-            });
             
             // PWA Install Prompt Logic
             let deferredPrompt;
