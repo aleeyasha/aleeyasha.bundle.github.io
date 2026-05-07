@@ -135,168 +135,6 @@
             </div>
             
             <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
-                <!-- TV Button -->
-                <button onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://tvizle.tr/ulke/united-kingdom', '_blank'); } else { openInViewer('https://tvizle.tr/ulke/united-kingdom'); }" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm" title="Watch TV">
-                    <svg viewBox="0 0 100 100" class="w-[20px] h-[20px] md:w-[22px] md:h-[22px] drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Antennas -->
-                        <path d="M 32 14 L 50 32 L 68 14" stroke="#120E44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                        <!-- Legs -->
-                        <path d="M 28 82 V 86 A 6 6 0 0 0 40 86 V 82 Z" fill="#FDD835" stroke="#120E44" stroke-width="6" stroke-linejoin="round"/>
-                        <path d="M 60 82 V 86 A 6 6 0 0 0 72 86 V 82 Z" fill="#FDD835" stroke="#120E44" stroke-width="6" stroke-linejoin="round"/>
-                        <!-- Body Base -->
-                        <rect x="10" y="30" width="80" height="54" rx="8" fill="#F94162"/>
-                        <!-- Screen -->
-                        <rect x="20" y="38" width="44" height="38" rx="6" fill="#FDD835" stroke="#120E44" stroke-width="6" stroke-linejoin="round"/>
-                        <!-- Controls -->
-                        <circle cx="77" cy="47" r="4" fill="#FDD835" stroke="#120E44" stroke-width="6"/>
-                        <line x1="73" y1="60" x2="81" y2="60" stroke="#120E44" stroke-width="5" stroke-linecap="round"/>
-                        <line x1="73" y1="68" x2="81" y2="68" stroke="#120E44" stroke-width="5" stroke-linecap="round"/>
-                        <line x1="73" y1="76" x2="81" y2="76" stroke="#120E44" stroke-width="5" stroke-linecap="round"/>
-                        <!-- Broken Outline for Body -->
-                        <path d="M 10 66 V 76 C 10 80.4 13.6 84 18 84 H 82 C 86.4 84 90 80.4 90 76 V 38 C 90 33.6 86.4 30 82 30 H 18 C 13.6 30 10 33.6 10 38 V 54" stroke="#120E44" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-
-                <!-- Hezarfen Dropdown -->
-                <div class="relative group">
-                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#23A0B4] hover:text-white hover:border-[#23A0B4] transition-all outline-none whitespace-nowrap">HEZARFEN</button>
-                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-64 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://nek.istanbul.edu.tr/ekos/GAZETE/', '_blank'); } else { openInViewer('https://nek.istanbul.edu.tr/ekos/GAZETE/'); }" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon">
-                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-sm">
-                                    <circle cx="50" cy="50" r="42" fill="#99E5FF" stroke="#222" stroke-width="6"/>
-                                    <ellipse cx="50" cy="50" rx="20" ry="42" fill="none" stroke="#222" stroke-width="6"/>
-                                    <line x1="50" y1="8" x2="50" y2="92" stroke="#222" stroke-width="6"/>
-                                    <line x1="14" y1="28" x2="86" y2="28" stroke="#222" stroke-width="6"/>
-                                    <line x1="14" y1="72" x2="86" y2="72" stroke="#222" stroke-width="6"/>
-                                    <rect x="6" y="36" width="88" height="28" rx="4" fill="#F4D3A1" stroke="#222" stroke-width="6" stroke-linejoin="round"/>
-                                    <text x="50" y="52" font-family="Arial, sans-serif" font-weight="900" font-size="18" fill="#222" text-anchor="middle" dominant-baseline="middle" letter-spacing="1">NEWS</text>
-                                </svg>
-                            </div>
-                            <span class="text-sm">Gaste</span>
-                        </a>
-                        <a href="https://artsandculture.google.com/play" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=artsandculture.google.com&sz=64" alt=""></div>
-                            <span class="text-sm">Arts & Culture</span>
-                        </a>
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://babadum.com/', '_blank'); } else { openInViewer('https://babadum.com/'); }" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=babadum.com&sz=64" alt=""></div>
-                            <span class="text-sm">BaBaDum</span>
-                        </a>
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://molly.iskirik.com/', '_blank'); } else { openInViewer('https://molly.iskirik.com/'); }" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#9bb1d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full drop-shadow-sm">
-                                    <path d="M12 3 C13 3 14 4.5 14.5 6 C15.5 5.5 17.5 4.5 18.5 5.5 C19.5 6.5 18.5 8 18 9 C19.5 9.5 21 10.5 21 12 C21 13.5 19.5 14.5 18 15 C18.5 16 19.5 17.5 18.5 18.5 C17.5 19.5 15.5 18.5 14.5 18 C14 19.5 13 21 12 21 C11 21 10 19.5 9.5 18 C8.5 18.5 6.5 19.5 5.5 18.5 C4.5 17.5 5.5 16 6 15 C4.5 14.5 3 13.5 3 12 C3 10.5 4.5 9.5 6 9 C5.5 8 4.5 6.5 5.5 5.5 C6.5 4.5 8.5 5.5 9.5 6 C10 4.5 11 3 12 3 Z" />
-                                    <circle cx="12" cy="12" r="3.5" />
-                                </svg>
-                            </div>
-                            <span class="text-sm">Molly</span>
-                        </a>
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://mantikhatalari.com/', '_blank'); } else { openInViewer('https://mantikhatalari.com/'); }" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=mantikhatalari.com&sz=64" alt=""></div>
-                            <span class="text-sm">Mantık Hataları</span>
-                        </a>
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://ilkyardim.meb.gov.tr/', '_blank'); } else { openInViewer('https://ilkyardim.meb.gov.tr/'); }" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=ilkyardim.meb.gov.tr&sz=64" alt=""></div>
-                            <span class="text-sm">First Aid</span>
-                        </a>
-                        <a href="https://scribd.vdownloaders.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=scribd.vdownloaders.com&sz=64" alt=""></div>
-                            <span class="text-sm">Scribd</span>
-                        </a>
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://www.sci-hub.in/', '_blank'); } else { openInViewer('https://www.sci-hub.in/'); }" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=sci-hub.in&sz=64" alt=""></div>
-                            <span class="text-sm">Sci - Hub</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Aviation Tools Dropdown -->
-                <div class="relative group">
-                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#23A0B4] hover:text-white hover:border-[#23A0B4] transition-all outline-none whitespace-nowrap">AVIATION TOOLS</button>
-                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-52 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
-                        <a href="https://planner.flightsimulator.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=flightsimulator.com&sz=64" alt=""></div>
-                            <span class="text-sm">Flight Planner</span>
-                        </a>
-                        <a href="https://skybrary.aero/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=skybrary.aero&sz=64" alt=""></div>
-                            <span class="text-sm">Skybrary</span>
-                        </a>
-                        <a href="https://hezarfen.mgm.gov.tr/HEn/EnUsr/SayisalEn/Default.aspx" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=mgm.gov.tr&sz=64" alt=""></div>
-                            <span class="text-sm">Meteogram</span>
-                        </a>
-                        <a href="https://courses.sportys.com/training/portal/home/courses" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=sportys.com&sz=64" alt=""></div>
-                            <span class="text-sm">Sporty's</span>
-                        </a>
-                        <a href="https://www.boldmethod.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=boldmethod.com&sz=64" alt=""></div>
-                            <span class="text-sm">Boldmethod</span>
-                        </a>
-                        <a href="https://www.easa.europa.eu/en" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><img src="https://www.google.com/s2/favicons?domain=easa.europa.eu&sz=64" alt=""></div>
-                            <span class="text-sm">EASA</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tools Dropdown -->
-                <div class="relative group">
-                    <button class="px-4 md:px-5 py-2 md:py-2.5 rounded-full border border-gray-200 dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#23A0B4] hover:text-white hover:border-[#23A0B4] transition-all outline-none">TOOLS</button>
-                    <div class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
-                        <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg></div>
-                            <span class="text-sm font-medium">Notion</span>
-                        </a>
-                        <a href="https://aleeyasha.github.io/aleeyasha.reword.github.io/" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><span class="font-bold text-[11px]">RE</span></div>
-                            <span class="text-sm font-medium">Reword</span>
-                        </a>
-                        <div class="relative group/sub w-full">
-                            <a href="#" onclick="event.preventDefault();" class="nav-item-small hover:text-[#23A0B4] w-full flex items-center justify-between p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors cursor-pointer">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/><path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/></svg></div>
-                                    <span class="text-sm font-medium">Mollymawk</span>
-                                </div>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-50"><path d="M15 18l-6-6 6-6"/></svg>
-                            </a>
-                            <div class="absolute top-0 right-full mr-2 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-2 hidden group-hover/sub:flex flex-col gap-1 z-[120] before:content-[''] before:absolute before:-right-3 before:top-0 before:h-full before:w-3">
-                                <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://gozioscan.github.io/workingmemlast/', '_blank'); } else { openInViewer('https://gozioscan.github.io/workingmemlast/'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                                    <div class="w-5 h-5 flex items-center justify-center text-lg">🧠</div>
-                                    <span class="text-sm font-medium">Working Memory</span>
-                                </a>
-                                <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://thypsikometrik.com/timeshare/index.html', '_blank'); } else { openInViewer('https://thypsikometrik.com/timeshare/index.html'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                                    <div class="w-5 h-5 flex items-center justify-center text-lg">⏰</div>
-                                    <span class="text-sm font-medium">Time Sharing</span>
-                                </a>
-                                <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://gozioscan.github.io/spatialspider/', '_blank'); } else { openInViewer('https://gozioscan.github.io/spatialspider/'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                                    <div class="w-5 h-5 flex items-center justify-center">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
-                                            <path d="M12 6L8.5 8.5 6 12l2.5 3.5L12 18l3.5-2.5L18 12l-2.5-3.5z"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-sm font-medium">Spider Maze</span>
-                                </a>
-                            </div>
-                        </div>
-                        <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://excalidraw.com/', '_blank'); } else { openInViewer('https://excalidraw.com/'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></div>
-                            <span class="text-sm font-medium">Excalidraw</span>
-                        </a>
-                        <a href="https://aistudio.google.com/apps/3fb0e8f6-72e1-4068-ab84-ab660615b98c?fullscreenApplet=true&showPreview=true&showAssistant=true" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
-                            <span class="text-sm font-medium">AeroTerms</span>
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/1OdtjcXHYm7ZApNGHAnYad6QPd47TJQcS?usp=sharing" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></div>
-                            <span class="text-sm font-medium">Quran</span>
-                        </a>
-                    </div>
-                </div>
-
                 <button id="close-apps" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#222] transition-colors" aria-label="Close Apps">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[28px] md:h-[28px]"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
@@ -307,95 +145,10 @@
         <div class="w-full px-2 md:px-4 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 flex-1">
             
             <!-- Visuals Section (Left) -->
-            <div class="lg:col-span-6 flex flex-col gap-10">
+            <div class="lg:col-span-12 flex flex-col gap-10">
                 <div class="pt-4 border-t border-gray-100 dark:border-[#222] lg:border-none lg:pt-0 h-full flex flex-col">
                     <div class="flex-1 w-full h-[352px] rounded-2xl overflow-hidden border border-gray-100 dark:border-[#222] bg-black">
                         <iframe src="https://zzz.zoomquilt2.com/" width="100%" height="100%" frameBorder="0" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video Channels (Middle) -->
-            <div class="lg:col-span-6 flex flex-col gap-10">
-                <div class="pt-4 border-t border-gray-100 dark:border-[#222] lg:border-none lg:pt-0">
-                    <div class="flex items-center justify-between mb-[1.5rem]">
-                        <span class="menu-col-label !mb-0">Video Channels</span>
-                        <button id="btn-show-latest-videos" class="text-[#23A0B4] opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 p-1.5 rounded-lg transition-all focus:outline-none" title="View Latest Videos Grid">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z"/></svg>
-                        </button>
-                    </div>
-                    <div class="flex flex-col gap-6">
-                        
-                        <!-- Münevver Channel Category -->
-                        <div class="pb-2">
-                            <button onclick="toggleYT('newsmedia')" class="w-full flex items-center justify-between text-left group">
-                                <span class="serif-heading text-3xl group-hover:text-[#23A0B4] transition-colors">Münevver</span>
-                                <svg id="arrow-newsmedia" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
-                            </button>
-                            <div id="list-newsmedia" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@TEDEd/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCsooa4yRKGN_zEE8iknghZA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> TED</a>
-                                <a href="https://www.youtube.com/@BusinessInsider/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCcyq283he07B7_KUX07mmtA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Business Insider</a>
-                                <a href="https://www.youtube.com/@DjsAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC29_CCc5qpnRaVryYIKiLeg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Dj's Aviation</a>
-                                <a href="https://www.youtube.com/@interestingengineeringie/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCEuiOszNd6msGgqsD0f9YAQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Interesting Engineering</a>
-                                <a href="https://www.youtube.com/@englishspeaking360/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGezWlaEZh7dR5t0BLbzUVQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> English Speaking 360</a>
-                                <a href="https://www.youtube.com/@EngVid/posts" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> engVid: Learn English</a>
-                            </div>
-                        </div>
-
-                        <!-- Science Category -->
-                        <div class="pb-2">
-                            <button onclick="toggleYT('science')" class="w-full flex items-center justify-between text-left group">
-                                <span class="serif-heading text-3xl group-hover:text-[#23A0B4] transition-colors">Science</span>
-                                <svg id="arrow-science" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
-                            </button>
-                            <div id="list-science" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@Howtown/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGudGqToOw9hWGR88W9Jutg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Howtown</a>
-                                <a href="https://www.youtube.com/@answerinprogress/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCqVEHtQoXHmUCfJ-9smpTSg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Answer in Progress</a>
-                                <a href="https://www.youtube.com/@business/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCUMZ7gohGI9HcU9VNsr2FJQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Bloomberg Originals</a>
-                                <a href="https://www.youtube.com/@halfasinteresting/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCuCkxoKLYO_EQ2GeFtbM_bw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Half as Interesting</a>
-                                <a href="https://www.youtube.com/@ie-explains/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC7Oi2DoJh-ZcjpXaWJrNWkQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> IE Explains</a>
-                                <a href="https://www.youtube.com/@johnnyharris/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCmGSJVG3mCRXVOP4yZrU1Dw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Johnny Harris</a>
-                                <a href="https://www.youtube.com/@uncivilized_media/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCGglb26hdG81eW08n4dagUw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> uncivilized</a>
-                                <a href="https://www.youtube.com/@veritasium/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Veritasium</a>
-                            </div>
-                        </div>
-
-                        <!-- Aviation Category -->
-                        <div>
-                            <button onclick="toggleYT('aviation')" class="w-full flex items-center justify-between text-left group">
-                                <span class="serif-heading text-3xl group-hover:text-[#23A0B4] transition-colors">Aviation</span>
-                                <svg id="arrow-aviation" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
-                            </button>
-                            <div id="list-aviation" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@3MinutesofAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCCB1oLQY3XM86ACD05Lq4HQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 3 Minutes of Aviation</a>
-                                <a href="https://www.youtube.com/@lucaas/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCfb2YpWR9FWTJMjzvAlP0_Q" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> lucaas</a>
-                                <a href="https://www.youtube.com/@MentourPodcast/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCopzNlZ8i6Xgw0q9eWQlvQw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> The Mentour Podcast</a>
-                                <a href="https://www.youtube.com/@MentourBlackBox/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCoftW9U27KfkNz5jFES7htg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour's Black Box</a>
-                                <a href="https://www.youtube.com/@MentourNow/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCTbcSRduRJJTMaQhUVqywRw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Now</a>
-                                <a href="https://www.youtube.com/@MentourPilot/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCwpHKudUkP5tNgmMdexB3ow" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Mentour Pilot</a>
-                                <a href="https://www.youtube.com/@GreenDotAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCfCNU6LWB66VR48V58d2KOg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Green Dot Aviation</a>
-                                <a href="https://www.youtube.com/@JxJAVIATION/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCxaXu_wNt_yUIzSogt1OjpA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> JxJ Aviation</a>
-                                <a href="https://www.youtube.com/@VASAviation/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCuedf_fJVrOppky5gl3U6QQ" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> VASAviation</a>
-                                <a href="https://www.dailymotion.com/user/yurtseveronr1" target="_blank" class="yt-list-item"><svg class="dm-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5zm-1.84-9.352v5.704l4.593-2.852-4.593-2.852z"/></svg> Air Crash Investigation</a>
-                            </div>
-                        </div>
-
-                        <!-- Turkish Category -->
-                        <div>
-                            <button onclick="toggleYT('turkish')" class="w-full flex items-center justify-between text-left group">
-                                <span class="serif-heading text-3xl group-hover:text-[#23A0B4] transition-colors">Turkish</span>
-                                <svg id="arrow-turkish" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-20 transition-transform"><path d="M6 9l6 6 6-6"/></svg>
-                            </button>
-                            <div id="list-turkish" class="hidden flex-col mt-4">
-                                <a href="https://www.youtube.com/@apostonews/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC1yTrnCty_0wAcD2mVCfw9A" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Aposto</a>
-                                <a href="https://www.youtube.com/@evrimagaci/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCatnasFAiXUvWwH8NlSdd3A" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Evrim Ağacı</a>
-                                <a href="https://www.youtube.com/@49W/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UC5_0UPuXT5SAGsbTe2T_PJg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> 49W</a>
-                                <a href="https://www.youtube.com/@1PilotunGozunden/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCd9RvC6WC3uCJpJDNY1EcsA" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Bir Pilotun Gözünden</a>
-                                <a href="https://www.youtube.com/@Bar%C4%B1%C5%9F%C3%96zcan/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCv6jcPwFujuTIwFQ11jt1Yw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Barış Özcan</a>
-                                <a href="https://www.youtube.com/@TekeTekBilim/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCvCVGYB-HXxhfNB0dtF0_tw" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Teke Tek Bilim</a>
-                                <a href="https://www.youtube.com/@havac%C4%B1l%C4%B1k-kazalar%C4%B1/videos" data-preview-url="https://www.youtube.com/feeds/videos.xml?channel_id=UCbzogeo41O6Ga9FRc3D3Cpg" target="_blank" class="yt-list-item"><svg class="yt-brand-icon" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Havacılık Kazaları</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -454,49 +207,63 @@
                 <!-- Icons container -->
                 <div class="flex items-center justify-center gap-2 md:gap-3 order-1 md:order-none">
                     
-                    <!-- Bus Search Container -->
-                    <div class="relative flex items-center">
-                        <div id="bus-search-wrapper" class="overflow-hidden transition-all duration-300 max-w-0 opacity-0 flex items-center">
-                            <form id="bus-search-form" class="flex items-center w-[120px] md:w-[140px] bg-gray-50 dark:bg-[#222] rounded-full border border-gray-200 dark:border-[#333] focus-within:border-[#23A0B4] transition-colors pl-3 pr-1 py-1 mr-2">
-                                <input type="text" id="bus-search-input" placeholder="Line/Station" class="w-full bg-transparent text-xs md:text-sm outline-none text-gray-800 dark:text-gray-200" autocomplete="off" required>
-                                <button type="submit" class="bg-[#23A0B4] text-white p-1 rounded-full hover:bg-[#1A7B8C] transition-colors flex-shrink-0">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </button>
-                            </form>
-                        </div>
-                        <button id="btn-bus-search" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#23A0B4] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm relative z-10 flex-shrink-0" title="Search IETT Bus (Right-click to Refresh Page)">
-                            <svg viewBox="0 0 64 64" class="w-[22px] h-[22px] drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 18C6 14.6863 8.68629 12 12 12H52C55.3137 12 58 14.6863 58 18V44C58 47.3137 55.3137 50 52 50H12C8.68629 50 6 47.3137 6 44V18Z" fill="#D32F2F" stroke="#111" stroke-width="3"/>
-                                <rect x="10" y="18" width="12" height="14" fill="#81D4FA" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
-                                <rect x="26" y="18" width="10" height="24" fill="#81D4FA" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
-                                <rect x="40" y="18" width="14" height="14" fill="#81D4FA" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
-                                <circle cx="16" cy="50" r="6" fill="#333" stroke="#111" stroke-width="3"/>
-                                <circle cx="16" cy="50" r="2" fill="#FDD835"/>
-                                <circle cx="48" cy="50" r="6" fill="#333" stroke="#111" stroke-width="3"/>
-                                <circle cx="48" cy="50" r="2" fill="#FDD835"/>
-                                <path d="M6 38H9V44H6V38Z" fill="#FDD835" stroke="#111" stroke-width="2"/>
-                                <path d="M58 38H55V44H58V38Z" fill="#FDD835" stroke="#111" stroke-width="2"/>
-                                <line x1="4" y1="58" x2="60" y2="58" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+                    <!-- Tools Dropdown -->
+                    <div class="relative group flex items-center">
+                        <button id="btn-tools-menu" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm relative z-10 flex-shrink-0" title="Tools">
+                            <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] md:w-[20px] md:h-[20px] text-[#222] dark:text-[#eee] transition-colors" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
                             </svg>
                         </button>
-                        <!-- Bus Recommendations Dropdown -->
-                        <div id="bus-recommendations" class="absolute top-full left-0 right-10 mt-2 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-xl shadow-xl p-1.5 hidden flex-col gap-1 z-[110] origin-top"></div>
-                    </div>
-
-                    <!-- Apps Menu Button -->
-                    <div class="relative flex items-center">
-                        <div id="app-search-wrapper" class="overflow-hidden transition-all duration-300 max-w-0 opacity-0 flex items-center">
-                            <div class="flex items-center w-[120px] md:w-[140px] bg-gray-50 dark:bg-[#222] rounded-full border border-gray-200 dark:border-[#333] focus-within:border-[#23A0B4] transition-colors pl-3 pr-1 py-1 mr-2">
-                                <input type="text" id="search-input" placeholder="Search apps..." class="w-full bg-transparent text-xs md:text-sm outline-none text-gray-800 dark:text-gray-200" autocomplete="off">
-                                <button id="search-submit" class="bg-[#23A0B4] text-white p-1 rounded-full hover:bg-[#1A7B8C] transition-colors flex-shrink-0">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </button>
+                        <div class="absolute top-full right-0 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:right-0 before:w-full before:h-4 origin-top-right">
+                            <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg></div>
+                                <span class="text-sm font-medium">Notion</span>
+                            </a>
+                            <a href="https://aleeyasha.github.io/aleeyasha.reword.github.io/" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><span class="font-bold text-[11px]">RE</span></div>
+                                <span class="text-sm font-medium">Reword</span>
+                            </a>
+                            <div class="relative group/sub w-full">
+                                <a href="#" onclick="event.preventDefault();" class="nav-item-small hover:text-[#23A0B4] w-full flex items-center justify-between p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 7s-4 4-7 4-4-4-4-4 0 4-4 4-7-4-7-4"/><path d="m15 11 1 2"/><path d="m8 11-1 2"/><path d="M12 11v1"/></svg></div>
+                                        <span class="text-sm font-medium">Mollymawk</span>
+                                    </div>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-50"><path d="M15 18l-6-6 6-6"/></svg>
+                                </a>
+                                <div class="absolute top-0 right-full mr-2 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-2 hidden group-hover/sub:flex flex-col gap-1 z-[120] before:content-[''] before:absolute before:-right-3 before:top-0 before:h-full before:w-3">
+                                    <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://gozioscan.github.io/workingmemlast/', '_blank'); } else { openInViewer('https://gozioscan.github.io/workingmemlast/'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                        <div class="w-5 h-5 flex items-center justify-center text-lg">🧠</div>
+                                        <span class="text-sm font-medium">Working Memory</span>
+                                    </a>
+                                    <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://thypsikometrik.com/timeshare/index.html', '_blank'); } else { openInViewer('https://thypsikometrik.com/timeshare/index.html'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                        <div class="w-5 h-5 flex items-center justify-center text-lg">⏰</div>
+                                        <span class="text-sm font-medium">Time Sharing</span>
+                                    </a>
+                                    <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://gozioscan.github.io/spatialspider/', '_blank'); } else { openInViewer('https://gozioscan.github.io/spatialspider/'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                        <div class="w-5 h-5 flex items-center justify-center">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
+                                                <path d="M12 6L8.5 8.5 6 12l2.5 3.5L12 18l3.5-2.5L18 12l-2.5-3.5z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm font-medium">Spider Maze</span>
+                                    </a>
+                                </div>
                             </div>
+                            <a href="#" onclick="event.preventDefault(); if(event.ctrlKey || event.metaKey) { window.open('https://excalidraw.com/', '_blank'); } else { openInViewer('https://excalidraw.com/'); }" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></div>
+                                <span class="text-sm font-medium">Excalidraw</span>
+                            </a>
+                            <a href="https://aistudio.google.com/apps/3fb0e8f6-72e1-4068-ab84-ab660615b98c?fullscreenApplet=true&showPreview=true&showAssistant=true" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
+                                <span class="text-sm font-medium">AeroTerms</span>
+                            </a>
+                            <a href="https://drive.google.com/drive/folders/1OdtjcXHYm7ZApNGHAnYad6QPd47TJQcS?usp=sharing" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></div>
+                                <span class="text-sm font-medium">Quran</span>
+                            </a>
                         </div>
-                        <button id="btn-apps-menu" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] text-[#23A0B4] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm relative z-10 flex-shrink-0" title="Apps Menu (Right-click to Search)">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-[20px] md:h-[20px]"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                        </button>
-                        <div id="search-recommendations" class="absolute top-full left-0 right-10 mt-2 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-xl shadow-xl p-1.5 hidden flex-col gap-1 z-[110] origin-top max-h-[180px] overflow-y-auto custom-scrollbar"></div>
                     </div>
                 </div>
 
@@ -535,39 +302,12 @@
                 <svg id="icon-fullscreen-exit" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path></svg>
             </button>
 
-            <div id="latest-videos-view" class="absolute inset-0 bg-white dark:bg-[#0f0f0f] hidden overflow-y-auto z-10 custom-scrollbar">
-                <div class="p-6 md:p-10 w-full mx-auto">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-8 serif-heading">Latest <span class="text-[#23A0B4]">Videos</span></h2>
-                    <div id="latest-videos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 group/grid"></div>
-                </div>
-            </div>
-
             <div id="loading-overlay" class="absolute inset-0 bg-white dark:bg-[#0f0f0f] flex items-center justify-center transition-opacity duration-300 z-20">
                 <div class="flex flex-col items-center">
                     <div class="w-10 h-10 border-4 border-[#F3EBE3] border-t-[#23A0B4] rounded-full animate-spin mb-4"></div>
                     <span class="text-xs text-gray-400 font-medium uppercase tracking-widest">Loading Content</span>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Hover Preview Window -->
-    <div id="hover-preview-window" class="fixed hidden z-[9999] w-[350px] h-[220px] bg-white dark:bg-[#1a1a1a] rounded-xl shadow-2xl border border-[#E5D7CC] dark:border-[#333] overflow-hidden cursor-pointer transition-opacity duration-200 opacity-0">
-        <div class="bg-gray-50 dark:bg-[#222] px-3 py-2 border-b border-[#E5D7CC] dark:border-[#333] flex items-center gap-2">
-            <div class="flex gap-1.5">
-                <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
-                <div class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
-            </div>
-            <span class="text-[10px] font-semibold text-gray-500 dark:text-gray-400 ml-1 truncate" id="preview-title">Preview Window</span>
-        </div>
-        <div class="w-full relative bg-gray-100 dark:bg-[#0f0f0f]" style="height: calc(100% - 33px);">
-            <div id="preview-loading-text" class="absolute inset-0 flex flex-col items-center justify-center text-xs text-gray-400 text-center px-4">
-                <div class="w-6 h-6 border-2 border-[#F3EBE3] border-t-[#23A0B4] rounded-full animate-spin mb-2"></div>
-                <span>Loading preview...</span>
-            </div>
-            <div id="hover-preview-content" class="absolute inset-0 z-20 hidden overflow-hidden bg-gray-100 dark:bg-[#0f0f0f]"></div>
-            <iframe id="hover-preview-frame" class="relative z-10 w-full h-full border-none pointer-events-none bg-transparent"></iframe>
         </div>
     </div>
 
@@ -630,30 +370,11 @@
             navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
         }
 
-        function toggleYT(category) {
-            const targetList = document.getElementById(`list-${category}`);
-            const targetArrow = document.getElementById(`arrow-${category}`);
-            const isHidden = targetList.classList.contains('hidden');
-            
-            document.querySelectorAll('[id^="list-"]').forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('flex');
-            });
-            document.querySelectorAll('[id^="arrow-"]').forEach(el => el.classList.remove('rotate-180'));
-
-            if (isHidden) {
-                targetList.classList.remove('hidden');
-                targetList.classList.add('flex');
-                if (targetArrow) targetArrow.classList.add('rotate-180');
-            }
-        }
-
         // App Panel / Navigation
         const appsPanel = document.getElementById('apps-panel');
         const newsFrame = document.getElementById('news-frame');
         const overlay = document.getElementById('loading-overlay');
         const viewerContainer = document.getElementById('newsletter-viewer');
-        const vidView = document.getElementById('latest-videos-view');
         const BASE_URL = "https://static.bundle.app/newsletter/";
         const btnToday = document.getElementById('btn-today');
         const btnYesterday = document.getElementById('btn-yesterday');
@@ -662,7 +383,6 @@
             appsPanel?.classList.toggle('open');
             document.body.classList.toggle('overflow-hidden');
         }
-        document.getElementById('btn-apps-menu')?.addEventListener('click', togglePanel);
         document.getElementById('close-apps')?.addEventListener('click', togglePanel);
 
         let isViewerVisible = false;
@@ -681,7 +401,6 @@
         function openInViewer(url) {
             if (appsPanel?.classList.contains('open')) togglePanel();
             viewerContainer?.classList.remove('hidden');
-            if (vidView) vidView.style.display = 'none';
             if (newsFrame) newsFrame.style.display = 'block';
             const isLocal = url.startsWith(BASE_URL);
             btnToday?.classList.toggle('hidden', !isLocal);
@@ -733,428 +452,6 @@
         }));
         updateThemeColor();
 
-        // Search Logic
-        const btnAppsMenu = document.getElementById('btn-apps-menu');
-        const appSearchWrapper = document.getElementById('app-search-wrapper');
-        const searchInput = document.getElementById('search-input');
-        const searchSubmit = document.getElementById('search-submit');
-        const searchRecs = document.getElementById('search-recommendations');
-        let appLinks = [];
-        let currentSearchIndex = -1;
-        let currentSearchMatches = [];
-
-        function closeSearch() {
-            if (appSearchWrapper) {
-                appSearchWrapper.classList.remove('max-w-[160px]', 'opacity-100');
-                appSearchWrapper.classList.add('max-w-0', 'opacity-0');
-            }
-            if (searchInput) searchInput.value = '';
-            if (searchRecs) {
-                searchRecs.classList.add('hidden');
-                searchRecs.classList.remove('flex');
-            }
-        }
-
-        if (btnAppsMenu && appSearchWrapper) {
-            btnAppsMenu.addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const isOpen = appSearchWrapper.classList.contains('max-w-[160px]');
-                if (isOpen) {
-                    closeSearch();
-                } else {
-                    appSearchWrapper.classList.remove('max-w-0', 'opacity-0');
-                    appSearchWrapper.classList.add('max-w-[160px]', 'opacity-100');
-                    setTimeout(() => searchInput.focus(), 300);
-                    renderRecommendations(searchInput.value.trim());
-                }
-            });
-            appSearchWrapper.addEventListener('click', (e) => e.stopPropagation());
-            appSearchWrapper.addEventListener('contextmenu', (e) => e.stopPropagation());
-        }
-
-        function executeSearchApp(app) {
-            if (!app) return;
-            if (app.isCustom) app.action();
-            else if (app.isViewer) openInViewer(app.url);
-            else window.open(app.url, '_blank');
-            closeSearch();
-        }
-
-        function updateSearchSelection(index) {
-            const items = document.querySelectorAll('.search-result-item');
-            if (!items.length) return;
-            items.forEach(el => el.classList.remove('bg-gray-100', 'dark:bg-[#333]'));
-            if (index >= 0 && index < items.length) {
-                currentSearchIndex = index;
-                items[index].classList.add('bg-gray-100', 'dark:bg-[#333]');
-                items[index].scrollIntoView({ block: 'nearest' });
-            } else currentSearchIndex = -1;
-        }
-
-        function renderRecommendations(query) {
-            currentSearchIndex = -1;
-            if (!query || !searchRecs) {
-                if (searchRecs) { searchRecs.classList.add('hidden'); searchRecs.classList.remove('flex'); searchRecs.innerHTML = ''; }
-                return;
-            }
-            const q = query.toLowerCase();
-            currentSearchMatches = appLinks.filter(app => app.title.toLowerCase().includes(q));
-            let html = '';
-            if (currentSearchMatches.length > 0) {
-                html += currentSearchMatches.map((app, index) => `
-                    <button class="search-result-item flex items-center p-2 rounded-lg transition-colors text-left hover:bg-gray-100 dark:hover:bg-[#333]" data-index="${index}">
-                        <span class="text-xs md:text-sm font-medium text-[#23A0B4] truncate w-full">${app.title}</span>
-                    </button>
-                `).join('');
-            }
-            const googleIndex = currentSearchMatches.length;
-            html += `
-                <button class="search-result-item flex items-center p-2 rounded-lg transition-colors text-left group hover:bg-gray-100 dark:hover:bg-[#333]" data-index="${googleIndex}">
-                    <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400 truncate w-full group-hover:text-[#23A0B4]">🔍 Search Google for "${query}"</span>
-                </button>
-            `;
-            searchRecs.classList.remove('hidden');
-            searchRecs.classList.add('flex');
-            searchRecs.innerHTML = html;
-
-            document.querySelectorAll('.search-result-item').forEach((btn, idx) => {
-                btn.addEventListener('click', () => {
-                    if (idx === googleIndex) {
-                        window.open(`https://www.google.com/search?udm=50&q=${encodeURIComponent(query)}`, '_blank');
-                        closeSearch();
-                    } else executeSearchApp(currentSearchMatches[idx]);
-                });
-                btn.addEventListener('mouseenter', () => updateSearchSelection(idx));
-            });
-        }
-
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => renderRecommendations(e.target.value.trim()));
-            searchInput.addEventListener('keydown', (e) => {
-                const items = document.querySelectorAll('.search-result-item');
-                if (e.key === 'ArrowDown') { e.preventDefault(); updateSearchSelection((currentSearchIndex + 1) % items.length); }
-                else if (e.key === 'ArrowUp') { e.preventDefault(); updateSearchSelection((currentSearchIndex - 1 + items.length) % items.length); }
-                else if (e.key === 'Enter') { e.preventDefault(); if (currentSearchIndex >= 0) items[currentSearchIndex].click(); else if (items.length) items[0].click(); }
-            });
-        }
-        searchSubmit?.addEventListener('click', (e) => { e.preventDefault(); const items = document.querySelectorAll('.search-result-item'); if (currentSearchIndex >= 0) items[currentSearchIndex].click(); else if (items.length) items[0].click(); });
-
-        // Bus Search Logic
-        const btnBusSearch = document.getElementById('btn-bus-search');
-        const busSearchWrapper = document.getElementById('bus-search-wrapper');
-        const busSearchForm = document.getElementById('bus-search-form');
-        const busSearchInput = document.getElementById('bus-search-input');
-        const busRecs = document.getElementById('bus-recommendations');
-
-        const busStations = [
-            { name: "Şirin Sokak", url: "https://iett.istanbul/StationDetail?dkod=302441&stationname=atestugla-bagcilar" },
-            { name: "Kiler GYO", url: "https://iett.istanbul/StationDetail?dkod=304441&stationname=atestugla-bagcilar" },
-            { name: "Güneşli", url: "https://iett.istanbul/StationDetail?dkod=125681&stationname=bagcilar-gaziosmanpasa-ilkokulu-bagcilar" },
-            { name: "IETT", url: "https://iett.istanbul/" }
-        ];
-
-        function renderBusRecommendations(query) {
-            if (!query || !busRecs) {
-                busRecs?.classList.add('hidden');
-                busRecs?.classList.remove('flex');
-                return;
-            }
-            const q = query.toLowerCase();
-            const matches = busStations.filter(s => s.name.toLowerCase().includes(q));
-            
-            if (matches.length > 0) {
-                busRecs.innerHTML = matches.map(s => `
-                    <button type="button" class="text-left text-xs md:text-sm font-medium text-[#23A0B4] hover:bg-gray-100 dark:hover:bg-[#333] p-2 rounded-lg transition-colors truncate w-full" onclick="openInViewer('${s.url}'); document.getElementById('bus-search-input').value=''; document.getElementById('bus-recommendations').classList.add('hidden'); document.getElementById('bus-search-wrapper').classList.remove('max-w-[160px]', 'opacity-100'); document.getElementById('bus-search-wrapper').classList.add('max-w-0', 'opacity-0');">
-                        📍 ${s.name}
-                    </button>
-                `).join('');
-                busRecs.classList.remove('hidden');
-                busRecs.classList.add('flex');
-            } else {
-                busRecs.classList.add('hidden');
-                busRecs.classList.remove('flex');
-            }
-        }
-
-        busSearchInput?.addEventListener('input', (e) => renderBusRecommendations(e.target.value.trim()));
-
-        btnBusSearch?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = busSearchWrapper.classList.contains('max-w-[160px]');
-            if (isOpen) {
-                busSearchWrapper.classList.remove('max-w-[160px]', 'opacity-100');
-                busSearchWrapper.classList.add('max-w-0', 'opacity-0');
-                busRecs?.classList.add('hidden');
-                busRecs?.classList.remove('flex');
-            } else {
-                busSearchWrapper.classList.remove('max-w-0', 'opacity-0');
-                busSearchWrapper.classList.add('max-w-[160px]', 'opacity-100');
-                setTimeout(() => busSearchInput.focus(), 300);
-            }
-        });
-
-        btnBusSearch?.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (newsFrame && newsFrame.src && newsFrame.src !== 'about:blank') {
-                // Bypassing CORS restrictions to perform a hard reload of the iframe's origin URL
-                const currentSrc = newsFrame.src;
-                newsFrame.src = currentSrc;
-            }
-        });
-
-        busSearchForm?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const line = busSearchInput.value.trim();
-            if (line) {
-                const url = `https://iett.istanbul/RouteSearch?search=${encodeURIComponent(line)}`;
-                openInViewer(url);
-                busSearchWrapper.classList.remove('max-w-[160px]', 'opacity-100');
-                busSearchWrapper.classList.add('max-w-0', 'opacity-0');
-                busRecs?.classList.add('hidden');
-                busRecs?.classList.remove('flex');
-                busSearchInput.value = '';
-            }
-        });
-
-        // Video Feeds / Grid
-        const ytPreviewCache = new Map();
-        let currentPreviewUrl = null;
-        
-        function getWatchedVideos() {
-            try { return JSON.parse(localStorage.getItem('bundle_watched_videos') || '[]'); }
-            catch(e) { return []; }
-        }
-
-        window.markAsWatched = function(url, event) {
-            const watched = getWatchedVideos();
-            if (!watched.includes(url)) {
-                watched.push(url);
-                localStorage.setItem('bundle_watched_videos', JSON.stringify(watched));
-            }
-            if (event && event.currentTarget) {
-                const imgContainer = event.currentTarget.querySelector('.aspect-video');
-                if (imgContainer && !imgContainer.querySelector('.watched-badge')) {
-                     imgContainer.insertAdjacentHTML('beforeend', '<div class="watched-badge absolute top-2 left-2 bg-green-500/90 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider backdrop-blur-sm z-20 flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> WATCHED</div>');
-                     event.currentTarget.classList.add('opacity-70');
-                }
-            }
-        };
-
-        async function fetchWithTimeout(r, o = { timeout: 4000 }) {
-            const ctrl = new AbortController();
-            const id = setTimeout(() => ctrl.abort(), o.timeout);
-            const res = await fetch(r, { ...o, signal: ctrl.signal });
-            clearTimeout(id);
-            return res;
-        }
-
-        async function fetchFeed(url) {
-            const encoded = encodeURIComponent(url);
-            const proxies = [
-                { url: `https://api.rss2json.com/v1/api.json?rss_url=${encoded}`, type: 'json' },
-                { url: `https://api.allorigins.win/get?url=${encoded}`, type: 'allorigins' },
-                { url: `https://api.codetabs.com/v1/proxy?quest=${encoded}`, type: 'xml' }
-            ];
-            for (const p of proxies) {
-                try {
-                    const res = await fetchWithTimeout(p.url);
-                    if (res.ok) {
-                        if (p.type === 'json') { const d = await res.json(); if (d.status === 'ok') return { type: 'json', data: d }; }
-                        else if (p.type === 'allorigins') { const d = await res.json(); if (d.contents?.includes('<entry>')) return { type: 'xml', data: d.contents }; }
-                        else { const t = await res.text(); if (t.includes('<entry>')) return { type: 'xml', data: t }; }
-                    }
-                } catch(e) {}
-            }
-            throw new Error('Feeds failed');
-        }
-
-        function extractVideoFromData(result, defaultAuthor) {
-            let items = [];
-            if (result.type === 'json') {
-                items = (result.data.items || []).map(i => {
-                    const d = i.pubDate ? new Date(i.pubDate.replace(/-/g, '/')) : new Date(0);
-                    return { title: i.title || '', linkStr: i.link || '', author: i.author || defaultAuthor, pubDate: d.getTime() ? d.toLocaleDateString() : '', timestamp: d.getTime(), thumbnail: i.thumbnail || '' };
-                });
-            } else if (result.type === 'xml') {
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(result.data, "text/xml");
-                items = Array.from(xml.getElementsByTagName('entry')).map(entry => {
-                    const mg = entry.getElementsByTagName('media:group')[0];
-                    const ds = entry.getElementsByTagName('published')[0]?.textContent;
-                    const d = ds ? new Date(ds) : new Date(0);
-                    return { title: entry.getElementsByTagName('title')[0]?.textContent || '', linkStr: entry.getElementsByTagName('link')[0]?.getAttribute('href') || '', author: entry.getElementsByTagName('author')[0]?.getElementsByTagName('name')[0]?.textContent || defaultAuthor, pubDate: d.getTime() ? d.toLocaleDateString() : '', timestamp: d.getTime(), thumbnail: mg?.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url') || '' };
-                });
-            }
-            const valid = items.find(i => {
-                const low = i.linkStr.toLowerCase();
-                return !low.includes('/shorts/') && (low.includes('/v/') || low.includes('watch?v='));
-            });
-            return valid ? { ...valid, videoLink: valid.linkStr } : items[0] ? { ...items[0], videoLink: items[0].linkStr } : null;
-        }
-
-        function fetchAndCacheYTData(url, title) {
-            if (!ytPreviewCache.has(url)) {
-                const p = fetchFeed(url).then(r => extractVideoFromData(result=r, title)).catch(() => { ytPreviewCache.delete(url); return null; });
-                ytPreviewCache.set(url, p);
-            }
-            return ytPreviewCache.get(url);
-        }
-
-        async function prefetchAllYouTubeFeeds() {
-            const links = document.querySelectorAll('[data-preview-url*="feeds/videos.xml"]');
-            for (let l of links) {
-                const u = l.getAttribute('data-preview-url');
-                if (u && !ytPreviewCache.has(u)) { fetchAndCacheYTData(u, l.textContent.trim()); await new Promise(r => setTimeout(r, 1500)); }
-            }
-        }
-
-        document.getElementById('btn-show-latest-videos')?.addEventListener('click', () => {
-            if (appsPanel?.classList.contains('open')) togglePanel();
-            viewerContainer?.classList.remove('hidden');
-            if (newsFrame) newsFrame.style.display = 'none';
-            if (vidView) vidView.style.display = 'block';
-            isViewerVisible = true;
-            if (overlay) { overlay.style.display = 'flex'; overlay.classList.remove('opacity-0'); overlay.classList.add('opacity-100'); }
-            
-            const links = document.querySelectorAll('[data-preview-url*="feeds/videos.xml"]');
-            Promise.all(Array.from(links).map(l => fetchAndCacheYTData(l.getAttribute('data-preview-url'), l.textContent.trim()))).then(videos => {
-                const valid = videos.filter(v => v).sort((a,b) => b.timestamp - a.timestamp);
-                const grid = document.getElementById('latest-videos-grid');
-                if (grid) grid.innerHTML = valid.map(v => {
-                    const isWatched = getWatchedVideos().includes(v.videoLink);
-                    const escapedTitle = v.title.replace(/'/g, "\\'").replace(/"/g, "&quot;");
-                    return `
-                    <a href="${v.videoLink}" target="_blank" onclick="window.markAsWatched('${v.videoLink}', event)" class="group flex flex-col gap-3 transition-opacity duration-300 hover:!opacity-100 group-hover/grid:opacity-40 ${isWatched ? 'opacity-70' : ''}">
-                        <div class="aspect-video rounded-2xl overflow-hidden bg-gray-100 dark:bg-[#222] relative border border-gray-200 dark:border-[#333]">
-                            <img src="${v.thumbnail}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="" loading="lazy"/>
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                            ${isWatched ? '<div class="watched-badge absolute top-2 left-2 bg-green-500/90 text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider backdrop-blur-sm z-20 flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> WATCHED</div>' : ''}
-                        </div>
-                        <div class="flex flex-col gap-1 px-1">
-                            <h3 class="font-semibold text-sm line-clamp-2 leading-snug group-hover:text-[#23A0B4] transition-colors">${v.title}</h3>
-                            <div class="text-xs text-gray-500 flex items-center gap-1.5 mt-1"><span>${v.author}</span><span>•</span><span>${v.pubDate}</span></div>
-                        </div>
-                    </a>
-                    `;
-                }).join('');
-                if (overlay) { overlay.classList.add('opacity-0'); setTimeout(() => overlay.style.display = 'none', 300); }
-            });
-        });
-
-        // Preview Window
-        const previewWindow = document.getElementById('hover-preview-window');
-        const previewFrame = document.getElementById('hover-preview-frame');
-        const previewTitle = document.getElementById('preview-title');
-        const previewContent = document.getElementById('hover-preview-content');
-        const previewLoading = document.getElementById('preview-loading-text');
-        let hideTimeout;
-
-        function openPreview(item) {
-            clearTimeout(hideTimeout);
-            const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
-            let text = item.textContent.trim();
-            if (["TED", "Business Insider", "Aposto", "Evrim Ağacı", "Dj's Aviation", "Interesting Engineering", "49W", "Science", "Howtown", "Answer in Progress", "Bloomberg Originals", "Half as Interesting", "IE Explains", "Johnny Harris", "uncivilized", "Veritasium", "Aviation", "3 Minutes of Aviation", "lucaas", "The Mentour Podcast", "Mentour's Black Box", "Mentour Now", "Mentour Pilot", "Green Dot Aviation", "JxJ Aviation", "VASAviation", "Bir Pilotun Gözünden", "English Speaking 360", "Barış Özcan", "Teke Tek Bilim", "Havacılık Kazaları"].some(s => text.includes(s))) {
-                currentPreviewUrl = url;
-                if(previewTitle) previewTitle.textContent = text;
-                if (previewWindow) {
-                    previewWindow.style.display = 'block';
-                    requestAnimationFrame(() => { previewWindow.classList.remove('opacity-0'); previewWindow.classList.add('opacity-100'); });
-                    const rect = item.getBoundingClientRect();
-                    let top = Math.max(20, Math.min(window.innerHeight - 250, rect.top - 80));
-                    let left = rect.right + 20;
-                    
-                    if (window.innerWidth < 768) {
-                        left = Math.max(10, (window.innerWidth - 350) / 2);
-                        top = rect.bottom + 10;
-                        if (top + 230 > window.innerHeight) top = Math.max(10, rect.top - 230);
-                    } else if (left + 350 > window.innerWidth) {
-                        left = Math.max(10, rect.left - 370);
-                    }
-                    
-                    previewWindow.style.top = top + 'px';
-                    previewWindow.style.left = left + 'px';
-                }
-                if (url.includes('feeds/videos.xml')) {
-                    previewFrame.style.display = 'none'; previewContent.style.display = 'none'; previewLoading.style.display = 'flex';
-                    fetchAndCacheYTData(url, text).then(v => {
-                        if (currentPreviewUrl !== url) return;
-                        if (v && previewContent) {
-                            currentHoveredVideoLink = v.videoLink;
-                            const escapedTitle = v.title.replace(/'/g, "\\'").replace(/"/g, "&quot;");
-                            previewLoading.style.display = 'none'; previewContent.style.display = 'block';
-                            previewContent.innerHTML = `
-                                <div class="flex flex-col h-full bg-white dark:bg-[#1a1a1a] group">
-                                    <div class="h-[120px] relative bg-black">
-                                        <img src="${v.thumbnail}" class="w-full h-full object-cover" />
-                                    </div>
-                                    <div class="p-3"><span class="font-semibold text-xs line-clamp-2">${v.title}</span><span class="text-[10px] text-gray-500">${v.author}</span></div>
-                                </div>`;
-                        } else previewContent.innerHTML = 'Not found';
-                    });
-                } else {
-                    previewContent.style.display = 'none'; previewLoading.style.display = 'flex';
-                    previewFrame.style.display = 'block'; previewFrame.src = url;
-                    previewFrame.onload = () => previewLoading.style.display = 'none';
-                }
-            }
-        }
-
-        function hidePreview() {
-            currentPreviewUrl = null; currentHoveredVideoLink = null;
-            if(previewWindow) {
-                previewWindow.classList.remove('opacity-100'); previewWindow.classList.add('opacity-0');
-                setTimeout(() => { if(previewWindow.classList.contains('opacity-0')) { previewWindow.style.display = 'none'; previewFrame.src = 'about:blank'; } }, 200);
-            }
-        }
-
-        document.querySelectorAll('.yt-list-item, a[href*="youtube.com"]').forEach(item => {
-            if (item.textContent.includes('engVid')) return;
-            if (item.classList.contains('yt-list-item')) {
-                const btn = document.createElement('button');
-                btn.className = "ml-auto p-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-[#23A0B4] focus:outline-none flex-shrink-0";
-                btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`;
-                btn.onclick = (e) => { 
-                    e.preventDefault(); 
-                    e.stopPropagation(); 
-                    const url = item.getAttribute('data-preview-url') || item.getAttribute('href');
-                    if (currentPreviewUrl === url && previewWindow.style.display === 'block') {
-                        hidePreview();
-                    } else {
-                        openPreview(item); 
-                    }
-                };
-                item.appendChild(btn);
-            }
-            item.onmouseenter = () => { if (window.innerWidth >= 768) setTimeout(() => openPreview(item), 200); };
-            item.onmouseleave = () => { if (window.innerWidth >= 768) hideTimeout = setTimeout(hidePreview, 300); };
-        });
-
-        if (previewWindow) {
-            previewWindow.onmouseenter = () => clearTimeout(hideTimeout);
-            previewWindow.onmouseleave = () => hideTimeout = setTimeout(hidePreview, 300);
-            previewWindow.onclick = () => { if (currentHoveredVideoLink || currentPreviewUrl) window.open(currentHoveredVideoLink || currentPreviewUrl, '_blank'); };
-        }
-
-        document.onclick = (e) => {
-            if (previewWindow && !previewWindow.contains(e.target) && !e.target.closest('.yt-list-item')) hidePreview();
-            
-            if (appSearchWrapper && btnAppsMenu && !appSearchWrapper.contains(e.target) && !btnAppsMenu.contains(e.target) && (!searchRecs || !searchRecs.contains(e.target))) {
-                closeSearch();
-            }
-            
-            if (busSearchWrapper && btnBusSearch && !busSearchWrapper.contains(e.target) && !btnBusSearch.contains(e.target) && (!busRecs || !busRecs.contains(e.target))) {
-                busSearchWrapper.classList.remove('max-w-[160px]', 'opacity-100');
-                busSearchWrapper.classList.add('max-w-0', 'opacity-0');
-                if (busRecs) { busRecs.classList.add('hidden'); busRecs.classList.remove('flex'); }
-            }
-        };
-
-        document.addEventListener('contextmenu', (e) => {
-            if (appSearchWrapper && btnAppsMenu && !appSearchWrapper.contains(e.target) && !btnAppsMenu.contains(e.target)) closeSearch();
-        });
-
         // Mobile Dropdown Support
         document.querySelectorAll('.group > button:not(#btn-fullscreen), .group\\/sub > a').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -1182,7 +479,6 @@
         });
 
         window.addEventListener('message', (e) => { if (e.data.type === 'THEME_CHANGE') { document.documentElement.classList.toggle('dark', !!e.data.isDark); updateThemeColor(); } else if (e.data.url) openInViewer(e.data.url); });
-        document.onkeydown = (e) => { if (e.shiftKey && e.key.toLowerCase() === 'q') { const u = currentHoveredVideoLink || (currentPreviewUrl && !currentPreviewUrl.includes('feeds') ? currentPreviewUrl : null); if (u) window.open(u, '_blank'); } };
 
         // Fullscreen Logic
         const btnFullscreen = document.getElementById('btn-fullscreen');
@@ -1273,22 +569,7 @@
         }
 
         window.onload = () => {
-            document.querySelectorAll('.nav-item-small, .yt-list-item').forEach(el => {
-                const title = el.textContent.trim();
-                let url = el.getAttribute('href');
-                let isViewer = false;
-                if (!url || url === '#' || url.includes('javascript')) {
-                    const onclick = el.getAttribute('onclick');
-                    if (onclick?.includes('openInViewer')) { const m = onclick.match(/'([^']+)'/); if(m) { url = m[1]; isViewer = true; } }
-                }
-                if (title && url && !appLinks.some(l => l.title === title)) appLinks.push({ title, url, isViewer });
-            });
-            appLinks.push({ title: "Latest Videos", isCustom: true, action: () => document.getElementById('btn-show-latest-videos')?.click() });
-            appLinks.push({ title: "Bundle", isCustom: true, action: () => loadForDate(new Date()) });
-            appLinks.push({ title: "Zoomquilt", isCustom: true, action: () => openInViewer('https://zzz.zoomquilt.org/') });
-            appLinks.push({ title: "Zoomquilt 2", isCustom: true, action: () => openInViewer('https://zzz.zoomquilt2.com/') });
             openInViewer(ambientUrls[Math.floor(Math.random() * ambientUrls.length)]);
-            prefetchAllYouTubeFeeds();
             
             // PWA Install Prompt Logic
             let deferredPrompt;
