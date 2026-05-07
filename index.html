@@ -158,53 +158,46 @@
 
     <!-- Main Page Content -->
     <div class="w-full px-1.5 md:px-3 mx-auto relative z-10 flex-1 flex flex-col h-full min-h-0 pb-1.5 md:pb-3">
-        <header class="flex flex-col md:flex-row justify-between items-center mb-2 md:mb-4 gap-4 md:gap-6 mt-2 md:mt-4 flex-shrink-0 px-2">
-            <div class="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start">
-                <div class="flex items-center gap-4">
-                    <img id="bundle-logo" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 32 32'><rect x='3' y='3' width='18' height='10' rx='2' fill='%2323A0B4'/><rect x='11' y='3' width='10' height='18' rx='2' fill='%2323A0B4'/><rect x='5' y='5' width='5' height='5' fill='%23E7F135' rx='0.5'/></svg>" width="36" height="36" alt="Bundle Icon" class="select-none cursor-pointer hover:scale-105 transition-transform" title="Open Today's Bundle">
-                    <div class="relative flex items-center gap-3">
-                        <h1 class="text-2xl md:text-3xl font-bold tracking-tight"><span>ali</span><span id="bundle-text" class="text-[#23A0B4] cursor-pointer hover:opacity-80 transition-opacity" title="Open Default Website">yasa</span></h1>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-3 w-full md:w-auto">
-                <button id="btn-today" class="hidden w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm flex-shrink-0 p-1.5" title="Today">
-                    <svg viewBox="0 0 64 64" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="14" y="16" width="36" height="32" rx="4" fill="#e6e6e6" stroke="#222" stroke-width="3"/>
-                        <path d="M14 20C14 17.79 15.79 16 18 16H46C48.21 16 50 17.79 50 20V26H14V20Z" fill="#F05454" stroke="#222" stroke-width="3"/>
-                        <rect x="22" y="10" width="4" height="10" rx="2" fill="#222"/>
-                        <rect x="38" y="10" width="4" height="10" rx="2" fill="#222"/>
-                        <rect x="20" y="32" width="6" height="4" fill="#222"/>
-                        <rect x="30" y="32" width="10" height="4" fill="#222"/>
-                        <rect x="20" y="40" width="10" height="4" fill="#222"/>
-                        <circle cx="44" cy="44" r="12" fill="#6BCA76" stroke="#222" stroke-width="3"/>
-                        <path d="M39 44L42.5 47.5L49 39" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button id="btn-yesterday" class="hidden w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm flex-shrink-0 p-1.5" title="Yesterday">
-                    <svg viewBox="0 0 64 64" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 44V20C14 17.79 15.79 16 18 16H46C48.21 16 50 17.79 50 20V36L38 48H18C15.79 48 14 46.21 14 44Z" fill="#e6e6e6" stroke="#222" stroke-width="3"/>
-                        <path d="M14 20C14 17.79 15.79 16 18 16H46C48.21 16 50 17.79 50 20V26H14V20Z" fill="#F05454" stroke="#222" stroke-width="3"/>
-                        <rect x="20" y="10" width="4" height="10" rx="2" fill="#222"/>
-                        <rect x="30" y="10" width="4" height="10" rx="2" fill="#222"/>
-                        <rect x="40" y="10" width="4" height="10" rx="2" fill="#222"/>
-                        <path d="M50 36L38 36L38 48" fill="#b3b3b3" stroke="#222" stroke-width="3" stroke-linejoin="round"/>
-                        <path d="M42 36H24M24 36L30 30M24 36L30 42" stroke="#0066CC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
+        <header class="relative flex flex-col md:flex-row justify-center items-center mb-2 md:mb-4 gap-4 md:gap-6 mt-2 md:mt-4 flex-shrink-0 px-2 min-h-[48px]">
+            <!-- Centered Items -->
+            <div class="flex items-center gap-1.5 md:gap-2 justify-center w-full md:w-auto">
+                <img id="bundle-logo" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 32 32'><rect x='3' y='3' width='18' height='10' rx='2' fill='%2323A0B4'/><rect x='11' y='3' width='10' height='18' rx='2' fill='%2323A0B4'/><rect x='5' y='5' width='5' height='5' fill='%23E7F135' rx='0.5'/></svg>" width="48" height="48" alt="Bundle Icon" class="w-10 h-10 md:w-14 md:h-14 select-none cursor-pointer hover:scale-105 transition-transform" title="Open Today's Bundle">
                 
-                <!-- Icons container -->
-                <div class="flex items-center justify-center gap-2 md:gap-3 order-1 md:order-none">
+                <div class="relative flex items-center gap-2 md:gap-3">
+                    
+                    <!-- Title & Aviation News Dropdown -->
+                    <div class="relative group cursor-pointer flex items-center h-full">
+                        <h1 class="text-3xl md:text-5xl font-bold tracking-tight group-hover:opacity-80 transition-opacity"><span>ali</span><span class="text-[#23A0B4]">yasa</span></h1>
+                        
+                        <!-- Aviation News Popup -->
+                        <div id="aviation-news-popup" class="absolute top-full left-1/2 -translate-x-1/2 mt-2 md:mt-3 w-56 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                            <a onclick="openInViewer('https://herdemaviation.com/')" class="nav-item-small hover:text-[#23A0B4] cursor-pointer group/item p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg></div>
+                                <span class="text-sm">Herdem Aviation</span>
+                            </a>
+                            <a onclick="openInViewer('https://havasosyalmedya.com/')" class="nav-item-small hover:text-[#23A0B4] cursor-pointer group/item p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
+                                <span class="text-sm">Hava Sosyal</span>
+                            </a>
+                            <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group/item p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+                                <span class="text-sm">Hava Personel</span>
+                            </a>
+                            <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group/item p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
+                                <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+                                <span class="text-sm">Airport Haber</span>
+                            </a>
+                        </div>
+                    </div>
                     
                     <!-- Tools Dropdown -->
                     <div class="relative group flex items-center">
-                        <button id="btn-tools-menu" class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm relative z-10 flex-shrink-0" title="Tools">
-                            <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] md:w-[20px] md:h-[20px] text-[#222] dark:text-[#eee] transition-transform duration-700 group-hover:rotate-180 active:rotate-180" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <button id="btn-tools-menu" class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm relative z-10 flex-shrink-0" title="Tools">
+                            <svg viewBox="0 0 24 24" class="w-[20px] h-[20px] md:w-[24px] md:h-[24px] text-[#222] dark:text-[#eee] transition-transform duration-700 group-hover:rotate-180 active:rotate-180" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
                             </svg>
                         </button>
-                        <div class="absolute top-full right-0 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:right-0 before:w-full before:h-4 origin-top-right">
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 md:mt-3 w-48 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
                             <a href="https://aleeyasha.github.io/aleeyasha.notion.github.io/" target="_blank" class="nav-item-small hover:text-[#23A0B4] flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
                                 <div class="w-5 h-5 flex items-center justify-center text-[#23A0B4]"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4 H18 V15 L13 20 H6 V18.5 A1.5 1.5 0 0 0 6 15.5 V13.5 A1.5 1.5 0 0 0 6 10.5 V8.5 A1.5 1.5 0 0 0 6 5.5 V4 Z" /><path d="M13 20 V15 H18 Z" opacity="0.4" /></svg></div>
                                 <span class="text-sm font-medium">Notion</span>
@@ -244,30 +237,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Aviation News Dropdown -->
-                <div class="relative group">
-                    <button id="btn-aviation-news" class="px-3 md:px-5 py-1.5 md:py-2.5 rounded-full border border-[#E5D7CC] dark:border-[#333] text-[9px] md:text-[10px] font-bold tracking-widest uppercase hover:bg-[#23A0B4] hover:text-white hover:border-[#23A0B4] transition-all whitespace-nowrap">AVIATION NEWS</button>
-                    <div id="aviation-news-popup" class="absolute top-full left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-0 mt-2 md:mt-3 w-56 bg-white dark:bg-[#1a1a1a] border border-[#E5D7CC] dark:border-[#333] rounded-2xl shadow-xl p-3 hidden group-hover:flex flex-col gap-1 z-[110] transition-all before:content-[''] before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
-                        <a onclick="openInViewer('https://herdemaviation.com/')" class="nav-item-small hover:text-[#23A0B4] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.5l-1.3 1.3c-.2.3-.1.7.3.8l5.9 3.1L5 15.5l-2.8-.9c-.4-.1-.8.1-1 .5l-.7.7c-.2.2-.2.6 0 .8l3.6 2.3 2.3 3.6c.2.2.6.2.8 0l.7-.7c.4-.2.6-.6.5-1l-.9-2.8 3.6-3.6 3.1 5.9c.1.4.5.5.8.3l1.3-1.3c.3-.2.6-.6.5-1.1z"/></svg></div>
-                            <span class="text-sm">Herdem Aviation</span>
-                        </a>
-                        <a onclick="openInViewer('https://havasosyalmedya.com/')" class="nav-item-small hover:text-[#23A0B4] cursor-pointer group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.48 1.93 2.59 3.57 2.62-1.28 1-2.89 1.59-4.64 1.59-.3 0-.6-.02-.89-.05 1.66 1.06 3.64 1.68 5.76 1.68 6.91 0 10.69-5.72 10.69-10.69 0-.16 0-.33-.01-.49.73-.53 1.37-1.19 1.88-1.93z"/></svg></div>
-                            <span class="text-sm">Hava Sosyal</span>
-                        </a>
-                        <a href="https://havapersonel.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
-                            <span class="text-sm">Hava Personel</span>
-                        </a>
-                        <a href="https://www.airporthaber2.com/" target="_blank" class="nav-item-small hover:text-[#23A0B4] group p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-[#222] transition-colors">
-                            <div class="small-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-                            <span class="text-sm">Airport Haber</span>
-                        </a>
-                    </div>
-                </div>
-
+            <!-- Right side / History Buttons -->
+            <div class="flex items-center justify-center gap-2 md:gap-3 md:absolute md:right-2">
+                <button id="btn-today" class="hidden w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm flex-shrink-0 p-1.5" title="Today">
+                    <svg viewBox="0 0 64 64" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="14" y="16" width="36" height="32" rx="4" fill="#e6e6e6" stroke="#222" stroke-width="3"/>
+                        <path d="M14 20C14 17.79 15.79 16 18 16H46C48.21 16 50 17.79 50 20V26H14V20Z" fill="#F05454" stroke="#222" stroke-width="3"/>
+                        <rect x="22" y="10" width="4" height="10" rx="2" fill="#222"/>
+                        <rect x="38" y="10" width="4" height="10" rx="2" fill="#222"/>
+                        <rect x="20" y="32" width="6" height="4" fill="#222"/>
+                        <rect x="30" y="32" width="10" height="4" fill="#222"/>
+                        <rect x="20" y="40" width="10" height="4" fill="#222"/>
+                        <circle cx="44" cy="44" r="12" fill="#6BCA76" stroke="#222" stroke-width="3"/>
+                        <path d="M39 44L42.5 47.5L49 39" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button id="btn-yesterday" class="hidden w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full border border-[#E5D7CC] dark:border-[#333] hover:scale-105 transition-all outline-none bg-white dark:bg-[#1a1a1a] shadow-sm flex-shrink-0 p-1.5" title="Yesterday">
+                    <svg viewBox="0 0 64 64" class="w-full h-full drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 44V20C14 17.79 15.79 16 18 16H46C48.21 16 50 17.79 50 20V36L38 48H18C15.79 48 14 46.21 14 44Z" fill="#e6e6e6" stroke="#222" stroke-width="3"/>
+                        <path d="M14 20C14 17.79 15.79 16 18 16H46C48.21 16 50 17.79 50 20V26H14V20Z" fill="#F05454" stroke="#222" stroke-width="3"/>
+                        <rect x="20" y="10" width="4" height="10" rx="2" fill="#222"/>
+                        <rect x="30" y="10" width="4" height="10" rx="2" fill="#222"/>
+                        <rect x="40" y="10" width="4" height="10" rx="2" fill="#222"/>
+                        <path d="M50 36L38 36L38 48" fill="#b3b3b3" stroke="#222" stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M42 36H24M24 36L30 30M24 36L30 42" stroke="#0066CC" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </header>
 
@@ -407,10 +404,6 @@
             'https://zzz.arkadia.xyz/',
             'https://infiniteflowers.net/'
         ];
-
-        document.getElementById('bundle-text')?.addEventListener('click', () => {
-            openInViewer(ambientUrls[Math.floor(Math.random() * ambientUrls.length)]);
-        });
 
         btnToday?.addEventListener('click', () => loadForDate(new Date()));
         btnYesterday?.addEventListener('click', () => {
